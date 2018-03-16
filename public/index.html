@@ -61,11 +61,43 @@
             animation-name: animateapear;
             animation-duration: 1s
         }
+        .button {
+            background-color: #253875;
+            border: none;
+            color: white;
+            padding: 20px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            font-size: 30px;
+            border-radius: 8px;
+            margin-left: 10px;
+            margin-right:10px;
+            margin-bottom:10px;
+            width: 100%;
+            position: absolute;
+        }
+        .stampbutton{
+            background-color:#fefefe;
+            border: 5px;
+            padding: 50px 50px;
+            text-align: bottom center;
+            font-size:16px
+        }
+        .map{
+            background-color: #eeeeee;
+            border: 5px;
+            font-size: 30px;
+            position: absolute;
+            width: 100%;
+
+        }
         @-webkit-keyframes animateapear {
             from { opacity:0 }
             to { opacity:1 }
         }
-
         @keyframes animateapear {
             from{ opacity:0 }
             to{  opacity:1 }
@@ -114,7 +146,7 @@
                             Mauris sagittis pellentesque lacus eleifend lacinia...
                         </div>                    
                         <div class="mdl-card__actions mdl-card--border">
-                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <a href="#login-page" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                             로그인 / 회원가입
                         </a>
                         </div>
@@ -180,10 +212,38 @@
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-3">
-                <div class="page-content"><!-- Your content goes here --></div>
+                <div class="page-content">
+                    <p align="center">
+                        전체지도
+                        <hr width="100%" align="center"/>
+                        <img src="images/jido.jpg" width="100%">
+                    </p>
+                    <hr width="100%" align="center"/>
+                    <p align="center">
+                        세부정보
+                        <hr width="100%" align ="center"/>
+                        <button class="stampbutton" onclick="popup(0)" id="popup1">학생동</button>
+                        <button class="stampbutton" onclick="popup(1)" id="popup2">과학동</button>
+                        <button class="stampbutton" onclick="popup(2)" id="popup3">체육관</button>
+                        <button class="stampbutton" onclick="popup(3)" id="popup4">링딩동</button>
+                        <button class="stampbutton" onclick="popup(4)" id="popup5">디기딩</button>
+                        <button class="stampbutton" onclick="popup(5)" id="popup6">디기딩딩</button>
+                    </p>
+                    <!-- <map>
+                            <div class="map">
+                                <h3>학생동</h3>
+                                <img src="images/stamp.png" width=60%>
+                            </div>
+                            <div>
+                                <button type="button" class="mdl-button close pink">OK</button>
+                            </div> -->
+                    </map>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-4">
                 <div class="page-content"><!-- Your content goes here --></div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="login-page">
+                <div class="page-content"><!--Your content goes here --></div>
             </section>
         </main>
     </div>
@@ -224,6 +284,30 @@
                     }, 2000, 'easeInOutQuint');
                 }
             });
+        }
+        function popup(a){
+            
+            if(a==0){
+
+            }
+            else if(a==1){
+                alert("과학")
+            }
+            else if(a==2){
+                alert("체육")
+            }
+            else if(a==3){
+                alert("링딩동")
+            }
+            else if(a==4){
+                alert("디기딩")
+            }
+            else if(a==5){
+                alert("배성필")
+            }
+        }
+        function closeImg(){
+            $('#appear_img').remove();
         }
     </script>
 </body>
