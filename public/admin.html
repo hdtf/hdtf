@@ -20,7 +20,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="jquery-ui.min.css">
         <style>
+        .font{
+                color: #060025;
+                font-size: 20px;
+                margin-left: 20px;
+            }
         .body{
+            position: grid;
             background-color: #f5f5f5;
             border-block-end: #e0e0e0;
             margin-left: auto;
@@ -56,18 +62,13 @@
             position: fixed;
             background-color: #7630ff;
             border: none;
-            color: #e0e0e0;
-            padding: 25px 25px;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-            font-size: 16px;
-            cursor: pointer;
-            font-size: 30px;
-            right: 30px;
-            bottom: 150px;
-            box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 50%;
+            padding: 10px 15px;
+            font-size: 20px;
+            box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin-left: 10%;
+            bottom:320px;
+            border-radius: 5%;
+            color: white;
         }
         .submitbtn:hover{
             opacity: 0.6;
@@ -85,15 +86,15 @@
             transition: all 0.8s
         }
         .submit{
+            position: grid;
             background-color: #ffffff;
-            border: none;
-            padding: 15px 60px;
-            display: grid;
-            margin-right: auto;
-            margin-left: auto;
-            text-align: left;
-            font-size: 50px;
             box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border: none;
+            padding: 20px 45px;
+            text-align: left;
+            font-size: 18px;
+            display: block;
+            margin-left: 10%;
         }
         </style>
     </head>
@@ -108,24 +109,22 @@
         <div id="fadein" style="width:100%;height:600px;display:none;background-color:#ffffff;margin-top:100px" class="center">
             
                 <form action="/">  <!--Data Base-->
-                    <p style="color:#060025;font-size:20px;">ID</p>
+                    <h4 class="font">ID</h4>
                     <input type="text" name="ID" class="submit">
                     <br>
-                    <p style="color:#060025;font-size:20px;">Amount</p><br>
+                    <h4 class="font">Amount</h4>
                     <input type="text" name="AMOUNT" class="submit">
                     <br><br>
-                    <input type="submit" value="Go" class="submitbtn">
+                    <input type="submit" value="Make TX" class="submitbtn">
                   </form> 
         </div>
-        <div style="height:5em"></div>
-                        <footer class="mdl-mega-footer" style="background-color:#21004b">
-                            <div class="mdl-mega-footer__middle-section">
-                                <div class="mdl-mega-footer__bottom-section">
-                                    <h6 style="color:white;">Made by <big><b>Yisub Heo <!--&amp; Seongpil Bae--></b></big></h6>
-                                </div>
-                            </div>
-                        </footer>
+            <footer class="mdl-mega-footer" style="background-color:#21004b">
+                <div class="mdl-mega-footer__middle-section">
+                    <div class="mdl-mega-footer__bottom-section">
+                        <h6 style="color:white;">Made by <big><b>Kyunggi Highschool LIST</b></big></h6>
                     </div>
+                </div>
+            </footer>
     </body>
 
 </html>
