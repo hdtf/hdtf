@@ -8,7 +8,7 @@
         }       
     </script>
         <meta charset="utf-8" />
-        <title>화동제 가입 페이지</title>
+        <title>화동제 가입/로그인 페이지</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
@@ -16,6 +16,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="jquery-ui.min.css">
         <style>
+            .font{
+                color: #000057;
+                font-size: 20px;
+                margin-left: 20px;
+            }
             .body{
                 background-color: #ffffff;
                 margin-left: auto;
@@ -23,8 +28,19 @@
                 height: 550px;
                 width:100%;
             }
-            .box{
+            .button{
                 position: fixed;
+                background-color: #ffeb3b;
+                border: none;
+                padding: 20px 20px;
+                font-size: 40px;
+                box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                right:30px;
+                bottom:320px;
+                border-radius: 50%;
+            }
+            .box{
+                position: grid;
                 background-color: #ffffff;
                 box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                 border: none;
@@ -32,6 +48,7 @@
                 text-align: left;
                 font-size: 18px;
                 display: block;
+                margin-left: 10%;
             }
             .animate-bottom {
                 position: fixed;
@@ -54,17 +71,20 @@
 
     <body>
         <main class="mdl-layout__content animate-bottom" style="width:100%;display:none;" id="main">
-            <div style="padding-top:10px;padding-bottom:10px;text-align:center;background-color:#424242;color:white;">
-                    <h3>2018 <b>화동제 회원가입</b></h3>
-                    <br /><br /><br />
+            <div style="padding-top:8px;padding-bottom:10px;text-align:center;background-color:#4050b6;color:white;">
+                    <h3>2018 <b>화동제 회원가입</b><br><b>/로그인</b></h3>
+                   
             </div>
             <div id="main-body" class="body">
-                <form>
-                    <input type="text" name="ID" class="box" style="left:50px;top:210px"/>
-                    <input type="password" name="passowrd" class="box" style="left:50px;top:300px"/>
+                <form action="/">
+                    <h4 class="font">ID</h4>
+                    <input type="text" name="ID" class="box" style="left:30px;top:220px"/>
+                    <h4 class="font">Password</h4>
+                    <input type="password" name="passowrd" class="box" style="left:30px;top:330px"/>
+                    <input type="submit" value=" + " class="button"/>
                 </form>
             </div>
-            <footer class="mdl-mega-footer" style="background-color:#305d7b;">
+            <footer class="mdl-mega-footer" style="background-color:#002885;">
                     <div class="mdl-mega-footer__middle-section">
                         <div class="mdl-mega-footer__bottom-section">
                             <h6 style="color:white;">Made by <big><b>Kyunggi Highschool Klist</big></h6>
