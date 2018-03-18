@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="jquery-ui.min.css">
+    
     <style>
         p, a {
             font-size: 1.5em;
@@ -55,29 +56,21 @@
         .page-content {
             padding-top: 1em;
         }
-        .animate-apear {
-            -webkit-animation-name: animateapear;
-            -webkit-animation-duration: 1s;
-            animation-name: animateapear;
-            animation-duration: 1s
-        }
-        .button {
-            background-color: #253875;
+        .upbtn {
+            display:none;
+            position: fixed;
+            background-color: #ffeb3b;
             border: none;
-            color: white;
-            padding: 20px 50px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
+            padding: 20px;
+            font-size: 20px;
+            box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            right:30px;
+            bottom:50px;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 30px;
-            border-radius: 8px;
-            margin-left: 10px;
-            margin-right:10px;
-            margin-bottom:10px;
-            width: 100%;
-            position: absolute;
+            outline: none;
+            color:#424242;
+            text-decoration: none;
         }
         .stampbutton{
             background-color:#fefefe;
@@ -97,14 +90,30 @@
             color:#1b1b1b;
             margin-right: auto;
             margin-left: auto;
-            margin-top: 10px;
-            width: 100%;
+            margin-top: 3%;
+            margin-bottom: 5%;
+            width: 90%;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align: center;
-            display: inherit;
+            display: block;
+        }
+        div.imgcontainer:hover{
+            color: white;
+            background-color: #ffffff;
+            opacity: 0.6;
+        }
+        div.imgcontainer::after{
+            background-color: white;
+            opacity: 0.6;
         }
         div.container {
             padding: 10px;
+        }
+        .animate-apear {
+            -webkit-animation-name: animateapear;
+            -webkit-animation-duration: 1s;
+            animation-name: animateapear;
+            animation-duration: 1s
         }
         @-webkit-keyframes animateapear {
             from { opacity:0 }
@@ -123,7 +132,6 @@
 </head>
 
 <body style="background-color:#123056;height:100%;width:100%;">
-    
     <div id="loading">
         <img src="images/logo.png" style="width:200px" />
     </div>
@@ -146,15 +154,15 @@
             <span class="mdl-layout-title">2018 화동제</span>
             <hr>
             <a href="snakegame.html" style="color:#424242;border:none;width:100%;font-size:20px;text-decoration:none;text-align:center">Play the Game</a>
+            <hr>
         </div>
         <main class="mdl-layout__content" style="width:100%;background-color:white">
             <section class="mdl-layout__tab-panel" id="fixed-tab-1">
-                <div class="page-content">
-                    
-                </div>
+                <div class="page-content"><!--Fill the content--></div>
             </section>
             <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
                 <div class="page-content">
+                <button id="upbtn" onclick="gototop()" class="upbtn"><></button>
                     <div class="widecard mdl-card mdl-shadow--2dp center">
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">화동제에 오신것을 환영합니다!</h2>
@@ -219,8 +227,9 @@
                             </tbody>
                         </table>                             
                     </div>
-                    <hr width=100%><h4 style="color:#123056;margin-left:5%">동아리소개</h4>
-                    <div class="imgcontainer">
+                    <div>
+                        <hr width=100%><h4 style="color:#123056;margin-left:5%">동아리소개</h4>
+                        <div class="imgcontainer">
                             <a href="http://klist.cf" style="text-decoration:none;color:#424242;font-size:20px;">
                             <img src="images/list.png" width=100%>
                                 <div class="container">
@@ -316,6 +325,7 @@
                                 </div>
                             </a>
                         </div>
+                    </div>
                     <div style="height:1em"></div>
                         <footer class="mdl-mega-footer" style="background-color:#123056;">
                             <div class="mdl-mega-footer__middle-section">
@@ -493,6 +503,22 @@
                     }, 2000, 'easeInOutQuint');
                 }
             });
+        }
+    </script>
+    <script> //go to top button
+        window.onscroll = function() {scrollfunc()};
+
+        function scrollfunc() {
+            if (window.pageYOffset > 20 || document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementsByClassName("upbtn").style.display = "block";
+            } else {
+                document.getElementsByClassName("upbtn").style.display = "none";
+            }
+        }
+        function gototop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            window.pageYOffset = 0;
         }
     </script>
 </body>
