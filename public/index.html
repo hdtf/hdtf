@@ -56,7 +56,7 @@
         .page-content {
             padding-top: 1em;
         }
-        .upbtn {
+        /* .upbtn {
             display:none;
             position: fixed;
             background-color: #ffeb3b;
@@ -71,6 +71,14 @@
             outline: none;
             color:#424242;
             text-decoration: none;
+        } */
+        .hreftext {
+            color:#123056;
+            border:none;
+            width:100%;
+            font-size:20px;
+            text-decoration:none;
+            text-align:left;
         }
         .stampbutton{
             background-color:#fefefe;
@@ -109,6 +117,12 @@
         div.container {
             padding: 10px;
         }
+        .search-container {
+            padding: 8px 20px;
+            background-color: white;
+            border: none;
+            font-size: 20px;
+        }
         .animate-apear {
             -webkit-animation-name: animateapear;
             -webkit-animation-duration: 1s;
@@ -137,9 +151,13 @@
     </div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs animate-apear" id="main" style="display:none;">
         <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
+            <div style="background-color:#4050b6;padding:16px 18px">
                 <!-- Title -->
-                <span class="mdl-layout-title">2018 화동제</span>
+                <div style="margin-left:15%">
+                    <form action="club-page.html">
+                        <input type="text" placeholder="2018 화동제 환영합니다" name="search" class="search-container">
+                    </form>
+                </div>
             </div>
             
             <!-- Tabs -->
@@ -153,7 +171,10 @@
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">2018 화동제</span>
             <hr>
-            <a href="snakegame.html" style="color:#424242;border:none;width:100%;font-size:20px;text-decoration:none;text-align:center">Play the Game</a>
+            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>뭐뭐뭐</a><br>
+            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>뭐뭐뭐</a><br>
+            <hr>
+            <a href="snakegame.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">gamepad</i>Play the Game</a>
             <hr>
         </div>
         <main class="mdl-layout__content" style="width:100%;background-color:white">
@@ -162,7 +183,7 @@
             </section>
             <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
                 <div class="page-content">
-                <button id="upbtn" onclick="gototop()" class="upbtn"><></button>
+                <!-- <button id="upbtn" onclick="gototop()" class="upbtn"><></button> -->
                     <div class="widecard mdl-card mdl-shadow--2dp center">
                         <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text">화동제에 오신것을 환영합니다!</h2>
@@ -178,11 +199,21 @@
                         </div>
                         <div class="mdl-card__menu">
                         <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                            <i class="material-icons">share</i>
+                            <i class="material-icons" style="color:#123056">share</i>
                         </button>
                         </div>
                     </div>
                     <div style="height:1em"></div>
+                    <div>
+                        <h4 class="pink" style="margin-left:5%">이벤트</h4>
+                        <div class="imgcontainer">
+                            <a href=" " style="text-decoration:none;color:#424242;font-size:20px;">
+                            <img src="images/s.png" width=100%>
+                                <div class="container">
+                                    <p>이벤트 페이지</p>
+                                </div>
+                            </a>
+                        </div>
                     <div>
                         <h4 class="pink" style="margin-left:5%;">일정</h4>
                         <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center">
@@ -227,7 +258,7 @@
                             </tbody>
                         </table>                             
                     </div>
-                    <div>
+                    <!-- <div>
                         <hr width=100%><h4 style="color:#123056;margin-left:5%">동아리소개</h4>
                         <div class="imgcontainer">
                             <a href="http://klist.cf" style="text-decoration:none;color:#424242;font-size:20px;">
@@ -325,7 +356,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <div style="height:1em"></div>
                         <footer class="mdl-mega-footer" style="background-color:#123056;">
                             <div class="mdl-mega-footer__middle-section">
@@ -505,7 +536,7 @@
             });
         }
     </script>
-    <script> //go to top button
+    <!-- <script> //go to top button
         window.onscroll = function() {scrollfunc()};
 
         function scrollfunc() {
@@ -520,6 +551,6 @@
             document.documentElement.scrollTop = 0;
             window.pageYOffset = 0;
         }
-    </script>
+    </script> -->
 </body>
 </html>
