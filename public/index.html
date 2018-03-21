@@ -90,11 +90,12 @@
             font-size:16px          
         }
         .map{
-            background-color: #eeeeee;
             border: 5px;
-            font-size: 30px;
-            position: absolute;
-            width: 100%;
+            display:none;
+            padding:10px;
+            margin-left:auto;
+            margin-right:auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         div.imgcontainer {
             color:#1b1b1b;
@@ -165,7 +166,7 @@
             background-color: rgba(0,0,0,0.8);
         }
         .text {
-            color: #f2f2f2;
+            color: #123056;
             font-size: 15px;
             padding: 8px 12px;
             position: absolute;
@@ -195,16 +196,16 @@
         }
         .fade {
             -webkit-animation-name: fade;
-            -webkit-animation-duration: 1.5s;
+            -webkit-animation-duration: 3s;
             animation-name: fade;
-            animation-duration: 1.5s;
+            animation-duration: 3s;
         }
         @-webkit-keyframes fade {
-            from {opacity: .4} 
+            from {opacity: .6} 
             to {opacity: 1}
         }
         @keyframes fade {
-            from {opacity: .4} 
+            from {opacity: .6} 
             to {opacity: 1}
         }
         .animate-apear {
@@ -251,14 +252,18 @@
                 <a href="#fixed-tab-4" class="mdl-layout__tab">부가기능</a>
             </div>
         </header>
-        <div class="mdl-layout__drawer">  
-            <span class="mdl-layout-title" style="color:#123056;margin-top:5%;">2018 화동제</span>
+        <div class="mdl-layout__drawer" >  
+            
+            
             <hr>
-            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>뭐뭐뭐</a><br>
-            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>뭐뭐뭐</a><br>
-            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">call</i>뭐뭐뭐</a><br>
+            <a href="#fixed-tab-2" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">home</i>홈</a><br>
+            <a href="event-page.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a><br>
+            <a href="creator-page.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a><br>
+            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>알림</a><br>
+            <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>설정</a><br>
+            <a href="tel://112" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%" >call</i>긴급전화</a><br>
             <hr>
-            <a href="snakegame.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">gamepad</i>Play the Game</a>
+            <a href="snakegame.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">gamepad</i>게임하기</a>
             <hr>
         </div>
         <main class="mdl-layout__content" style="width:100%;background-color:white">
@@ -268,7 +273,6 @@
             <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
                 <div class="page-content">
                 <!-- <button id="upbtn" onclick="gototop()" class="upbtn"><></button> -->
-                
                     <div class="widecard mdl-card mdl-shadow--2dp center">
                         <!-- <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text" style="color:#123056">화동제에 오신것을 환영합니다!</h2>
@@ -285,38 +289,11 @@
                         </div>
                         <div class="mdl-card__menu">
                         <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-                            <i class="material-icons" style="color:#123056">share</i>
+                            <i class="material-icons" onclick="location.href='https://www.facebook.com/rudrlrh2016/'" style="color:#123056">share</i>
                         </button>
                         </div>
                     </div>
                     <div style="height:1em"></div>
-                    <div class="slideshow-container">
-                        <div class="mySlides fade">
-                            <div class="numbertext">1/3</div>
-                            <a href="http://klist.cf"><img src="images/list_s.png" style="width:100%"></a>
-                            <div class="text">과학기술정보통신부</div>
-                        </div>
-                        <div class="mySlides fade">
-                            <div class="numbertext">2/3</div>
-                            <a href=""><img src="images/list_i.png" style="width:100%"></a>
-                            <div class="text">기술</div>
-                        </div>
-                        <div class="mySlides fade">
-                            <div class="numbertext">3/3</div>
-                            <a href="https://namu.wiki/w/%EB%AF%B8%EB%82%98(TWICE)"><img src="images/mina.png" style="width:100%"></a>
-                            <div class="text">묘이 미나</div>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="pink" style="margin-left:5%">이벤트</h4>
-                        <div class="imgcontainer">
-                            <a href=" " style="text-decoration:none;color:#424242;font-size:20px;">
-                            <img src="images/s.png" width=100%>
-                                <div class="container">
-                                    <p>이벤트 페이지</p>
-                                </div>
-                            </a>
-                        </div>
                     <div>
                         <h4 class="pink" style="margin-left:5%;">일정</h4>
                         <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center">
@@ -361,6 +338,35 @@
                             </tbody>
                         </table>                             
                     </div>
+                    <br>
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <div class="numbertext">1/3</div>
+                            <a href="http://klist.cf"><img src="images/list_s.png" style="width:100%"></a>
+                            <div class="text">과학기술정보통신부</div>
+                        </div>
+                        <div class="mySlides fade">
+                            <div class="numbertext">2/3</div>
+                            <a href=""><img src="images/list_i.png" style="width:100%"></a>
+                            <div class="text">화학부</div>
+                        </div>
+                        <div class="mySlides fade">
+                            <div class="numbertext">3/3</div>
+                            <a href="https://namu.wiki/w/%EB%AF%B8%EB%82%98(TWICE)"><img src="images/mina.png" style="width:100%"></a>
+                            <div class="text">묘이 미나</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="pink" style="margin-left:5%">이벤트</h4>
+                        <div class="imgcontainer">
+                            <a href=" " style="text-decoration:none;color:#424242;font-size:20px;">
+                            <img src="images/s.png" width=100%>
+                                <div class="container">
+                                    <p>이벤트 페이지</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>                    
                     <!-- <div>
                         <hr width=100%><h4 style="color:#123056;margin-left:5%">동아리소개</h4>
                         <div class="imgcontainer">
@@ -481,13 +487,62 @@
                     <p align="center">
                         세부정보
                         <hr width="100%" align ="center"/>
-                        <button class="stampbutton" onclick="popup(0)" id="popup1">학생동</button>
-                        <button class="stampbutton" onclick="popup(1)" id="popup2">과학동</button>
-                        <button class="stampbutton" onclick="popup(2)" id="popup3">체육관</button>
-                        <button class="stampbutton" onclick="popup(3)" id="popup4">링딩동</button>
-                        <button class="stampbutton" onclick="popup(4)" id="popup5">디기딩</button>
-                        <button class="stampbutton" onclick="popup(5)" id="popup6">디기딩</button>
+                        <button class="stampbutton" onclick="mapfunc(1);parent.location.href='#map-1'" id="">학생동</button>
+                        <button class="stampbutton" onclick="mapfunc(2);parent.location.href='#map2'" id="">과학동</button>
+                        <button class="stampbutton" onclick="mapfunc(3);parent.location.href='#map3'" id="">체육관</button>
+                        <button class="stampbutton" onclick="mapfunc(4);parent.location.href='#map4'" id="">운동장</button>
+                        <button class="stampbutton" onclick="mapfunc(5);parent.location.href='#map5'" id="">정 문</button>
+                        <button class="stampbutton" onclick="mapfunc(6);parent.location.href='#map6'" id="">후 문</button>
                     </p>
+                </div>
+                <div id="map-1" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>학생동</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-2" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>과학동</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-3" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>체육관</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-4" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>운동장</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-5" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>정 문</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-6" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>후 문</p>
+                        </div>
+                    </a>
+                </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-4">
                 <div class="page-content">
@@ -588,7 +643,37 @@
     <dialog class="mdl-dialog">
         <div class="mdl-dialog__content">
             <h3>안내</h3>
-            <p>과기정통 ㄱㄱ</p>
+            <p>
+                    멍하니 서서 막 고민고민 해 
+                    나 이거 진짜 잘하는 짓인지 
+                    Yeah Yeah Yeah Yeah 
+                    뭐 어때 
+                    No No No No 
+                    미쳤어 
+                    
+                    난 쯔위라고 해 
+                    무작정 인사할까 
+                    내 전화번호야 
+                    쪽지를 주고 도망칠까 
+                    Yeah Yeah Yeah Yeah 
+                    어떡해 
+                    No No No No 
+                    지금이야 
+
+                    Girl you can do it 
+                    눈이 마주치고 있잖아 
+                    Love is timing 
+                    놓치면 후회할지 몰라 
+                    Love is coming, coming 
+                    좀만 더 용기를 내 
+                    더는 망설이지 마 
+
+                    이상하게 생각해도 어쩔 수 없어 반했으니까 
+                    You're my heart shaker, shaker 
+                    놓치기 싫어 
+                    You're my heart shaker, shaker 
+                    어떡해 
+            </p>
         </div>
         <div class="mdl-dialog__actions">
             <button type="button" class="mdl-button close pink">OK</button>
@@ -640,20 +725,6 @@
         }
     </script>
     <script> //go to top button
-    var slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none"; 
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1} 
-        slides[slideIndex-1].style.display = "block"; 
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
         // window.onscroll = function() {scrollfunc()};
 
         // function scrollfunc() {
@@ -668,6 +739,52 @@
         //     document.documentElement.scrollTop = 0;
         //     window.pageYOffset = 0;
         // }
+
+    //slideshow    
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() { 
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1} 
+        slides[slideIndex-1].style.display = "block"; 
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    //map function
+    function mapfunc(a){
+        if (a==1){
+            document.getElementById("map-1").style.display="block";
+        }
+        else if (a==2){
+            document.getElementById("map-2").style.display="block";
+        }
+        else if (a==3){
+            document.getElementById("map-3").style.display="block";
+        }
+        else if (a==4){
+            document.getElementById("map-4").style.display="block";
+        }
+        else if (a==5){
+            document.getElementById("map-5").style.display="block";
+        }
+        else if (a==6){
+            document.getElementById("map-6").style.display="block";
+        }
+    }
+    function disapear(){
+        document.getElementById("map-1").style.display="none";
+        document.getElementById("map-2").style.display="none";
+        document.getElementById("map-3").style.display="none";
+        document.getElementById("map-4").style.display="none";
+        document.getElementById("map-5").style.display="none";
+        document.getElementById("map-6").style.display="none";
+    }
+        
     </script>
 </body>
 </html>
