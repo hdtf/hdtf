@@ -4,6 +4,7 @@
     <title>화동제 앱</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,19 +19,19 @@
         }
         body {
             margin: 0;
-            font-family: Arial;
+            
         }
         .top-container {
             background-color: #4050b6;
             border:none;
-            padding: 20px;
+            padding: 20px 20px 10px 20px;
             text-align: center;
         }
         .header {
-            padding: 10px 16px;
+            padding: 0px 0px 0px 0px;
             background: #4050b6;
             color: #f1f1f1;
-            border:none;
+            border:2px solid #4050b6;
         }
         .content {
             padding: 16px;
@@ -46,21 +47,25 @@
         .tab {
             overflow: hidden;
             background-color: #4050b6;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:5px;
         }
         /* Buttons inside the tab */
         .tab button {
             color:white;
             border-bottom:2px solid #4050b6;
             background-color: inherit;
-            border:none;
+            border:2px solid #4050b6;
             outline: none;
             cursor: pointer;
             padding: 10px 16px;
             transition: 0.5s;
             font-size: 17px;
+            opacity: 0.6;
         }
         .tab button.active {
-            opacity: 0.6;
+            opacity: 1;
             border-bottom:2px solid #e91e63;            
         }
         .tabcontent {
@@ -78,12 +83,13 @@
             box-shadow: 0 0px 8px 0 #bbbbbb;
         }
         .card {
-            box-shadow: 0 8px 16px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2.5px 10px 2px rgba(0,0,0,0.2);
             transition: 0.3s;
             width: 90%;
             padding:10px;
             margin-left:auto;
             margin-right:auto;
+            margin-top:5px;
         }
         .card:active {
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -95,7 +101,7 @@
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 1;
+            z-index: 4;
             top: 0;
             left: 0;
             background-color: #ffffff;
@@ -134,7 +140,8 @@
             position: relative;
             margin: auto;
             width:94%;            
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px 2px rgba(0,0,0,0.2);
+            z-index: 3;
         }
         .text {
             color: #f2f2f2;
@@ -177,16 +184,21 @@
             border: none;
             outline: none;
             cursor: pointer;
-            padding: 14px 16px;
+            padding: 7px 16px;
             transition: 0.3s;
             font-size: 17px;
+            border-bottom: 2px solid #f1f1f1;
+            border-left: 2px solid #f1f1f1;
+            border-right: 2px solid #f1f1f1;    
         }
         .map button:hover {
             background-color: #ddd;
         }
         .map button.active {
             background-color: #ccc;
-            border-bottom:2px solid #425983;
+            border-bottom:2px solid #425983;            
+            border-left: 2px solid #ccc;
+            border-right: 2px solid #ccc;    
 
         }
         .mapcontent {
@@ -195,21 +207,7 @@
             border: 1px solid #ccc;
             border-top: none;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-        }
-        #topbtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: #440055;
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 50%;
+            height:100%;
         }
         #topbtn:hover {
             background-color: #555;
@@ -217,16 +215,16 @@
         #topbtn {
             display: none;
             position: fixed;
-            bottom: 100px;
-            right: 30px;
+            bottom: 50px;
+            right: -5px;
             z-index: 99;
             font-size: 10px;
             border: none;
             outline: none;
-            background-color: #ffeb3b;
+            background-color: #fdd835;
             cursor: pointer;
-            padding: 15px;
-            border-radius: 50%;
+            padding: 20px 15px 20px 10px;
+            border-radius: 10%;
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
         #topbtn:active {
@@ -277,11 +275,11 @@
         <button onclick="gototop()" id="topbtn" title="Go to top"><i class="material-icons" style="color:black">arrow_upward</i></button>
         <div id="sidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#" onclick="closeNav()"><i class="material-icons" style="color:#818181">home</i> Home</a><hr>
-            <a href="#" onclcik="closeNav()"><i class="material-icons" style="color:#818181">swap_horiz</i> Stamp</a><hr>
+            <a href="#" onclick="closeNav()"><i class="material-icons" style="color:#818181">home</i> Home</a>
+            <a href="#" onclcik="closeNav()"><i class="material-icons" style="color:#818181">swap_horiz</i> Stamp</a>
             <a href="#" onclick="opnfullmap();closeNav()"><i class="material-icons" style="color:#818181">school</i> School Map</a><hr>
-            <a href="https://facebook.com/KLISTLIST/"><i class="material-icons" style="color:#818181">contacts</i> Contact</a><hr>
-            <a href="#" onclick="closeNav()"><i class="material-icons" style="color:#818181">event</i> Event</a><hr>
+            <a href="#" onclick="closeNav()"><i class="material-icons" style="color:#818181">event</i> Event</a>
+            <a href="https://facebook.com/KLISTLIST/"><i class="material-icons" style="color:#818181">contacts</i> Contact</a>
             <a href="https://facebook.com/" onclick="closeNav()"><i class="material-icons" style="color:#818181">share</i> Share</a><hr>
             <a href="#"><i class="material-icons" style="color:#818181">alarm</i> Alarm</a><hr>
             <div>
@@ -297,25 +295,27 @@
             <br>
         </div>
         <div class="header" id="header">
+            <div style="position:static;margin-left:auto;margin-right:auto;">
             <div class="tab">
-                <button class="tablinks" onclick="openPage(event, 'Stamp');deletestart();">Stamp</button>
-                <button class="tablinks" onclick="openPage(event, 'Home');deletestart();">Home</button>
-                <button id="mapbtn" class="tablinks" onclick="openPage(event, 'Map');deletestart();opnfullmap();">Map</button>
-                <button id="addonsbtn" class="tablinks" onclick="openPage(event, 'Add-ons');deletestart();eventpageopn();">Add-ons</button>
+                <button class="tablinks" onclick="openPage(event, 'Stamp');deletestart();">스탬프</button>
+                <button class="tablinks" onclick="openPage(event, 'Home');deletestart();">홈</button>
+                <button id="mapbtn" class="tablinks" onclick="openPage(event, 'Map');deletestart();opnfullmap();">지도</button>
+                <button id="addonsbtn" class="tablinks" onclick="openPage(event, 'Add-ons');deletestart();eventpageopn();">부가기능</button>
+            </div>
             </div>
         </div>
-        <div id="start" style="height:700px;background-color:white;padding:15px" class="animate-fadeout">
+        <div id="start" style="height:750px;background-color:white;padding:15px;" class="animate-fadeout">
             <div class="card">
-                <h3 style="color:#00062d;text-align:center">환영합니다!!</h3>
+                <h3 style="color:#00062d;text-align:center;">환영합니다!!</h3>
                 <hr style="border-color:#00062d">
-                <h5 style="color:#123056;text-align:left;margin:10px"><i class="material-icons" style="color:#00062d;float:left;margin-right:10px;">donut_large</i>화동제를 더욱 재밌게 즐기는 법</h5>
+                <h5 style="color:#123056;text-align:left;margin:10px;"><i class="material-icons" style="color:#00062d;float:left;margin-right:10px;">donut_large</i>화동제를 더욱 재밌게 즐기는 법</h5>
                 <p style="color:#425983;text-align:left;margin:20px;font-size:17px">화동제 앱을 이용하면 원하는 동아리 부스의 위치를 쉽게 파악할 수 있습니다.</p>
                 <hr style="border-color:#123056;width:90%;margin-left:auto;margin-right:auto">
-                <h5 style="color:#123056;text-align:left;margin:10px"><i class="material-icons" style="color:#00062d;float:left;margin-right:10px;">donut_large</i>화동제를 더욱 싸게 즐기는 법</h5>
+                <h5 style="color:#123056;text-align:left;margin:10px;"><i class="material-icons" style="color:#00062d;float:left;margin-right:10px;">donut_large</i>화동제를 더욱 싸게 즐기는 법</h5>
                 <p style="color:#425983;text-align:left;margin:20px;font-size:17px">스탬프 기능으로 먹거리 장터를 이용할 수 있습니다</p>
                 <p style="color:#425983;text-align:left;margin:20px">스탬프는 동아리 부스 관람을 마치면 지급받을 수 있습니다</p>
                 <hr style="border-color:#123056;width:90%;margin-left:auto;margin-right:auto">
-                <h5 style="color:#123056;text-align:left;margin:10px"><i class="material-icons" style="color:#00062d;float:left;margin-right:10px;">donut_large</i>화동제를 더욱 의미있게 즐기는 법</h5>
+                <h5 style="color:#123056;text-align:left;margin:10px;"><i class="material-icons" style="color:#00062d;float:left;margin-right:10px;">donut_large</i>화동제를 더욱 의미있게 즐기는 법</h5>
                 <p style="color:#425983;text-align:left;margin:20px;font-size:17px">화동제의 하루 일정을 한눈에 파악하세요!!</p>
                 <p style="color:#425983;text-align:left;margin:20px">각 일정은 앱을 통해 확인 가능하며 알림을 설정하면 실시간으로 알려드립니다</p>
             </div>
@@ -370,7 +370,7 @@
             <div class="card">
                 <img src="images/mina_poster.png" style="width:100%;margin-left:auto;margin-right:auto">
                 <div class="container">
-                    <h3 style="color:#123056">화동제</h3>
+                    <h3 style="color:#123056;">화동제</h3>
                     <p>8월 더운데 왜 함</p>
                 </div>
             </div>
@@ -519,42 +519,62 @@
 
         <div id="Add-ons" class="tabcontent">
             <div class="map">
-                <button id="Add-ons-Event-page" class="maplinks" onclick="openCity(event, 'Event-page')" style="color:#123056">Event-page</button>
-                <button class="maplinks" onclick="openCity(event, 'Contact-page')" style="color:#123056">Contact-page</button>
-                <button class="maplinks" onclick="openCity(event, 'Alert-page')" style="color:#123056">Alert-page</button>                
+                <button id="Add-ons-Event-page" class="maplinks" onclick="openCity(event, 'Event-page')" style="color:#123056;padding:7px 10px;display:flex;justify-content: center;">이벤트</button>
+                <button class="maplinks" onclick="openCity(event, 'Contact-page')" style="color:#123056;padding:7px 10px;display:flex;justify-content: center;">연락</button>
+                <button class="maplinks" onclick="openCity(event, 'Alert-page')" style="color:#123056;padding:7px 10px;display:flex;justify-content: center;">알림</button>                
+
             </div>
                 
             <div id="Event-page" class="mapcontent">
-                <h3>Event-page</h3>
-                <p>Event-page</p>
+                <div class="card">
+                    <img src="images/mina event.jpg" style="width:100%;margin:auto;">
+                    <div class="container">
+                        <h4 style="color:#123056;text-align:center">미나 펜싸인회</h4>
+                        <p style="color:#123056;text-align:center">4시에 시작합니다.</p>
+                    </div>
+                </div><br>
+                <div class="card">
+                    <img src="images/momo event.jpg" style="width:100%;margin:auto;">
+                    <div class="container">
+                        <h4 style="color:#123056;text-align:center">모모 펜싸인회</h4>
+                        <p style="color:#123056;text-align:center">5시에 시작합니다.</p>
+                    </div>
+                </div><br>
+                <div class="card">
+                    <img src="images/쯔위.jpg" style="width:100%;margin:auto;">
+                    <div class="container">
+                        <h4 style="color:#123056;text-align:center">쯔위 펜싸인회</h4>
+                        <p style="color:#123056;text-align:center">6시에 시작합니다.</p>
+                    </div>
+                </div><br>
             </div>
                 
             <div id="Contact-page" class="mapcontent">
                 <div>
-                    <form accept-charset="mailencording" onsubmit="emaillAcceptCharset(this)" action="mailto:kyunggihs@kyunggi.com" method="post" enctype="text/plain">
-                        <label for="name">Name</label>
-                        <input class="contact" type="text" id="name" name="name" placeholder="Your name.." >
+                    <form action="/" method="post" enctype="text/plain">
+                        <label for="name">이름</label>
+                        <input class="contact" type="text" id="name" name="name" placeholder="이름을 입력하시오..." ><br>
                     
-                        <label for="phone-number">Phone Number</label>
-                        <input class="contact" type="text" id="phone-number" name="phone-number" placeholder="Your phone number..">
+                        <label for="phone-number">전화번호</label>
+                        <input class="contact" type="text" id="phone-number" name="phone-number" placeholder="전화번호를 입력하시오..."><br>
                     
-                        <label for="subject">Subject</label>
-                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                        <label for="subject">내용</label>
+                        <textarea id="subject" name="subject" placeholder="작성..." style="height:200px"></textarea>
                     
-                        <input type="checkbox" id="crimecheck"  onclick="reportcrime()">Report Crime<br><br>    
+                        <input type="checkbox" id="crimecheck"  onclick="reportcrime()">범죄 신고<br><br>    
 
                         <div id="report-page" style="display:none;">
-                            <label for="crime">What Crime?</label>
+                            <label for="crime">범죄</label>
                             <select name="crime">
-                                <option value="">Select</option>
-                                <option value="defamation">Defamation</option>
-                                <option value="molest">Molest</option>
-                                <option value="rant">Rant</option>
-                                <option value="violence">Violence</option>                                    
+                                <option value="">선택</option>
+                                <option value="defamation">명예훼손</option>
+                                <option value="molest">성추행</option>
+                                <option value="rant">폭언</option>
+                                <option value="violence">폭력</option>                                    
                             </select>
-                            <label for="where">Where?</label>
+                            <label for="where">장소</label>
                             <select name="where">
-                                <option value="">Select</option>
+                                <option value="">선택</option>
                                 <option value="과학기술정보통신부">과학기술정보통신부</option>
                                 <option value="물리부">물리부</option>
                                 <option value="창의융합부">창의융합부</option>
@@ -562,7 +582,7 @@
                             </select>
                         </div>
 
-                        <input class="contactbtn" type="submit" value="Submit" style="margin-top:10px;margin-bottom:20px">
+                        <input class="contactbtn" type="submit" value="제출" style="margin-top:10px;margin-bottom:20px">
 
                     </form>
                 </div>
@@ -696,12 +716,6 @@
                 }
             }
             
-            // function emaillAcceptCharset(form) {
-            //     if (form.canHaveHTML) {
-            //         document.charset = form.acceptCharset;
-            //     }
-            //     return true;
-            // }
         </script>
     </body>
 </html>
