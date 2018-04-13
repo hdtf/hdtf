@@ -8,19 +8,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#123056">
     <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--색 수정하기-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="jquery-ui.min.css">
     
     <style>
-        :root {
-            --mdc-theme-primary: #123056;
-            --mdc-theme-secondary: #ff4081;
-            --mdc-theme-background: #fff;
+        p, a {
+            font-size: 1.5em;
+        }
+        h5 {
+            font-size: 1.6em;
         }
         ::-webkit-scrollbar {
             display: none;
+        }
+        .pink {
+            color: #123056;
         }
         .gray {
             color: #424242;
@@ -38,10 +44,6 @@
             margin-right: auto;
             margin-left: auto;
         }
-<<<<<<< HEAD
-        /* @media screen and (max-width: 1024px){
-=======
-<<<<<<< HEAD
         .page-content {
             padding-top: 1em;
         }
@@ -210,22 +212,15 @@
             from{ opacity:0 }
             to{  opacity:1 }
         }
-=======
->>>>>>> f2274c1d375baeecb03feef016744e88beeccb96
         @media screen and (max-width: 1024px){
->>>>>>> 1c61f09cd294f3a561ae6189295f32eaa1cf2fb7
             .mdl-layout__header {
                 display: inherit;
             }
-        } */
+        }
     </style>
 </head>
 
-<<<<<<< HEAD
-<body style="height:100%;width:100%;">
-=======
 <body style="background-color:#123056;height:100%;width:100%;">
-<<<<<<< HEAD
     <div id="loading">
         <img src="images/logo.png" style="width:200px" />
     </div>
@@ -287,7 +282,7 @@
                             Mauris sagittis pellentesque lacus eleifend lacinia...
                         </div>                    
                         <div class="mdl-card__actions mdl-card--border">
-                        <a href="register-page.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        <a href="register.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                             로그인 / 회원가입
                         </a>
                         </div>
@@ -534,7 +529,7 @@
             document.getElementById("loading").style.marginTop = (h / 2 - 100) + "px";
             setTimeout(function(){
                 document.getElementById("loading").style.display = "none";
-                document.getElementById("login-page").style.display = "";
+                document.getElementById("main").style.display = "";
                 dialog.showModal();
             }, 3000);
             $("a").on('click', function(event) {
@@ -610,16 +605,12 @@
     }
         
     </script>
-=======
->>>>>>> 1c61f09cd294f3a561ae6189295f32eaa1cf2fb7
-    
->>>>>>> f2274c1d375baeecb03feef016744e88beeccb96
 </body>
 <script defer src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <script type="text/javascript">
-    window.mdc.autoInit();
+    
 </script>
 </html>

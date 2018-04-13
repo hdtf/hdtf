@@ -56,22 +56,6 @@
         .page-content {
             padding-top: 1em;
         }
-        /* .upbtn {
-            display:none;
-            position: fixed;
-            background-color: #ffeb3b;
-            border: none;
-            padding: 20px;
-            font-size: 20px;
-            box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            right:30px;
-            bottom:50px;
-            border-radius: 50%;
-            cursor: pointer;
-            outline: none;
-            color:#424242;
-            text-decoration: none;
-        } */
         .hreftext {
             color:#123056;
             border:none;
@@ -231,17 +215,15 @@
 </head>
 
 <body style="background-color:#123056;height:100%;width:100%;">
-    <div id="loading">
-        <img src="images/logo.png" style="width:200px" />
+    <div id="loading" style="z-index:100;">
+        <img src="images/logo.png" style="width:200px;" />
     </div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs animate-apear" id="main" style="display:none">
         <header class="mdl-layout__header">
             <div style="background-color:#4050b6;padding:16px 18px">
+                
                 <!-- Title -->
                 <div style="margin-left:15%">
-                    <form action="/club-page.html">
-                        <input type="text" placeholder="2018 화동제 환영합니다" name="search" class="search-container">
-                    </form>
                 </div>
             </div>
             <!-- Tabs -->
@@ -249,12 +231,10 @@
                 <a href="#fixed-tab-1" class="mdl-layout__tab">스탬프</a>
                 <a href="#fixed-tab-2" class="mdl-layout__tab is-active">홈</a>
                 <a href="#fixed-tab-3" class="mdl-layout__tab">지도</a>
-                <a href="#fixed-tab-4" class="mdl-layout__tab">부가기능</a>
+                <a href="#fixed-tab-4" class="mdl-layout__tab">이벤트</a>
             </div>
         </header>
-        <div class="mdl-layout__drawer" >  
-            
-            
+        <div class="mdl-layout__drawer" >                    
             <hr>
             <a href="#fixed-tab-2" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">home</i>홈</a><br>
             <a href="event-page.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a><br>
@@ -267,6 +247,9 @@
             <hr>
         </div>
         <main class="mdl-layout__content" style="width:100%;background-color:white">
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-js-ripple-effect" style="z-index:3;position:fixed;right:5px;bottom:10px">
+                <i class="material-icons">add</i>
+            </button>            
             <section class="mdl-layout__tab-panel" id="fixed-tab-1">
                 <div class="page-content"><!--Fill the content--></div>
             </section>
@@ -296,14 +279,14 @@
                     <div style="height:1em"></div>
                     <div>
                         <h4 class="pink" style="margin-left:5%;">일정</h4>
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#123056;">
                             <thead>
                                 <tr>
                                     <th class="mdl-data-table__cell--non-numeric" >행사</th>
                                     <th class="mdl-data-table__cell--non-numeric" >장소</th>
                                     <th class="mdl-data-table__cell--non-numeric" >시간</th>
                                 </tr>
-                            </thead>
+                            </thead><br>
                             <tbody>
                                 <tr>
                                     <td class="mdl-data-table__cell--non-numeric">뭐뭐ㅓ뭐ㅜ뭐</td>
@@ -478,75 +461,61 @@
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                 <div class="page-content">
-                    <p align="center">
-                        전체지도
-                        <hr width="100%" align="center"/>
-                        <img src="images/jido.jpg" width="100%">
-                    </p>
-                    <hr width="100%" align="center"/>
-                    <p align="center">
-                        세부정보
-                        <hr width="100%" align ="center"/>
-                        <button class="stampbutton" onclick="mapfunc(1);parent.location.href='#map-1'" id="">학생동</button>
-                        <button class="stampbutton" onclick="mapfunc(2);parent.location.href='#map2'" id="">과학동</button>
-                        <button class="stampbutton" onclick="mapfunc(3);parent.location.href='#map3'" id="">체육관</button>
-                        <button class="stampbutton" onclick="mapfunc(4);parent.location.href='#map4'" id="">운동장</button>
-                        <button class="stampbutton" onclick="mapfunc(5);parent.location.href='#map5'" id="">정 문</button>
-                        <button class="stampbutton" onclick="mapfunc(6);parent.location.href='#map6'" id="">후 문</button>
-                    </p>
-                </div>
-                <div id="map-1" class="imgcontainer" style="display:none">
-                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
-                        <img src="images/mina_poster.png" width=90%>
-                        <div class="container">
-                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>학생동</p>
-                        </div>
-                    </a>
-                </div>
-                <div id="map-2" class="imgcontainer" style="display:none">
-                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
-                        <img src="images/mina_poster.png" width=90%>
-                        <div class="container">
-                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>과학동</p>
-                        </div>
-                    </a>
-                </div>
-                <div id="map-3" class="imgcontainer" style="display:none">
-                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
-                        <img src="images/mina_poster.png" width=90%>
-                        <div class="container">
-                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>체육관</p>
-                        </div>
-                    </a>
-                </div>
-                <div id="map-4" class="imgcontainer" style="display:none">
-                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
-                        <img src="images/mina_poster.png" width=90%>
-                        <div class="container">
-                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>운동장</p>
-                        </div>
-                    </a>
-                </div>
-                <div id="map-5" class="imgcontainer" style="display:none">
-                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
-                        <img src="images/mina_poster.png" width=90%>
-                        <div class="container">
-                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>정 문</p>
-                        </div>
-                    </a>
-                </div>
-                <div id="map-6" class="imgcontainer" style="display:none">
-                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
-                        <img src="images/mina_poster.png" width=90%>
-                        <div class="container">
-                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>후 문</p>
-                        </div>
-                    </a>
+
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-4">
                 <div class="page-content">
-                        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                    <br>
+                    <div class="demo-card-square mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto">
+                        <div class="mdl-card__supporting-text">
+                            <img src="images/momo event.jpg" style="width:100%;margin-bottom:5%">
+                            모모의 팬싸인회가 오후 3시에 시작됩니다!!
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            상세정보
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="demo-card-square mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto">
+                        <div class="mdl-card__supporting-text">
+                            <img src="images/mina event.jpg" style="width:100%;margin-bottom:5%">
+                            미나의 팬싸인회가 오후 4시에 시작됩니다!!
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            상세정보
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="demo-card-square mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto">
+                        <div class="mdl-card__supporting-text">
+                            <img src="images/mina_poster.png" style="width:100%;margin-bottom:5%">
+                            미나의 팬싸인회가 오후 5시에 시작됩니다!!
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            상세정보
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="demo-card-square mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto">
+                        <div class="mdl-card__supporting-text">
+                            <img src="images/쯔위.jpg" style="width:100%;margin-bottom:5%">
+                            쯔위의 팬싸인회가 오후 6시에 시작됩니다!!
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            상세정보
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                        <!-- <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                                 <div class="mdl-tabs__tab-bar">
                                     <a href="#starks-panel" class="mdl-tabs__tab is-active">신고&건의</a>
                                     <a href="#lannisters-panel" class="mdl-tabs__tab">이벤트</a>
@@ -632,7 +601,7 @@
                                   </ul>
                                 </div>
                               </div>
-                    <div style="height:2em;"></div>
+                    <div style="height:2em;"></div> -->
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="login-page">
@@ -644,35 +613,10 @@
         <div class="mdl-dialog__content">
             <h3>안내</h3>
             <p>
-                    멍하니 서서 막 고민고민 해 
-                    나 이거 진짜 잘하는 짓인지 
-                    Yeah Yeah Yeah Yeah 
-                    뭐 어때 
-                    No No No No 
-                    미쳤어 
-                    
-                    난 쯔위라고 해 
-                    무작정 인사할까 
-                    내 전화번호야 
-                    쪽지를 주고 도망칠까 
-                    Yeah Yeah Yeah Yeah 
-                    어떡해 
-                    No No No No 
-                    지금이야 
-
-                    Girl you can do it 
-                    눈이 마주치고 있잖아 
-                    Love is timing 
-                    놓치면 후회할지 몰라 
-                    Love is coming, coming 
-                    좀만 더 용기를 내 
-                    더는 망설이지 마 
-
-                    이상하게 생각해도 어쩔 수 없어 반했으니까 
-                    You're my heart shaker, shaker 
-                    놓치기 싫어 
-                    You're my heart shaker, shaker 
-                    어떡해 
+                    매일같이 영화 속에서나
+                    책 속에서나 드라마 속에서
+                    사랑을 느껴
+                    = 모쏠
             </p>
         </div>
         <div class="mdl-dialog__actions">
