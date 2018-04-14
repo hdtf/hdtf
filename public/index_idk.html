@@ -10,6 +10,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
     <!--색 수정하기-->
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="jquery-ui.min.css">
@@ -24,33 +25,20 @@
         ::-webkit-scrollbar {
             display: none;
         }
-        #loading {
-            height: 100%;
-            width: 100%;
-            color: white;
-            text-align: center;
-            -webkit-animation-name: animateapear;
-            -webkit-animation-duration: 1s;
-            animation-name: animateapear;
-            animation-duration: 1s
-        }
         .pink {
             color: #123056;
         }
         .gray {
             color: #424242;
         }
-        .widecard > .mdl-card__title {
+        /* .widecard > .mdl-card__title {
             color: #ffffff;
             height: 176px;
             background: url("images/display1.png") center / cover;
         }
         .widecard > .mdl-card__menu {
             color: #ffffff;
-        }
-        .homeevent{
-            background: url('images/S.png') center / cover;
-        }
+        } */
         .center {
             width: 90%;
             margin-right: auto;
@@ -59,6 +47,22 @@
         .page-content {
             padding-top: 1em;
         }
+        /* .upbtn {
+            display:none;
+            position: fixed;
+            background-color: #ffeb3b;
+            border: none;
+            padding: 20px;
+            font-size: 20px;
+            box-shadow: 0 0px 40px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            right:30px;
+            bottom:50px;
+            border-radius: 50%;
+            cursor: pointer;
+            outline: none;
+            color:#424242;
+            text-decoration: none;
+        } */
         .hreftext {
             color:#123056;
             border:none;
@@ -76,6 +80,13 @@
             padding: 50px 50px;
             font-size:16px          
         }
+        .map{
+            display:none;
+            padding:10px;
+            margin-left:auto;
+            margin-right:auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
         div.imgcontainer {
             color:#1b1b1b;
             margin-right: auto;
@@ -83,7 +94,7 @@
             margin-top: 3%;
             margin-bottom: 5%;
             width: 90%;
-            box-shadow: 0 0 10px  0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             text-align: center;
             display: block;
         }
@@ -98,6 +109,16 @@
         }
         div.container {
             padding: 10px;
+        }
+        .search-container {
+            padding: 8px 25px;
+            background-color: white;
+            border: 3px;
+            font-size: 20px;
+            border-block-end-color: #123056;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 3px;
+            width:85%;
         }
         .menuicon {
             width: 35px;
@@ -150,6 +171,19 @@
             position: absolute;
             top: 0;
         }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
         .fade {
             -webkit-animation-name: fade;
             -webkit-animation-duration: 3s;
@@ -187,46 +221,43 @@
 </head>
 
 <body style="background-color:#123056;height:100%;width:100%;">
-    <div id="loading" style="z-index:100;">
-        <img src="images/logo.png" style="width:200px;" />
+    <div id="loading">
+        <img src="images/logo.png" style="width:200px" />
+    </div>
+    <div id="login-page" style="display:none">
+        <div class="imgcontainer" style="padding:10px;">
+
+            <form action="/">
+                <input type="number" name="phone-num">
+            </form>
+                <div class="container">
+                    <p>이벤트 페이지</p>
+                </div>
+        </div>
     </div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs animate-apear" id="main" style="display:none">
-        <header class="mdl-layout__header mdl-layout__header">
-            <div style="background-color:#4050b6;">
-                <!-- Expandable Textfield -->
-                <form action="#" style="margin-left:15%">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" id="sample6">
-                        <label class="mdl-textfield__label" style="background-color:#002885" for="sample-expandable">Expandable Input</label>
-                    </div>
-                    </div>
-                </form>
-                
+        <header class="mdl-layout__header">
+            <div style="background-color:#4050b6;padding:16px 18px">
                 <!-- Title -->
                 <div style="margin-left:15%">
-                    
+                    <form action="/club-page.html">
+                        <input type="text" placeholder="2018 화동제 환영합니다" name="search" class="search-container">
+                    </form>
                 </div>
             </div>
             <!-- Tabs -->
             <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                <a href="#fixed-tab-1" class="mdl-layout__tab" style="font-size:18px">스탬프</a>
-                <a href="#fixed-tab-2" class="mdl-layout__tab is-active" style="font-size:18px">홈</a>
-                <a href="#fixed-tab-3" class="mdl-layout__tab" style="font-size:18px">지도</a>
-                <a href="#fixed-tab-4" class="mdl-layout__tab" style="font-size:18px">이벤트</a>
+                <a href="#fixed-tab-1" class="mdl-layout__tab">스탬프</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab is-active">홈</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab">지도</a>
+                <a href="#fixed-tab-4" class="mdl-layout__tab">부가기능</a>
             </div>
         </header>
-        <div class="mdl-layout__drawer mdl-js-ripple-effect">                    
+        <div class="mdl-layout__drawer" >  
+            
+            
             <hr>
-            <a href="#fixed-tab-1" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">check_circle</i>스탬프</a><br>
             <a href="#fixed-tab-2" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">home</i>홈</a><br>
-            <a href="#fixed-tab-3" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">place</i>지도</a><br>
-            <a href="#fixed-tab-4" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a><br>
-            <hr>
-            <a href="creator-page.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a><br>
             <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>알림</a><br>
             <a href="" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>설정</a><br>
             <a href="tel://112" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%" >call</i>긴급전화</a><br>
@@ -234,11 +265,9 @@
             <a href="snakegame.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">gamepad</i>게임하기</a>
             <hr>
         </div>
-        <main class="mdl-layout__content" style="width:100%;background-color:white">          
+        <main class="mdl-layout__content" style="width:100%;background-color:white">
             <section class="mdl-layout__tab-panel" id="fixed-tab-1">
-                <div class="page-content">
-                    
-                </div>
+                <div class="page-content"><!--Fill the content--></div>
             </section>
             <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
                 <div class="page-content">
@@ -247,9 +276,10 @@
                         <!-- <div class="mdl-card__title">
                             <h2 class="mdl-card__title-text" style="color:#123056">화동제에 오신것을 환영합니다!</h2>
                         </div> -->
-                        <div class="mdl-card__supporting-text" style="font-size:15px">
-                            <img src="images/mina_poster.png" width="100%" style="margin-bottom:10px"><br>
-                            미나<3
+                        <div class="mdl-card__supporting-text">
+                            <img src="images/mina_poster.png" width="100%">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Mauris sagittis pellentesque lacus eleifend lacinia...
                         </div>                    
                         <div class="mdl-card__actions mdl-card--border">
                         <a href="register.html" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -265,14 +295,14 @@
                     <div style="height:1em"></div>
                     <div>
                         <h4 class="pink" style="margin-left:5%;">일정</h4>
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#123056;font-size:15px">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center">
                             <thead>
                                 <tr>
-                                    <th style="font-size:18px;color:#616161" class="mdl-data-table__cell--non-numeric" >행사</th>
-                                    <th style="font-size:18px;color:#616161" class="mdl-data-table__cell--non-numeric" >장소</th>
-                                    <th style="font-size:18px;color:#616161" class="mdl-data-table__cell--non-numeric" >시간</th>
+                                    <th class="mdl-data-table__cell--non-numeric" >행사</th>
+                                    <th class="mdl-data-table__cell--non-numeric" >장소</th>
+                                    <th class="mdl-data-table__cell--non-numeric" >시간</th>
                                 </tr>
-                            </thead><br>
+                            </thead>
                             <tbody>
                                 <tr>
                                     <td class="mdl-data-table__cell--non-numeric">뭐뭐ㅓ뭐ㅜ뭐</td>
@@ -327,15 +357,15 @@
                     </div>
                     <div>
                         <h4 class="pink" style="margin-left:5%">이벤트</h4>
-                        <div class="imgcontainer mdl-shadow--2dp">
+                        <div class="imgcontainer">
                             <a href=" " style="text-decoration:none;color:#424242;font-size:20px;">
                             <img src="images/s.png" width=100%>
                                 <div class="container">
-                                    <a href="" style="text-decoration:none;color:#4050b6;font-size:15px;">이벤트 페이지</a>
+                                    <p>이벤트 페이지</p>
                                 </div>
                             </a>
-                        </div>                              
-                    </div>
+                        </div>
+                    </div>                    
                     <div style="height:1em"></div>
                         <footer class="mdl-mega-footer" style="background-color:#123056;">
                             <div class="mdl-mega-footer__middle-section">
@@ -348,48 +378,80 @@
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-3">
                 <div class="page-content">
-
+                    <p align="center">
+                        전체지도
+                        <hr width="100%" align="center"/>
+                        <img src="images/jido.jpg" width="100%">
+                    </p>
+                    <hr width="100%" align="center"/>
+                    <p align="center">
+                        세부정보
+                        <hr width="100%" align ="center"/>
+                        <button class="stampbutton" onclick="mapfunc(1);parent.location.href='#map-1'" id="">학생동</button>
+                        <button class="stampbutton" onclick="mapfunc(2);parent.location.href='#map2'" id="">과학동</button>
+                        <button class="stampbutton" onclick="mapfunc(3);parent.location.href='#map3'" id="">체육관</button>
+                        <button class="stampbutton" onclick="mapfunc(4);parent.location.href='#map4'" id="">운동장</button>
+                        <button class="stampbutton" onclick="mapfunc(5);parent.location.href='#map5'" id="">정 문</button>
+                        <button class="stampbutton" onclick="mapfunc(6);parent.location.href='#map6'" id="">후 문</button>
+                    </p>
+                </div>
+                <div id="map-1" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>학생동</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-2" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>과학동</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-3" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>체육관</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-4" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>운동장</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-5" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>정 문</p>
+                        </div>
+                    </a>
+                </div>
+                <div id="map-6" class="imgcontainer" style="display:none">
+                    <a href="#fixed-tab-3" onclick="disapear()" style="text-decoration:none;color:#424242;font-size:20px;">
+                        <img src="images/mina_poster.png" width=90%>
+                        <div class="container">
+                            <p><i class="material-icons" style="color:#123056;margin-right:15%" onclick="disapear()">arrow_back</i>후 문</p>
+                        </div>
+                    </a>
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="fixed-tab-4">
-                <div class="page-content">
-                    <br>
-                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/momo event.jpg') center/cover;">
-                        <div class="mdl-card__title mdl-card--expand"></div>
-                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                            상세정보
-                            </a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina event.jpg') center/cover;">
-                        <div class="mdl-card__title mdl-card--expand"></div>
-                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                            상세정보
-                            </a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina_poster.png') center/cover;">
-                        <div class="mdl-card__title mdl-card--expand"></div>
-                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                            상세정보
-                            </a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/쯔위.jpg') center/cover;">
-                        <div class="mdl-card__title mdl-card--expand"></div>
-                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                            상세정보
-                            </a>
-                        </div>
-                    </div>
-                    <br>
+                <header style="padding:10px">
+
+                </header>
+                <hr>
+                <div class="page-content" stlye="padding:10px;">  
+                    <a href="event-page.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a><br>
+                    <a href="creator-page.html" class="hreftext"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a><br>
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="login-page">
@@ -401,10 +463,35 @@
         <div class="mdl-dialog__content">
             <h3>안내</h3>
             <p>
-                    매일같이 영화 속에서나
-                    책 속에서나 드라마 속에서
-                    사랑을 느껴 = 모쏠
+                    멍하니 서서 막 고민고민 해 
+                    나 이거 진짜 잘하는 짓인지 
+                    Yeah Yeah Yeah Yeah 
+                    뭐 어때 
+                    No No No No 
+                    미쳤어 
                     
+                    난 쯔위라고 해 
+                    무작정 인사할까 
+                    내 전화번호야 
+                    쪽지를 주고 도망칠까 
+                    Yeah Yeah Yeah Yeah 
+                    어떡해 
+                    No No No No 
+                    지금이야 
+
+                    Girl you can do it 
+                    눈이 마주치고 있잖아 
+                    Love is timing 
+                    놓치면 후회할지 몰라 
+                    Love is coming, coming 
+                    좀만 더 용기를 내 
+                    더는 망설이지 마 
+
+                    이상하게 생각해도 어쩔 수 없어 반했으니까 
+                    You're my heart shaker, shaker 
+                    놓치기 싫어 
+                    You're my heart shaker, shaker 
+                    어떡해 
             </p>
         </div>
         <div class="mdl-dialog__actions">
@@ -430,20 +517,6 @@
     </script>
 
     <script>
-        window.onscroll = function() {buttonapr()};
-        function buttonapr() {
-            if (document.body.scrollTop > 1100 || document.documentElement.scrollTop > 1100) {
-                document.getElementById("topbtn").style.display = "block";
-            } else {
-                document.getElementById("topbtn").style.display = "none";
-            }
-        }
-
-        function gototop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
         var dialog = document.querySelector('dialog');
         if (! dialog.showModal) {
           dialogPolyfill.registerDialog(dialog);
@@ -470,7 +543,22 @@
             });
         }
     </script>
-    <script>
+    <script> //go to top button
+        // window.onscroll = function() {scrollfunc()};
+
+        // function scrollfunc() {
+        //     if (window.pageYOffset > 20 || document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        //         document.getElementsByClassName("upbtn").style.display = "block";
+        //     } else {
+        //         document.getElementsByClassName("upbtn").style.display = "none";
+        //     }
+        // }
+        // function gototop() {
+        //     document.body.scrollTop = 0;
+        //     document.documentElement.scrollTop = 0;
+        //     window.pageYOffset = 0;
+        // }
+
     //slideshow    
     var slideIndex = 0;
     showSlides();
@@ -517,7 +605,12 @@
     }
         
     </script>
-    <script>
-    </script>
 </body>
+<script defer src="https://unpkg.com/material-components-web@latest/dist/material-components-web.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
+<script type="text/javascript">
+    
+</script>
 </html>
