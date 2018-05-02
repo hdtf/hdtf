@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>MAP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#123056">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--색 수정하기-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    
+    <style>
+        p, a {
+            font-size: 1.5em;
+        }
+        h5 {
+            font-size: 1.6em;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        #loading {
+            height: 100%;
+            width: 100%;
+            color: white;
+            text-align: center;
+            -webkit-animation-name: animateapear;
+            -webkit-animation-duration: 1s;
+            animation-name: animateapear;
+            animation-duration: 1s
+        }
+        .pink {
+            color: #123056;
+        }
+        .gray {
+            color: #424242;
+        }
+        .center {
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .page-content {
+            padding-top: 1em;
+        }
+        .hreftext {
+            color:#123056;
+            border:none;
+            width:100%;
+            font-size:20px;
+            text-decoration:none;
+            text-align:left;
+        }
+        div.container {
+            padding: 10px;
+        }
+        .animate-apear {
+            -webkit-animation-name: animateapear;
+            -webkit-animation-duration: 1s;
+            animation-name: animateapear;
+            animation-duration: 1s
+        }
+        @-webkit-keyframes animateapear {
+            from { opacity:0 }
+            to { opacity:1 }
+        }
+        @keyframes animateapear {
+            from{ opacity:0 }
+            to{  opacity:1 }
+        }
+        @media screen and (max-width: 1024px){
+            .mdl-layout__header {
+                display: inherit;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color:#123056;height:100%;width:100%;">
+    <div id="loading" style="z-index:100;">
+        <img src="images/logo.png" style="width:200px;" />
+    </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs animate-apear demo-layout-wterfall" id="main" style="display:none">
+        <header class="mdl-layout__header mdl-layout__header--waterfall">
+            <div style="background-color:#4050b6;">
+                <!-- Expandable Textfield -->
+                <form action="#" style="margin-left:15%">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="se">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder" id="sa">
+                        <input class="mdl-textfield__input" type="text" id="se">
+                        <label class="mdl-textfield__label" style="background-color:#ffffff" for="sample-expandable">Expandable Input</label>
+                    </div>
+                    </div>
+                </form>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('0');">과학기술정보통신부(LIST)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('1');">물리부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('2');">생물부(KBRC)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('3');">창의수학탐구부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('4');">창의융합과학부(CSS)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('5');">천문학부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('6');">컴퓨터부(CE-L)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('7');">항공부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('8');">화학부(KCC)</div>
+                
+                
+                <!-- Title -->
+                <div style="margin-left:15%">
+                    
+                </div>
+            </div>
+            <!-- Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#fixed-tab-1" class="mdl-layout__tab" style="font-size:18px">스탬프</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab is-active" style="font-size:18px">홈</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab" style="font-size:18px">지도</a>
+                <a href="#fixed-tab-4" class="mdl-layout__tab" style="font-size:18px">이벤트</a>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer" style="border:none">       
+            <div style="background: url('images/momo event.jpg') center/cover;height:25%;">
+                <div class="container" style="background-color:rgba(0, 0, 0, 0);height:18%">
+                    <button id="demo-menu-lower-right" style="color:white;position:absolute;right:5px" class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="material-icons">more_vert</i>
+                    </button>
+
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                        <li class="mdl-menu__item" onclick="location.href=''">프로필 설정</li>
+                        <li class="mdl-menu__item" onclick="location.href='coupon.html'">쿠폰 사용</li>
+                    </ul>
+                </div>
+            </div>
+            <nav class="mdl-navigation mdl-js-ripple-effect">
+                <a class="hreftext mdl-navigation__link" href="#fixed-tab-1"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">check_circle</i>스탬프</a>
+                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-2"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">home</i>홈</a>
+                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-3"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">place</i>지도</a>
+                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-4"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a>
+                <hr />
+                <a class="hreftext mdl-navigation__link" href="creator-page.html"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a>
+                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>알림</a>
+                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>설정</a>
+                <a class="hreftext mdl-navigation__link" href="tel://112"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%" >call</i>긴급전화</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content" style="width:100%;background-color:white">          
+            <section class="mdl-layout__tab-panel" id="fixed-tab-1">
+                <div class="page-content">
+                    
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+                <div class="page-content">
+
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-3">
+                <div class="page-content">
+                    <div id="map" style="width:100%;height:100%;"></div>
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+                <div class="page-content">
+
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="login-page">
+                <div class="page-content">
+
+                </div>
+            </section>
+        </main>
+    </div>
+    <dialog class="mdl-dialog">
+        <div class="mdl-dialog__content">
+            <h3>안내</h3>
+            <p>지도 기능 테스트 중</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button close pink">OK</button>
+        </div>
+    </dialog>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+
+    <script>
+        var dialog = document.querySelector('dialog');
+        if (! dialog.showModal) {
+          dialogPolyfill.registerDialog(dialog);
+        }
+        dialog.querySelector('.close').addEventListener('click', function() {
+          dialog.close();
+        });
+        window.onload = function(){
+            var h = window.innerHeight;
+            document.getElementById("loading").style.marginTop = (h / 2 - 100) + "px";
+            setTimeout(function(){
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("main").style.display = "";
+                dialog.showModal();
+            }, 3000);
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop:$(hash).offset().top
+                    }, 2000, 'easeInOutQuint');
+                }
+            });
+        }
+    </script>
+
+    <script>        
+        var place = [
+            "과학기술정보통신부(LIST)",
+            "물리부",
+            "생물부(KBRC)",
+            "수학부(KMOC)",
+            "창의수학탐구부",
+            "창의융합과학부(CSS)",
+            "천문학부",
+            "컴퓨터부(CE-L)",
+            "항공부",
+            "화학부(KCC)"
+        ];
+
+        function fill(n) {
+            document.getElementById("se").value = place[n];
+            document.getElementById("se").focus();
+        }
+            document.getElementById("sa").onkeyup = function(e) {
+                if(e.keyCode > 64){//backspace 등 추가하고 범위 수정
+                    var value = document.getElementById("se").value.toUpperCase();
+                    for(var i in place) {
+                        var x = place[i].split(value);
+                        if(place[i] != x[0]) {
+                            var ans = "";
+                            for(var j in x) {
+                                if(j != 0) {
+                                    ans += "<b>" + value + "</b>";
+                                }
+                                ans += x[j];
+                            }
+                            document.getElementById("L" + i).innerHTML = ans;
+                            document.getElementById("L" + i).style.display = "";
+                        } else {
+                            document.getElementById("L" + i).innerHTML = place[i];
+                            document.getElementById("L" + i).style.display = "none";
+                        }
+                    }
+                } else {
+                    event.preventDefault();
+                }
+            }
+
+            document.getElementById("sa").onblur = function() {
+                for(var i in place) {
+                    document.getElementById("L" + i).style.display = "none";
+                }
+            }            
+    </script>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a16b8301f75326d7a2b1f2d57ad319a"></script>
+    <script>
+            var container = document.getElementById('map');
+            var options = {
+                center: new daum.maps.LatLng(37.517069, 127.056212),
+                level: 3
+            };
+    
+            var map = new daum.maps.Map(container, options);
+        </script>
+</body>
+</html>
