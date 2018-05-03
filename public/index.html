@@ -164,16 +164,16 @@
                     </header>
             <main style="background-color:white;height:100%">
                 <div style="position:absolute;z-index:95;width:100%">
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');">과학기술정보통신부(LIST)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('1');">물리부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('2');">생물부(KBRC)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');">수학부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');">창의수학탐구부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');">창의융합과학부(CSS)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');">천문학부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');">컴퓨터부(CE-L)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');">항공부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('9');">화학부(KCC)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');gotoclub(0)">과학기술정보통신부(LIST)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('1');gotoclub(1)">물리부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('2');gotoclub(2)">생물부(KBRC)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');gotoclub(3)">수학부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');gotoclub(4)">창의수학탐구부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');gotoclub(5)">창의융합과학부(CSS)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');gotoclub(6)">천문학부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');gotoclub(7)">컴퓨터부(CE-L)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');gotoclub(8)">항공부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('9');gotoclub(9)">화학부(KCC)</div>
                 </div>
                     <br /> 
                     <div style="position:absolute;z-index: 90;width:100%;">
@@ -186,7 +186,7 @@
                                 </thead><br />
                                 <tbody>
                                     <tr>
-                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">과학기술정보통신부(LIST)</td>
+                                        <td onclick="gotoclub(0)" class="mdl-data-table__cell--non-numeric">과학기술정보통신부(LIST)</td>
                                         <td class="mdl-data-table__cell--non-numeric">학생동 2층</td>
                                     </tr>
                                     <tr>
@@ -244,21 +244,21 @@
                 </div>
             </div>
             <nav class="mdl-navigation mdl-js-ripple-effect">
-                <a class="hreftext mdl-navigation__link" href="#fixed-tab-1"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">check_circle</i>스탬프</a>
-                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-2"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">home</i>홈</a>
-                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-3"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">place</i>지도</a>
-                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-4"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a>
+                <a class="hreftext mdl-navigation__link" href="#fixed-tab-1"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">check_circle</i>스탬프</a>
+                <a class="hreftext mdl-navigation__link is-active" href="index.html/#fixed-tab-2"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">home</i>홈</a>
+                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-3"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">place</i>지도</a>
+                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-4"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">event</i>이벤트</a>
                 <hr>
-                <a class="hreftext mdl-navigation__link" href="creator_page.html"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a>
-                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>알림</a>
-                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>설정</a>
-                <a class="hreftext mdl-navigation__link" href="tel://112"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%" >call</i>긴급전화</a>
+                <a class="hreftext mdl-navigation__link" href="creator_page.html"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">account_box</i>만든이</a>
+                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">notifications</i>알림</a>
+                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">settings</i>설정</a>
+                <a class="hreftext mdl-navigation__link" href="tel://112"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%" >call</i>긴급전화</a>
                 <hr>
-                <a class="hreftext mdl-navigation__link" href="snakegame.html"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">gamepad</i>게임하기</a>
+                <a class="hreftext mdl-navigation__link" href="snakegame.html"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">gamepad</i>게임하기</a>
+                <a class="hreftext mdl-navigation__link" href="https://github.com/hdtf"><i class="material-icons" style="color:#1b1b1b;margin-left:5px;margin-right:10%">code</i>앱 소스 보기</a>
             
                 <div class="hreftext mdl-navigation__link">
-                    <h6 style="color:black;">Made by<br/><b>Kyunggi Highschool KLIST</b>
-                    </h6>
+                    <h6 onclick="location.href='http://klist.cf'" style="color:black;">Made by<br/><b>Kyunggi Highschool KLIST</b></h6>
                 </div>
             </nav>
         </div>
@@ -485,11 +485,6 @@
             <section class="mdl-layout__tab-panel" id="login-page">
                 <div class="page-content"><!--Your content goes here --></div>
             </section>
-            <section class="mdl-layout__tab-panel" id="list-page">
-                <div class="page-content" style="position: absolute;z-index:150;background-color:white;display:none">
-
-                </div>
-            </section>
         </main>
     </div>
     <dialog class="mdl-dialog">
@@ -525,20 +520,6 @@
     </script>
 
     <script>
-        window.onscroll = function() {buttonapr()};
-        function buttonapr() {
-            if (document.body.scrollTop > 1100 || document.documentElement.scrollTop > 1100) {
-                document.getElementById("topbtn").style.display = "block";
-            } else {
-                document.getElementById("topbtn").style.display = "none";
-            }
-        }
-
-        function gototop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
         var dialog = document.querySelector('dialog');
         if (! dialog.showModal) {
           dialogPolyfill.registerDialog(dialog);
@@ -656,6 +637,30 @@
             }
             else if(a==0){
                 document.getElementById("searchpage").style.display = "none";
+            }
+        }
+
+        function gotoclub(a){
+            if(a==0){
+                document.getElementById("list-page").style.display = "block";
+            }
+            else if(a==1){
+
+            }
+            else if(a==2){
+
+            }
+            else if(a==3){
+
+            }
+            else if(a==4){
+
+            }
+            else if(a==5){
+
+            }
+            else if(a==6){
+
             }
         }
     </script>
