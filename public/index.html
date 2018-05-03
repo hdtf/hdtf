@@ -147,7 +147,6 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="z-index:100;display:none" id="searchpage">
             <header class="mdl-layout__header mdl-shadow--3dp" style="background-color:white;color:black;border-bottom: 0 rgba(0, 0, 0, 0.19)">
                     <form action="#">
-                        
                             <label class="mdl-button mdljs-button" style="margin-bottom:10px" onclick="gotosearch(0)">
                                 <i class="material-icons" style="color:black">arrow_back</i>
                             </label>
@@ -168,20 +167,43 @@
                     <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');">과학기술정보통신부(LIST)</div>
                     <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('1');">물리부</div>
                     <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('2');">생물부(KBRC)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');">창의수학탐구부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');">창의융합과학부(CSS)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');">천문학부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');">컴퓨터부(CE-L)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');">항공부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');">화학부(KCC)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');">수학부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');">창의수학탐구부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');">창의융합과학부(CSS)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');">천문학부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');">컴퓨터부(CE-L)</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');">항공부</div>
+                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('9');">화학부(KCC)</div>
                 </div>
                     <br /> 
-                    <div style="position: absolute;z-index: 90;width:100%">
-                        <h5 style="color:#1b1b1b;margin-left:15%;"><b>추천 검색어</b></h5>
-                        <br />
-                        <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:block;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');">과학기술정보통신부(LIST)</div>
-                        <br />
-                        <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:block;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');">컴퓨터부(CE-L)</div>
+                    <div style="position:absolute;z-index: 90;width:100%;">
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
+                                <thead>
+                                    <tr>
+                                        <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >추천동아리</th>
+                                        <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                                    </tr>
+                                </thead><br />
+                                <tbody>
+                                    <tr>
+                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">과학기술정보통신부(LIST)</td>
+                                        <td class="mdl-data-table__cell--non-numeric">학생동 2층</td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">수학부</td>
+                                        <td class="mdl-data-table__cell--non-numeric">학생동 3층</td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">컴퓨터부(CE-L)</td>
+                                        <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">물리부</td>
+                                        <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
+                                    </tr>
+                                </tbody>
+                            </table> 
+                            <br />                            
                     </div>
             </main>
     </div>
@@ -227,7 +249,7 @@
                 <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-3"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">place</i>지도</a>
                 <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-4"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a>
                 <hr>
-                <a class="hreftext mdl-navigation__link" href="creator-page.html"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a>
+                <a class="hreftext mdl-navigation__link" href="creator_page.html"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a>
                 <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>알림</a>
                 <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>설정</a>
                 <a class="hreftext mdl-navigation__link" href="tel://112"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%" >call</i>긴급전화</a>
@@ -274,9 +296,9 @@
                         <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
                             <thead>
                                 <tr>
-                                    <th style="font-size:18px;color:#616161" class="mdl-data-table__cell--non-numeric" >행사</th>
-                                    <th style="font-size:18px;color:#616161" class="mdl-data-table__cell--non-numeric" >장소</th>
-                                    <th style="font-size:18px;color:#616161" class="mdl-data-table__cell--non-numeric" >시간</th>
+                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >행사</th>
+                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >시간</th>
                                 </tr>
                             </thead><br />
                             <tbody>
@@ -463,6 +485,11 @@
             <section class="mdl-layout__tab-panel" id="login-page">
                 <div class="page-content"><!--Your content goes here --></div>
             </section>
+            <section class="mdl-layout__tab-panel" id="list-page">
+                <div class="page-content" style="position: absolute;z-index:150;background-color:white;display:none">
+
+                </div>
+            </section>
         </main>
     </div>
     <dialog class="mdl-dialog">
@@ -540,20 +567,20 @@
     </script>
     <script>
     //slideshow    
-    var slideIndex = 0;
-    showSlides();
+    // var slideIndex = 0;
+    // showSlides();
 
-    function showSlides() { 
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none"; 
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1} 
-        slides[slideIndex-1].style.display = "block"; 
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }        
+    // function showSlides() { 
+    //     var i;
+    //     var slides = document.getElementsByClassName("mySlides");
+    //     for (i = 0; i < slides.length; i++) {
+    //         slides[i].style.display = "none"; 
+    //     }
+    //     slideIndex++;
+    //     if (slideIndex > slides.length) {slideIndex = 1} 
+    //     slides[slideIndex-1].style.display = "block"; 
+    //     setTimeout(showSlides, 2000); // Change image every 2 seconds
+    // }        
     </script>
     <script>
         
