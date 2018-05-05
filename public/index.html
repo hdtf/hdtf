@@ -145,67 +145,90 @@
 
 <body style="background-color:#123056;height:100%;width:100%;">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="z-index:100;display:none" id="searchpage">
-            <header class="mdl-layout__header mdl-shadow--3dp" style="background-color:white;color:black;border-bottom: 0 rgba(0, 0, 0, 0.19)">
-                    <form action="#">
-                            <label class="mdl-button mdljs-button" style="margin-bottom:10px" onclick="gotosearch(0)">
-                                <i class="material-icons" style="color:black">arrow_back</i>
-                            </label>
-                        
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                            <label class="mdl-button mdl-js-button mdl-button--icon" for="se">
-                                <i class="material-icons" style="color:black">search</i>
-                            </label>
-                        <div class="mdl-textfield__expandable-holder" id="sa">
-                            <input class="mdl-textfield__input" type="text" id="se">
-                            <label class="mdl-textfield__label" style="background-color:#ffffff" for="sample-expandable">Expandable Input</label>
-                        </div>
-                        </div>
-                    </form>
-                    </header>
-            <main style="background-color:white;height:100%">
-                <div style="position:absolute;z-index:95;width:100%">
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');gotoclub(0)">과학기술정보통신부(LIST)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('1');gotoclub(1)">물리부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('2');gotoclub(2)">생물부(KBRC)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');gotoclub(3)">수학부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');gotoclub(4)">창의수학탐구부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');gotoclub(5)">창의융합과학부(CSS)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');gotoclub(6)">천문학부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');gotoclub(7)">컴퓨터부(CE-L)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');gotoclub(8)">항공부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('9');gotoclub(9)">화학부(KCC)</div>
+        <header class="mdl-layout__header mdl-shadow--3dp" style="background-color:white;color:black;border-bottom: 0 rgba(0, 0, 0, 0.19)">
+            <form action="#">
+                    <label class="mdl-button mdljs-button" style="margin-bottom:10px" onclick="gotosearch(0)">
+                        <i class="material-icons" style="color:black">arrow_back</i>
+                    </label>
+                
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="se">
+                        <i class="material-icons" style="color:black">search</i>
+                    </label>
+                <div class="mdl-textfield__expandable-holder" id="sa">
+                    <input class="mdl-textfield__input" type="text" id="se">
+                    <label class="mdl-textfield__label" style="background-color:#ffffff" for="sample-expandable">Expandable Input</label>
                 </div>
-                    <br /> 
-                    <div style="position:absolute;z-index: 90;width:100%;">
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
-                                <thead>
-                                    <tr>
-                                        <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >추천동아리</th>
-                                        <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
-                                    </tr>
-                                </thead><br />
-                                <tbody>
-                                    <tr>
-                                        <td onclick="gotoclub(0)" class="mdl-data-table__cell--non-numeric">과학기술정보통신부(LIST)</td>
-                                        <td class="mdl-data-table__cell--non-numeric">학생동 2층</td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">수학부</td>
-                                        <td class="mdl-data-table__cell--non-numeric">학생동 3층</td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">컴퓨터부(CE-L)</td>
-                                        <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
-                                    </tr>
-                                    <tr>
-                                        <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">물리부</td>
-                                        <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
-                                    </tr>
-                                </tbody>
-                            </table> 
-                            <br />                            
-                    </div>
-            </main>
+                </div>
+            </form>
+        </header>
+        <main style="background-color:white;height:100%">
+            <div style="position:absolute;z-index:95;width:100%">
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');gotoclub(0)">과학기술정보통신부(LIST)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('1');gotoclub(1)">물리부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('2');gotoclub(2)">생물부(KBRC)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');gotoclub(3)">수학부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');gotoclub(4)">창의수학탐구부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');gotoclub(5)">창의융합과학부(CSS)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');gotoclub(6)">천문학부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');gotoclub(7)">컴퓨터부(CE-L)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');gotoclub(8)">항공부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('9');gotoclub(9)">화학부(KCC)</div>
+            </div>
+            <br /> 
+            <div style="position:absolute;z-index: 90;width:100%;">
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
+                    <thead>
+                        <tr>
+                            <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >추천동아리</th>
+                            <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                        </tr>
+                    </thead><br />
+                    <tbody>
+                        <tr>
+                            <td onclick="gotoclub(0)" class="mdl-data-table__cell--non-numeric">과학기술정보통신부(LIST)</td>
+                            <td class="mdl-data-table__cell--non-numeric">학생동 2층</td>
+                        </tr>
+                        <tr>
+                            <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">수학부</td>
+                            <td class="mdl-data-table__cell--non-numeric">학생동 3층</td>
+                        </tr>
+                        <tr>
+                            <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">컴퓨터부(CE-L)</td>
+                            <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
+                        </tr>
+                        <tr>
+                            <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">물리부</td>
+                            <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <br />                            
+            </div>
+        </main>
+    </div>
+    <div id="list-page" style="position: absolute;z-index:200;display:none;background-color:white;width:100%">
+        <header class="mdl-layout__header mdl-shadow--3dp" style="background-color:white;color:black;border-bottom: 0 rgba(0, 0, 0, 0.19)">
+            <form action="#">
+                    <label class="mdl-button mdljs-button" style="margin-top:10px" onclick="gotoclub(99)">
+                        <i class="material-icons" style="color:black">arrow_back</i>
+                    </label>                
+            </form>
+        </header>
+        <img src="images/list.png" width=100%>
+        <h5 style="color:#1b1b1b;margin-left:10px"><b>과학기술정보통신부</b></h5>
+        <h6 style="color:#1b1b1b;margin-left:10px"><b>Since. </b>2015</h6>
+        <h6 style="color:#4050b6;margin-left:10px" onclick="location.href='http://klist.cf'"><b style="color:#1b1b1b">웹사이트:</b> http://klist.cf</h6>
+        <h6 style="color:#4050b6;margin-left:10px" onclick="location.href='httpps://facebook.com'"><b style="color:#1b1b1b">페이스북:</b> https://facebook.com</h6>
+        <h6 style="color:#4050b6;margin-left:10px" onclick=""><b style="color:#1b1b1b">위치:</b> 학생동 2층 1학년 8반</h6>
+        <h6 style="color:#1b1b1b;margin-left:10px"><b>임원</b></h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>부장:</b> 배성필</h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>차장:</b> 허이섭</h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>차장:</b> 윤재원</h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>회계:</b> 천혁우</h6>
+        
+
+
     </div>
     <div id="loading" style="z-index:100;">
         <img src="images/logo.png" style="width:200px;" />
@@ -661,6 +684,9 @@
             }
             else if(a==6){
 
+            }
+            else {
+                document.getElementById("list-page").style.display = "none";
             }
         }
     </script>
