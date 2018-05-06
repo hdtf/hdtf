@@ -24,15 +24,10 @@
         ::-webkit-scrollbar {
             display: none;
         }
-        #loading {
+        #map {
             height: 100%;
             width: 100%;
-            color: white;
-            text-align: center;
-            -webkit-animation-name: animateapear;
-            -webkit-animation-duration: 1s;
-            animation-name: animateapear;
-            animation-duration: 1s
+            background-color: grey;
         }
         .pink {
             color: #123056;
@@ -45,9 +40,6 @@
             margin-right: auto;
             margin-left: auto;
         }
-        .page-content {
-            padding-top: 1em;
-        }
         .hreftext {
             color:#123056;
             border:none;
@@ -59,20 +51,6 @@
         div.container {
             padding: 10px;
         }
-        .animate-apear {
-            -webkit-animation-name: animateapear;
-            -webkit-animation-duration: 1s;
-            animation-name: animateapear;
-            animation-duration: 1s
-        }
-        @-webkit-keyframes animateapear {
-            from { opacity:0 }
-            to { opacity:1 }
-        }
-        @keyframes animateapear {
-            from{ opacity:0 }
-            to{  opacity:1 }
-        }
         @media screen and (max-width: 1024px){
             .mdl-layout__header {
                 display: inherit;
@@ -82,101 +60,262 @@
 </head>
 
 <body style="background-color:#123056;height:100%;width:100%;">
-    <div id="loading" style="z-index:100;">
-        <img src="images/logo.png" style="width:200px;" />
-    </div>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs animate-apear demo-layout-wterfall" id="main" style="display:none">
-        <header class="mdl-layout__header mdl-layout__header--waterfall">
-            <div style="background-color:#4050b6;">
-                <!-- Expandable Textfield -->
-                <form action="#" style="margin-left:15%">
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="se">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder" id="sa">
-                        <input class="mdl-textfield__input" type="text" id="se">
-                        <label class="mdl-textfield__label" style="background-color:#ffffff" for="sample-expandable">Expandable Input</label>
-                    </div>
-                    </div>
-                </form>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('0');">과학기술정보통신부(LIST)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('1');">물리부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('2');">생물부(KBRC)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('3');">창의수학탐구부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('4');">창의융합과학부(CSS)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('5');">천문학부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('6');">컴퓨터부(CE-L)</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('7');">항공부</div>
-                    <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;z-index:3;position:absolute;width:60%;margin-left:15%;" onclick="fill('8');">화학부(KCC)</div>
-                
-                
-                <!-- Title -->
-                <div style="margin-left:15%">
-                    
-                </div>
-            </div>
-            <!-- Tabs -->
-            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                <a href="#fixed-tab-1" class="mdl-layout__tab" style="font-size:18px">스탬프</a>
-                <a href="#fixed-tab-2" class="mdl-layout__tab is-active" style="font-size:18px">홈</a>
-                <a href="#fixed-tab-3" class="mdl-layout__tab" style="font-size:18px">지도</a>
-                <a href="#fixed-tab-4" class="mdl-layout__tab" style="font-size:18px">이벤트</a>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer" style="border:none">       
-            <div style="background: url('images/momo event.jpg') center/cover;height:25%;">
-                <div class="container" style="background-color:rgba(0, 0, 0, 0);height:18%">
-                    <button id="demo-menu-lower-right" style="color:white;position:absolute;right:5px" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="material-icons">more_vert</i>
-                    </button>
+    <main style="height:100%">
+        <div class="page-content" style="height:100%">
+            <div id="map"></div>
+            <script>
+                var map;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 37.517068, lng: 127.056214},
+                        zoom: 17,
+                        mapTypeControl: false,
+                        streetViewControl: false,
+                        fullscreenControl: false
+                    });
 
-                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                        <li class="mdl-menu__item" onclick="location.href=''">프로필 설정</li>
-                        <li class="mdl-menu__item" onclick="location.href='coupon.html'">쿠폰 사용</li>
-                    </ul>
-                </div>
-            </div>
-            <nav class="mdl-navigation mdl-js-ripple-effect">
-                <a class="hreftext mdl-navigation__link" href="#fixed-tab-1"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">check_circle</i>스탬프</a>
-                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-2"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">home</i>홈</a>
-                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-3"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">place</i>지도</a>
-                <a class="hreftext mdl-navigation__link" href="index.html/#fixed-tab-4"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">event</i>이벤트</a>
-                <hr />
-                <a class="hreftext mdl-navigation__link" href="creator-page.html"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">account_box</i>만든이</a>
-                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">notifications</i>알림</a>
-                <a class="hreftext mdl-navigation__link" href=""><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%">settings</i>설정</a>
-                <a class="hreftext mdl-navigation__link" href="tel://112"><i class="material-icons" style="color:#123056;margin-left:5px;margin-right:10%" >call</i>긴급전화</a>
-            </nav>
+                    var StudentCoords = [
+                        {lat: 37.516410, lng: 127.055607},
+                        {lat: 37.516449, lng: 127.055583},
+                        {lat: 37.516373, lng: 127.055406},
+                        {lat: 37.516337, lng: 127.055429},
+                        {lat: 37.516283, lng: 127.055295},
+                        {lat: 37.516193, lng: 127.055357},
+                        {lat: 37.516454, lng: 127.055991},
+                        {lat: 37.516444, lng: 127.056044},
+                        {lat: 37.516409, lng: 127.056061},
+                        {lat: 37.516693, lng: 127.056728},
+                        {lat: 37.516782, lng: 127.056669},
+                        {lat: 37.516729, lng: 127.056535},
+                        {lat: 37.516764, lng: 127.056511},
+                        {lat: 37.516687, lng: 127.056341},
+                        {lat: 37.516656, lng: 127.056362},
+                        {lat: 37.516546, lng: 127.056107},
+                        {lat: 37.516623, lng: 127.056059},
+                        {lat: 37.516558, lng: 127.055914},
+                        {lat: 37.516545, lng: 127.055923}
+                    ];
+                    var ControlCoords = [
+                        {lat: 37.516841, lng: 127.055875},
+                        {lat: 37.516999, lng: 127.055763},
+                        {lat: 37.516864, lng: 127.055455},
+                        {lat: 37.516706, lng: 127.055562}
+                    ];
+                    var HwadongCoords = [
+                        {lat: 37.516062, lng: 127.055437},
+                        {lat: 37.516104, lng: 127.055538},
+                        {lat: 37.516135, lng: 127.055519},
+                        {lat: 37.516193, lng: 127.055653},
+                        {lat: 37.516180, lng: 127.055664},
+                        {lat: 37.516338, lng: 127.056026},
+                        {lat: 37.516230, lng: 127.056099},
+                        {lat: 37.516101, lng: 127.055789},
+                        {lat: 37.516088, lng: 127.055797},
+                        {lat: 37.515960, lng: 127.055503}
+                    ];
+                    var ScienceCoords = [
+                        {lat: 37.517069, lng: 127.055869},
+                        {lat: 37.517214, lng: 127.056215},
+                        {lat: 37.517191, lng: 127.056232},
+                        {lat: 37.517203, lng: 127.056267},
+                        {lat: 37.517203, lng: 127.056267},
+                        {lat: 37.516928, lng: 127.056443},
+                        {lat: 37.516863, lng: 127.056301},
+                        {lat: 37.516976, lng: 127.056229},
+                        {lat: 37.516957, lng: 127.056188},
+                        {lat: 37.517017, lng: 127.056148},
+                        {lat: 37.517034, lng: 127.056195},
+                        {lat: 37.517054, lng: 127.056179},
+                        {lat: 37.516960, lng: 127.055945}
+                    ];
+                    var CultureCoords = [
+                        {lat: 37.515807, lng: 127.054896},
+                        {lat: 37.515769, lng: 127.054698},
+                        {lat: 37.515745, lng: 127.054700},
+                        {lat: 37.515723, lng: 127.054608},
+                        {lat: 37.515681, lng: 127.054622},
+                        {lat: 37.515573, lng: 127.054678},
+                        {lat: 37.515488, lng: 127.054775},
+                        {lat: 37.515398, lng: 127.054664},
+                        {lat: 37.515319, lng: 127.054770},
+                        {lat: 37.515575, lng: 127.055092},
+                        {lat: 37.515600, lng: 127.055044},
+                        {lat: 37.515643, lng: 127.055003}
+                    ];
+                    var LibraryCoords = [
+                        {lat: 37.516107, lng: 127.055258},
+                        {lat: 37.516034, lng: 127.055093},
+                        {lat: 37.516001, lng: 127.055119},
+                        {lat: 37.515933, lng: 127.054951},
+                        {lat: 37.515763, lng: 127.055065},
+                        {lat: 37.515902, lng: 127.055395}
+                    ];
+                    var CenturyCoords = [
+                        {lat: 37.518266, lng: 127.056679},
+                        {lat: 37.518302, lng: 127.056780},
+                        {lat: 37.518214, lng: 127.056823},
+                        {lat: 37.518303, lng: 127.057096},
+                        {lat: 37.518338, lng: 127.057074},
+                        {lat: 37.518359, lng: 127.057120},
+                        {lat: 37.518413, lng: 127.057155},
+                        {lat: 37.518465, lng: 127.057180},
+                        {lat: 37.518527, lng: 127.057194},
+                        {lat: 37.518596, lng: 127.057157},
+                        {lat: 37.518635, lng: 127.057113},
+                        {lat: 37.518661, lng: 127.057061},
+                        {lat: 37.518674, lng: 127.057001},
+                        {lat: 37.518672, lng: 127.056919},
+                        {lat: 37.518653, lng: 127.056854},
+                        {lat: 37.518623, lng: 127.056813},
+                        {lat: 37.518577, lng: 127.056774},
+                        {lat: 37.518521, lng: 127.056752},
+                        {lat: 37.518489, lng: 127.056750},
+                        {lat: 37.518473, lng: 127.056695},
+                        {lat: 37.518390, lng: 127.056739}
+                    ];
+                    var GymCoords = [
+                        {lat: 37.517575, lng: 127.055765},
+                        {lat: 37.517317, lng: 127.055935},
+                        {lat: 37.517320, lng: 127.055942},
+                        {lat: 37.517302, lng: 127.055955},
+                        {lat: 37.517490, lng: 127.056388},
+                        {lat: 37.517762, lng: 127.056207}
+                    ];
+
+                    var Student = new google.maps.Polygon({
+                        paths: StudentCoords,
+                        strokeColor: '#4caf50',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#4caf50',
+                        fillOpacity: 0.35
+                    });
+                    var Control = new google.maps.Polygon({
+                        paths: ControlCoords,
+                        strokeColor: '#00bcd4',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#00bcd4',
+                        fillOpacity: 0.35
+                    });
+                    var Hwadong = new google.maps.Polygon({
+                        paths: HwadongCoords,
+                        strokeColor: '#ab47bc',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#ab47bc',
+                        fillOpacity: 0.35
+                    });
+                    var Science = new google.maps.Polygon({
+                        paths: ScienceCoords,
+                        strokeColor: '#ab47bc',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#ab47bc',
+                        fillOpacity: 0.35
+                    });
+                    var Culture = new google.maps.Polygon({
+                        paths: CultureCoords,
+                        strokeColor: '#4caf50',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#4caf50',
+                        fillOpacity: 0.35
+                    });
+                    var Library = new google.maps.Polygon({
+                        paths: LibraryCoords,
+                        strokeColor: '#00bcd4',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#00bcd4',
+                        fillOpacity: 0.35
+                    });
+                    var Century = new google.maps.Polygon({
+                        paths: CenturyCoords,
+                        strokeColor: '#00bcd4',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#00bcd4',
+                        fillOpacity: 0.35
+                    });
+                    var Gym = new google.maps.Polygon({
+                        paths: GymCoords,
+                        strokeColor: '#4caf50',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#4caf50',
+                        fillOpacity: 0.35
+                    });
+
+                    Student.setMap(map);
+                    Control.setMap(map);
+                    Hwadong.setMap(map);
+                    Science.setMap(map);
+                    Culture.setMap(map);
+                    Library.setMap(map);
+                    Century.setMap(map);
+                    Gym.setMap(map);
+
+                    var KyunggiCoords = [
+                        {lat: 37.519397, lng: 127.0570571},
+                        {lat: 37.516578, lng: 127.0585933},
+                        {lat: 37.516509, lng: 127.0581210},
+                        {lat: 37.516452, lng: 127.0581351},
+                        {lat: 37.515850, lng: 127.0554821},
+                        {lat: 37.515354, lng: 127.0556571},
+                        {lat: 37.515093, lng: 127.0548934},
+                        {lat: 37.514665, lng: 127.0549807},
+                        {lat: 37.514490, lng: 127.0539994},
+                        {lat: 37.514488, lng: 127.0539909},
+                        {lat: 37.514898, lng: 127.0533945},
+                        {lat: 37.514932, lng: 127.0533832},
+                        {lat: 37.516465, lng: 127.0542016},
+                        {lat: 37.516598, lng: 127.0542978}
+                    ];
+                    var Kyunggi = new google.maps.Polygon({
+                        paths: KyunggiCoords,
+                        strokeColor: '#000000',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#000000',
+                        fillOpacity: 0.35
+                    });
+                    Kyunggi.setMap(map);
+
+                    map.addListener('zoom_changed', function() {
+                        var zoom = map.getZoom();
+                        if(zoom > 16 || zoom < 19) {
+                            Student.setMap(map);
+                            Control.setMap(map);
+                            Hwadong.setMap(map);
+                            Science.setMap(map);
+                            Culture.setMap(map);
+                            Library.setMap(map);
+                            Century.setMap(map);
+                            Gym.setMap(map);
+                            Kyunggi.setMap(null);
+                        } else {
+                            alert('..?');
+                            Student.setMap(null);
+                            Control.setMap(null);
+                            Hwadong.setMap(null);
+                            Science.setMap(null);
+                            Culture.setMap(null);
+                            Library.setMap(null);
+                            Century.setMap(null);
+                            Gym.setMap(null);
+                            if(zoom < 17) {
+                                Kyunggi.setMap(map);
+                            } else if(zoom == 19) {
+                                
+                            }
+                        }
+                    });
+                };
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
         </div>
-        <main class="mdl-layout__content" style="width:100%;background-color:white">          
-            <section class="mdl-layout__tab-panel" id="fixed-tab-1">
-                <div class="page-content">
-                    
-                </div>
-            </section>
-            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-                <div class="page-content">
-
-                </div>
-            </section>
-            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-3">
-                <div class="page-content">
-                    <div id="map" style="width:100%;height:100%;"></div>
-                </div>
-            </section>
-            <section class="mdl-layout__tab-panel" id="fixed-tab-4">
-                <div class="page-content">
-
-                </div>
-            </section>
-            <section class="mdl-layout__tab-panel" id="login-page">
-                <div class="page-content">
-
-                </div>
-            </section>
-        </main>
-    </div>
+    </main>
     <dialog class="mdl-dialog">
         <div class="mdl-dialog__content">
             <h3>안내</h3>
@@ -200,12 +339,7 @@
         });
         window.onload = function(){
             var h = window.innerHeight;
-            document.getElementById("loading").style.marginTop = (h / 2 - 100) + "px";
-            setTimeout(function(){
-                document.getElementById("loading").style.display = "none";
-                document.getElementById("main").style.display = "";
-                dialog.showModal();
-            }, 3000);
+            dialog.showModal();
             $("a").on('click', function(event) {
                 if (this.hash !== "") {
                     event.preventDefault();
@@ -217,66 +351,5 @@
             });
         }
     </script>
-
-    <script>        
-        var place = [
-            "과학기술정보통신부(LIST)",
-            "물리부",
-            "생물부(KBRC)",
-            "수학부(KMOC)",
-            "창의수학탐구부",
-            "창의융합과학부(CSS)",
-            "천문학부",
-            "컴퓨터부(CE-L)",
-            "항공부",
-            "화학부(KCC)"
-        ];
-
-        function fill(n) {
-            document.getElementById("se").value = place[n];
-            document.getElementById("se").focus();
-        }
-            document.getElementById("sa").onkeyup = function(e) {
-                if(e.keyCode > 64){//backspace 등 추가하고 범위 수정
-                    var value = document.getElementById("se").value.toUpperCase();
-                    for(var i in place) {
-                        var x = place[i].split(value);
-                        if(place[i] != x[0]) {
-                            var ans = "";
-                            for(var j in x) {
-                                if(j != 0) {
-                                    ans += "<b>" + value + "</b>";
-                                }
-                                ans += x[j];
-                            }
-                            document.getElementById("L" + i).innerHTML = ans;
-                            document.getElementById("L" + i).style.display = "";
-                        } else {
-                            document.getElementById("L" + i).innerHTML = place[i];
-                            document.getElementById("L" + i).style.display = "none";
-                        }
-                    }
-                } else {
-                    event.preventDefault();
-                }
-            }
-
-            document.getElementById("sa").onblur = function() {
-                for(var i in place) {
-                    document.getElementById("L" + i).style.display = "none";
-                }
-            }            
-    </script>
-
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5a16b8301f75326d7a2b1f2d57ad319a"></script>
-    <script>
-            var container = document.getElementById('map');
-            var options = {
-                center: new daum.maps.LatLng(37.517069, 127.056212),
-                level: 3
-            };
-    
-            var map = new daum.maps.Map(container, options);
-        </script>
 </body>
 </html>

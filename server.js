@@ -2,13 +2,13 @@
 const http = require('http');
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 
-const db = require('./database');
+//const db = require('./database');
 
 
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+/*app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.post('/register.html', function (req, res) {
@@ -51,7 +51,7 @@ app.post('/register.html', function (req, res) {
     });
 
 
-});
+});*/
 
 http.createServer(app).listen(80, function () {
    console.log('Server running at klist.cf');
