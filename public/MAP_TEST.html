@@ -28,6 +28,17 @@
             height: 100%;
             width: 100%;
             background-color: grey;
+            position: fixed;
+            z-index: 0;
+        }
+        #infobox {
+            width: 100%;
+            /*height:70px;*/
+            padding: 2em;
+            position: fixed;
+            z-index: 2;
+            bottom: 0px;
+            background-color: #123056;
         }
         .pink {
             color: #123056;
@@ -65,10 +76,11 @@
             <div id="map"></div>
             <script>
                 var map;
+                var floor = 2;
                 function initMap() {
                     map = new google.maps.Map(document.getElementById('map'), {
                         center: {lat: 37.517068, lng: 127.056214},
-                        zoom: 17,
+                        zoom: 18,
                         mapTypeControl: false,
                         streetViewControl: false,
                         fullscreenControl: false
@@ -184,66 +196,66 @@
 
                     var Student = new google.maps.Polygon({
                         paths: StudentCoords,
-                        strokeColor: '#4caf50',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#4caf50',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Control = new google.maps.Polygon({
                         paths: ControlCoords,
-                        strokeColor: '#00bcd4',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#00bcd4',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Hwadong = new google.maps.Polygon({
                         paths: HwadongCoords,
-                        strokeColor: '#ab47bc',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#ab47bc',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Science = new google.maps.Polygon({
                         paths: ScienceCoords,
-                        strokeColor: '#ab47bc',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#ab47bc',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Culture = new google.maps.Polygon({
                         paths: CultureCoords,
-                        strokeColor: '#4caf50',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#4caf50',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Library = new google.maps.Polygon({
                         paths: LibraryCoords,
-                        strokeColor: '#00bcd4',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#00bcd4',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Century = new google.maps.Polygon({
                         paths: CenturyCoords,
-                        strokeColor: '#00bcd4',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#00bcd4',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
                     var Gym = new google.maps.Polygon({
                         paths: GymCoords,
-                        strokeColor: '#4caf50',
+                        strokeColor: '#795548',
                         strokeOpacity: 0.8,
                         strokeWeight: 2,
-                        fillColor: '#4caf50',
+                        fillColor: '#795548',
                         fillOpacity: 0.35
                     });
 
@@ -275,45 +287,105 @@
                     var Kyunggi = new google.maps.Polygon({
                         paths: KyunggiCoords,
                         strokeColor: '#000000',
-                        strokeOpacity: 0.8,
+                        strokeOpacity: 1,
                         strokeWeight: 2,
                         fillColor: '#000000',
-                        fillOpacity: 0.35
+                        fillOpacity: 0.5
                     });
-                    Kyunggi.setMap(map);
 
                     map.addListener('zoom_changed', function() {
                         var zoom = map.getZoom();
-                        if(zoom > 16 || zoom < 19) {
-                            Student.setMap(map);
-                            Control.setMap(map);
-                            Hwadong.setMap(map);
-                            Science.setMap(map);
-                            Culture.setMap(map);
-                            Library.setMap(map);
-                            Century.setMap(map);
-                            Gym.setMap(map);
+                        if(zoom >= 18 && zoom <= 19) {
+                            Student.set('fillOpacity', 0.35);
+                            Control.set('fillOpacity', 0.35);
+                            Hwadong.set('fillOpacity', 0.35);
+                            Science.set('fillOpacity', 0.35);
+                            Culture.set('fillOpacity', 0.35);
+                            Library.set('fillOpacity', 0.35);
+                            Century.set('fillOpacity', 0.35);
+                            Gym.set('fillOpacity', 0.35);
                             Kyunggi.setMap(null);
                         } else {
-                            alert('..?');
-                            Student.setMap(null);
-                            Control.setMap(null);
-                            Hwadong.setMap(null);
-                            Science.setMap(null);
-                            Culture.setMap(null);
-                            Library.setMap(null);
-                            Century.setMap(null);
-                            Gym.setMap(null);
-                            if(zoom < 17) {
+                            Student.set('fillOpacity', 0);
+                            Control.set('fillOpacity', 0);
+                            Hwadong.set('fillOpacity', 0);
+                            Science.set('fillOpacity', 0);
+                            Culture.set('fillOpacity', 0);
+                            Library.set('fillOpacity', 0);
+                            Century.set('fillOpacity', 0);
+                            Gym.set('fillOpacity', 0);
+                            if(zoom <= 17) {
                                 Kyunggi.setMap(map);
-                            } else if(zoom == 19) {
-                                
+                            } else {
+
                             }
                         }
                     });
+                
+                    map.addListener('center_changed', function() {
+                        var centerLat = Math.round(map.getCenter().lat() * 1000000) / 1000000;
+                        var centerLng = Math.round(map.getCenter().lng() * 1000000) / 1000000;
+                        var text = "경기고등학교";
+
+                        /*var Circle = new google.maps.Circle({
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.35,
+                            map: map,
+                            center: {lat: centerLat, lng: centerLng},
+                            radius: 2
+                        });*/
+
+                        if(isIn(StudentCoords, centerLat, centerLng)) {
+                            text = "학생동"
+                        } else if(isIn(ControlCoords, centerLat, centerLng)) {
+                            text = "관리동"
+                        } else if(isIn(HwadongCoords, centerLat, centerLng)) {
+                            text = "화동관"
+                        } else if(isIn(ScienceCoords, centerLat, centerLng)) {
+                            text = "과학동"
+                        } else if(isIn(CultureCoords, centerLat, centerLng)) {
+                            text = "문화관"
+                        } else if(isIn(LibraryCoords, centerLat, centerLng)) {
+                            text = "도서관"
+                        } else if(isIn(CenturyCoords, centerLat, centerLng)) {
+                            text = "100주년 기념관"
+                        } else if(isIn(GymCoords, centerLat, centerLng)) {
+                            text = "체육관"
+                        }
+
+                        if(text != '경기고등학교') {
+                            document.getElementById('info').innerHTML = text
+                        }
+                    });
+
+                    map.addListener('click', function(e) {
+                        alert(e.latLng);
+                    });
                 };
+
+                function isIn (p, LAT, LNG) {
+                    var crosses = 0;
+                    for (const i in p) {
+                        var j = (i + 1) % p.length;
+                        if((p[i].lat * 1 > LAT) != (p[j].lat * 1 > LAT)) {
+                            // if((p[i].lng > LNG) && (p[j].lng > LNG)) {
+                            //     crosses ++;
+                            // }
+                            if(LNG < (p[j].lng- p[i].lng)*(LAT-p[i].lat)/(p[j].lat-p[i].lat)+p[i].lng) {
+                                crosses ++;
+                            }
+                        }
+                    }
+                    return crosses % 2 > 0
+                }
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
+            <div id="infobox">
+                <h4 id="info" style="margin:0px;color:white;">경기고등학교</h3>
+            </div>
         </div>
     </main>
     <dialog class="mdl-dialog">
@@ -339,6 +411,7 @@
         });
         window.onload = function(){
             var h = window.innerHeight;
+            //document.getElementById('map').style.height = h - 100 + 'px';
             dialog.showModal();
             $("a").on('click', function(event) {
                 if (this.hash !== "") {
