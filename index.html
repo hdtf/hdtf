@@ -168,11 +168,134 @@
             100% {top: 850px}
         }
     </style>
+    <style>
+        .demo-card-wide.mdl-card {
+            width: 100%;
+        }
+        .demo-card-wide > .mdl-card__title {
+            color: #fff;
+            height: 176px;
+            /* background: url('images/mina_poster.png') center / cover; */
+        }
+        .demo-card-wide > .mdl-card__menu {
+            color: #fff;
+        }
+        .popanimation {
+            -webkit-animation-name: popanimation;
+            -webkit-animation-duration: 1s;
+            animation-name: popanimation;
+            animation-duration: 1s;
+        }
+        @-webkit-keyframes popanimation {
+            0% {bottom: -800px}
+            100% {bottom: 0%}
+        }
+        @keyframes popanimation {
+            0% {bottom: -800px}
+            100% {bottom : 0%}
+        }
+        .backanimation {
+            -webkit-animation-name: backanimation;
+            -webkit-animation-duration: 1s;
+            animation-name: backanimation;
+            animation-duration: 1s;
+        }
+        @-webkit-keyframes backanimation {
+            0% {bottom: 0%}
+            100% {bottom: -800px}
+        }
+        @keyframes backanimation {
+            0% {bottom: 0%}
+            100% {bottom : -800px}
+        }
+    </style>
 </head>
 
 <body style="background-color:#123056;height:100%;width:100%;">
     <main style="height:100%">
         <div class="page-content" style="height:100%">
+            <div class="mdl-shadow--2dp" style="background-color:white;z-index:1;position:absolute;height:50px;width:95%;top:10px;margin-left:2.5%;">
+                
+            </div>
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+                <div id="drawer" class="mdl-layout__drawer">
+                    <span class="mdl-layout-title">화동제</span>
+                    <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" onclick="navfunc(0)">일정</a>
+                    <a class="mdl-navigation__link" onclick="navfunc(1)">이벤트</a>
+                    <a class="mdl-navigation__link" onclick="navfunc(2)">기타</a>
+                    </nav>
+                </div>
+            </div>
+            <div id="info-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
+                <div class="mdl-card__supporting-text">
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table center" style="color:#1b1b1b;font-size:15px;">
+                        <thead>
+                            <tr>
+                                <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >행사</th>
+                                <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                                <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >시간</th>
+                            </tr>
+                        </thead><br />
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">개막식 시작</td>
+                                <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                <td class="mdl-data-table__cell--non-numeric">8:30</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">학식 제공</td>
+                                <td class="mdl-data-table__cell--non-numeric">급식실</td>
+                                <td class="mdl-data-table__cell--non-numeric">10:20</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">외부학생<br>출입 시작</td>
+                                <td class="mdl-data-table__cell--non-numeric"> </td>
+                                <td class="mdl-data-table__cell--non-numeric">11:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">학부모회<br>먹거리장터</td>
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                                <td class="mdl-data-table__cell--non-numeric">11:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">부스 활동 종료</td>
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                                <td class="mdl-data-table__cell--non-numeric">15:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">공연 입장 시작<br>사전행사</td>
+                                <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                <td class="mdl-data-table__cell--non-numeric">15:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">본공연 시작</td>
+                                <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                <td class="mdl-data-table__cell--non-numeric">16:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mdl-card__actions mdl-card--border ">
+                    <a onclick="gbbtn(0);navfunc(3)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Go back
+                    </a>
+                </div>
+            </div>
+            <div id="event-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
+                <div class="mdl-card__actions mdl-card--border ">
+                    <a onclick="gbbtn(1);navfunc(4)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Go back
+                    </a>
+                </div>
+            </div>
+            <div id="guitar-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
+                <div class="mdl-card__actions mdl-card--border ">
+                    <a onclick="gbbtn(2);navfunc(5)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Go back
+                    </a>
+                </div>
+            </div>
             <div id="map"></div>
             <script>
                 var map;
@@ -573,6 +696,36 @@
                     }, 400);
                 }
             }
+        }
+    </script>
+    <script>
+        var drawer = document.getElementById("drawer");
+
+        var nav = [
+            "info-page",
+            "event-page",
+            "guitar-page"
+        ];
+
+        function navfunc(n){
+
+            var page = document.getElementById(nav[n]);
+
+            document.getElementById(nav[n]).style.display = "block"
+            drawer.classList.remove("is-visible");
+            page.classList.remove("backanimation");
+            page.classList.add("popanimation");
+            document.getElementById(nav[n]).style.bottom = "0%";
+
+        }
+
+        function gbbtn(n){
+            var page = document.getElementById(nav[n]);
+
+            page.classList.remove("popanimation");
+            page.classList.add("backanimation");
+            document.getElementById(nav[n]).style.bottom = "-800px";
+            drawer.classList.add("is-visible");
         }
     </script>
 </body>
