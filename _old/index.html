@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>화동제</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#123056">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--색 수정하기-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <script src="club.js"></script>
+    <style>
+        p, a {
+            font-size: 1.5em;
+        }
+        h5 {
+            font-size: 1.6em;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        #loading {
+            height: 100%;
+            width: 100%;
+            color: white;
+            text-align: center;
+            -webkit-animation-name: animateapear;
+            -webkit-animation-duration: 1s;
+            animation-name: animateapear;
+            animation-duration: 1s
+        }
+        .pink {
+            color: #123056;
+        }
+        .gray {
+            color: #424242;
+        }
+        .widecard > .mdl-card__title {
+            color: #ffffff;
+            height: 176px;
+            background: url("images/display1.png") center / cover;
+        }
+        .widecard > .mdl-card__menu {
+            color: #ffffff;
+        }
+        .homeevent{
+            background: url('images/S.png') center / cover;
+        }
+        .center {
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .page-content {
+            padding-top: 1em;
+        }
+        .hreftext {
+            color:#123056;
+            border:none;
+            width:100%;
+            font-size:20px;
+            text-decoration:none;
+            text-align:left;
+        }
+        div.imgcontainer {
+            color:#1b1b1b;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 3%;
+            margin-bottom: 5%;
+            width: 90%;
+            box-shadow: 0 0 10px  0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: block;
+        }
+        div.container {
+            padding: 10px;
+        }
+        .text {
+            color: #123056;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 3s;
+            animation-name: fade;
+            animation-duration: 3s;
+        }
+        @-webkit-keyframes fade {
+            from {opacity: .6} 
+            to {opacity: 1}
+        }
+        @keyframes fade {
+            from {opacity: .6} 
+            to {opacity: 1}
+        }
+        .animate-apear {
+            -webkit-animation-name: animateapear;
+            -webkit-animation-duration: 1s;
+            animation-name: animateapear;
+            animation-duration: 1s
+        }
+        @-webkit-keyframes animateapear {
+            from { opacity:0 }
+            to { opacity:1 }
+        }
+        @keyframes animateapear {
+            from{ opacity:0 }
+            to{  opacity:1 }
+        }
+        @media screen and (max-width: 1024px){
+            .mdl-layout__header {
+                display: inherit;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color:#123056;height:100%;width:100%;">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" style="z-index:100;display:none" id="searchpage">
+        <header class="mdl-layout__header mdl-shadow--3dp" style="background-color:white;color:black;border-bottom: 0 rgba(0, 0, 0, 0.19)">
+            <form action="#">
+                <label class="mdl-button mdljs-button" style="margin-bottom:10px" onclick="gotosearch(0)">
+                    <i class="material-icons" style="color:black">arrow_back</i>
+                </label>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="se">
+                        <i class="material-icons" style="color:black">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder" id="sa">
+                        <input class="mdl-textfield__input" type="text" id="se">
+                        <label class="mdl-textfield__label" style="background-color:#ffffff" for="sample-expandable">Expandable Input</label>
+                    </div>
+                </div>
+            </form>
+        </header>
+        <main style="background-color:white;height:100%">
+            <div style="position:absolute;z-index:95;width:100%">
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L0" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('0');gotoclub(0)">과학기술정보통신부(LIST)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L1" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('1');gotoclub(1)">물리부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('2');gotoclub(2)">생물부(KBRC)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L2" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('3');gotoclub(3)">수학부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L3" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('4');gotoclub(4)">창의수학탐구부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L4" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('5');gotoclub(5)">창의융합과학부(CSS)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L5" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('6');gotoclub(6)">천문학부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L6" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('7');gotoclub(7)">컴퓨터부(CE-L)</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L7" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('8');gotoclub(8)">항공부</div>
+                <div class="mdl-card__supporting-text mdl-shadow--3dp" id="L8" style="display:none;background-color:white;width:60%;margin-left:15%;" onclick="fill('9');gotoclub(9)">화학부(KCC)</div>
+            </div>
+            <br /> 
+            <div style="position:absolute;z-index: 90;width:100%;">
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
+                    <thead>
+                        <tr>
+                            <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >추천동아리</th>
+                            <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                        </tr>
+                    </thead><br />
+                    <tbody>
+                        <tr>
+                            <td onclick="gotoclub(0)" class="mdl-data-table__cell--non-numeric">과학기술정보통신부(LIST)</td>
+                            <td class="mdl-data-table__cell--non-numeric">학생동 2층</td>
+                        </tr>
+                        <tr>
+                            <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">수학부</td>
+                            <td class="mdl-data-table__cell--non-numeric">학생동 3층</td>
+                        </tr>
+                        <tr>
+                            <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">컴퓨터부(CE-L)</td>
+                            <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
+                        </tr>
+                        <tr>
+                            <td onclick="location.href='list_page.html'" class="mdl-data-table__cell--non-numeric">물리부</td>
+                            <td class="mdl-data-table__cell--non-numeric">과학동 2층</td>
+                        </tr>
+                    </tbody>
+                </table> 
+                <br />                            
+            </div>
+        </main>
+    </div>
+    <div id="list-page" style="position: absolute;z-index:200;display:none;background-color:white;width:100%">
+        <header class="mdl-layout__header mdl-shadow--3dp" style="background-color:white;color:black;border-bottom: 0 rgba(0, 0, 0, 0.19)">
+            <form action="#">
+                    <label class="mdl-button mdljs-button" style="margin-top:10px" onclick="gotoclub(99)">
+                        <i class="material-icons" style="color:black">arrow_back</i>
+                    </label>                
+            </form>
+        </header>
+        <img src="images/list.png" width=100%>
+        <h5 style="color:#1b1b1b;margin-left:10px"><b>과학기술정보통신부</b></h5>
+        <h6 style="color:#1b1b1b;margin-left:10px"><b>Since. </b>2015</h6>
+        <h6 style="color:#4050b6;margin-left:10px" onclick="location.href='http://klist.cf'"><b style="color:#1b1b1b">웹사이트:</b> http://klist.cf</h6>
+        <h6 style="color:#4050b6;margin-left:10px" onclick="location.href='httpps://facebook.com'"><b style="color:#1b1b1b">페이스북:</b> https://facebook.com</h6>
+        <h6 style="color:#4050b6;margin-left:10px" onclick=""><b style="color:#1b1b1b">위치:</b> 학생동 2층 1학년 8반</h6>
+        <h6 style="color:#1b1b1b;margin-left:10px"><b>임원</b></h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>부장:</b> 배성필</h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>차장:</b> 허이섭</h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>차장:</b> 윤재원</h6>
+        <h6 style="color:#1b1b1b;margin-left:20px" onclick="location.href='https://facebook.com'"><b>회계:</b> 천혁우</h6>
+    </div>
+    <div id="loading" style="z-index:100;">
+        <img src="images/logo.png" style="width:200px;" />
+    </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs animate-apear demo-layout-waterfall" id="main" style="display:none">
+        <header class="mdl-layout__header mdl-layout__header--waterfall">
+            <div style="background-color:#4050b6;">
+                <form onclick="gotosearch(1)" style="margin-left:5%;">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons">search</i>
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <br />
+            <!-- Tabs -->
+            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                <a href="#fixed-tab-1" class="mdl-layout__tab" style="font-size:18px">동아리</a>
+                <a href="#fixed-tab-2" class="mdl-layout__tab is-active" style="font-size:18px">홈</a>
+                <a href="#fixed-tab-3" class="mdl-layout__tab" style="font-size:18px">지도</a>
+                <a href="#fixed-tab-4" class="mdl-layout__tab" style="font-size:18px">이벤트</a>
+            </div>
+        </header>
+        <main class="mdl-layout__content" style="width:100%;background-color:white">
+            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-2">
+                <div class="page-content">
+                    <div class="widecard mdl-card mdl-shadow--2dp center">
+                        <div class="mdl-card__supporting-text" style="font-size:15px">
+                            <img src="images/mina_poster.png" width="100%" style="margin-bottom:10px"><br />
+                            미나&lt;3
+                        </div>
+                        </div>
+                        <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                            <i class="material-icons" onclick="location.href='https://www.facebook.com/rudrlrh2016/'" style="color:#ffffff">share</i>
+                        </button>
+                        </div>
+                    </div>
+                    <div style="height:1em"></div>
+                    <div>
+                        <h4 class="pinkp" style="margin-left:5%;">일정</h4>
+                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
+                            <thead>
+                                <tr>
+                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >행사</th>
+                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >시간</th>
+                                </tr>
+                            </thead><br />
+                            <tbody>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">개막식 시작</td>
+                                    <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                    <td class="mdl-data-table__cell--non-numeric">8:30</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">학식 제공</td>
+                                    <td class="mdl-data-table__cell--non-numeric">급식실</td>
+                                    <td class="mdl-data-table__cell--non-numeric">10:20</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">외부학생<br>출입 시작</td>
+                                    <td class="mdl-data-table__cell--non-numeric"> </td>
+                                    <td class="mdl-data-table__cell--non-numeric">11:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">학부모회<br>먹거리장터</td>
+                                    <td class="mdl-data-table__cell--non-numeric"></td>
+                                    <td class="mdl-data-table__cell--non-numeric">11:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">부스 활동 종료</td>
+                                    <td class="mdl-data-table__cell--non-numeric"></td>
+                                    <td class="mdl-data-table__cell--non-numeric">15:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">공연 입장 시작<br>사전행사</td>
+                                    <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                    <td class="mdl-data-table__cell--non-numeric">15:00</td>
+                                </tr>
+                                <tr>
+                                    <td class="mdl-data-table__cell--non-numeric">본공연 시작</td>
+                                    <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                    <td class="mdl-data-table__cell--non-numeric">16:00</td>
+                                </tr>
+                            </tbody>
+                        </table>                             
+                    </div>
+                    <br />
+                    <div>
+                        <h4 class="pink" style="margin-left:5%">이벤트</h4>
+                        <div class="imgcontainer mdl-shadow--2dp">
+                            <a href=" " style="text-decoration:none;color:#424242;font-size:20px;">
+                            <img src="images/s.png" width=100%>
+                                <div class="container mdl-button mdl-button--colored mdl-js-button mdl-layout__tab mdl-js-ripple-effect">
+                                    <a href="#fixed-tab-4" style="text-decoration:none;color:#4050b6;font-size:15px;">이벤트 페이지</a>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+                <div class="page-content">
+
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="fixed-tab-4">
+                <div class="page-content">
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/momo event.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="visible(1)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div>
+                    </div>  
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-1">
+                        모모는 모리가 아파여.
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina event.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="visible(2)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div>
+                    </div> 
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-2">
+                        미나 안미나
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina_poster.png') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="visible(3)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div>
+                    </div> 
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-3">
+                        미나의 상큼함을 코앞에서 볼 수 있는 기회가 주어집니다. 입장료 200만원이면 미나의 싸인회에 입장 할 수 있습니다. VIP인 허이섭과 배성필은 무료입니다.
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/쯔위.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="visible(4)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div> 
+                    </div>
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-4">
+                        쯔위는 위가 아파여.
+                    </div>
+                    <br />
+                </div>
+            </section>
+        </main>
+    </div>
+    <dialog class="mdl-dialog">
+        <div class="mdl-dialog__content">
+            <h3>TWICE</h3>
+            <p>
+                    I want you back
+                    
+            </p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button close pink">OK</button>
+        </div>
+    </dialog>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
+    <script type="text/javascript"> 
+    $('#selectEmail').change(function(){ 
+        $("#selectEmail option:selected").each(function () { 
+            if($(this).val()== '1'){ 
+                $("#str_email02").val(''); 
+                $("#str_email02").attr("disabled",false);  
+            }else{ 
+                    $("#str_email02").val($(this).text()); 
+                    $("#str_email02").attr("disabled",true); 
+            } 
+        }); 
+    }); 
+    </script>
+    <script>
+        var dialog = document.querySelector('dialog');
+        if (! dialog.showModal) {
+          dialogPolyfill.registerDialog(dialog);
+        }
+        dialog.querySelector('.close').addEventListener('click', function() {
+          dialog.close();
+        });
+        window.onload = function(){
+            var h = window.innerHeight;
+            document.getElementById("loading").style.marginTop = (h / 2 - 100) + "px";
+            setTimeout(function(){
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("main").style.display = "";
+                dialog.showModal();
+            }, 3000);
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop:$(hash).offset().top
+                    }, 2000, 'easeInOutQuint');
+                }
+            });
+        }
+    </script>
+    <script>
+        var place = [
+            "과학기술정보통신부(LIST)",
+            "물리부",
+            "생물부(KBRC)",
+            "수학부(KMOC)",
+            "창의수학탐구부",
+            "창의융합과학부(CSS)",
+            "천문학부",
+            "컴퓨터부(CE-L)",
+            "항공부",
+            "화학부(KCC)"
+        ];
+
+        function fill(n) {
+            document.getElementById("se").value = place[n];
+            document.getElementById("se").focus();
+        }
+            document.getElementById("sa").onkeyup = function(e) {
+                if(e.keyCode > 64){//backspace 등 추가하고 범위 수정
+                    var value = document.getElementById("se").value.toUpperCase();
+                    for(var i in place) {
+                        var x = place[i].split(value);
+                        if(place[i] != x[0]) {
+                            var ans = "";
+                            for(var j in x) {
+                                if(j != 0) {
+                                    ans += "<b>" + value + "</b>";
+                                }
+                                ans += x[j];
+                            }
+                            document.getElementById("L" + i).innerHTML = ans;
+                            document.getElementById("L" + i).style.display = "";
+                        } else {
+                            document.getElementById("L" + i).innerHTML = place[i];
+                            document.getElementById("L" + i).style.display = "none";
+                        }
+                    }
+                } else {
+                    event.preventDefault();
+                }
+            }
+
+            document.getElementById("sa").onblur = function() {
+                for(var i in place) {
+                    document.getElementById("L" + i).style.display = "none";
+                }
+            }            
+    </script>
+    <script>
+        var event = [
+            "eventscp-1",
+            "eventscp-2",
+            "eventscp-3",
+            "eventscp-4"
+        ];
+
+        var gotoclub = [
+            "list-page",
+            "CSS-page",
+            "-page"
+            
+        ];
+
+        function visible(a){
+            document.getElementById(event[a-1]).style.display="block";
+        }
+
+        function gotosearch(a){
+            if(a==1){
+                document.getElementById("searchpage").style.display = "block";
+            }
+            else if(a==0){
+                document.getElementById("searchpage").style.display = "none";
+            }
+        }
+
+        function gotoclub(n){
+            documnet.getElementById(gotoclub[n]).style.display = "block";
+        }
+
+    </script>
+</body>
+</html>
