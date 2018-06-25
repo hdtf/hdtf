@@ -755,22 +755,28 @@
             page.classList.remove("backanimation");
             page.classList.add("popanimation");
             document.getElementById(nav[n]).style.bottom = "0%";
-
+            
+            if(n==0){
+                document.getElementById(nav[n+1]).style.display = "none";
+                document.getElementById(nav[n+2]).style.display = "none";
+            }
+            else if(n==1){
+                document.getElementById(nav[n+1]).style.display = "none";
+                document.getElementById(nav[n-1]).style.display = "none";
+            }
+            else if(n==2){
+                document.getElementById(nav[n-2]).style.display = "none";
+                document.getElementById(nav[n-1]).style.display = "none";
+            }
         }
 
         function gbbtn(n){
             var page = document.getElementById(nav[n]);
-
-            var bottom = document.getElementById(nav[n]).scrollHeight
             
             page.classList.remove("popanimation");
             page.classList.add("backanimation");
             document.getElementById(nav[n]).style.bottom = "-800px";
             drawer.classList.add("is-visible");
-
-            if(bottom >0){
-                document.getElementById(nav[n]).style.display = "none";
-            }
         }
     </script>
 </body>
