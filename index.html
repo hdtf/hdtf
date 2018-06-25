@@ -199,6 +199,7 @@
             -webkit-animation-duration: 1s;
             animation-name: backanimation;
             animation-duration: 1s;
+            display: block;
         }
         @-webkit-keyframes backanimation {
             0% {bottom: 0%}
@@ -217,7 +218,7 @@
             <div class="mdl-shadow--2dp" style="background-color:white;z-index:1;position:absolute;height:50px;width:95%;top:10px;margin-left:2.5%;">
                 
             </div>
-            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" style="margin: 0; height: 100%; overflow: hidden">
                 <div id="drawer" class="mdl-layout__drawer">
                     <span class="mdl-layout-title">화동제</span>
                     <nav class="mdl-navigation">
@@ -282,13 +283,51 @@
                     </a>
                 </div>
             </div>
+
             <div id="event-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
                 <div class="mdl-card__actions mdl-card--border ">
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/momo event.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="evtvis(0)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div>
+                    </div>  
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-1">
+                        모모는 모리가 아파여.
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina event.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="evtvis(1)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div>
+                    </div> 
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-2">
+                        미나 안미나
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/쯔위.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="evtvis(2)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div> 
+                    </div>
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-3">
+                        쯔위는 위가 아파여.
+                    </div>
+                    <hr>
                     <a onclick="gbbtn(1);navfunc(4)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                     Go back
                     </a>
                 </div>
             </div>
+
             <div id="guitar-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
                 <div class="mdl-card__actions mdl-card--border ">
                     <a onclick="gbbtn(2);navfunc(5)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
@@ -722,10 +761,16 @@
         function gbbtn(n){
             var page = document.getElementById(nav[n]);
 
+            var bottom = document.getElementById(nav[n]).scrollHeight
+            
             page.classList.remove("popanimation");
             page.classList.add("backanimation");
             document.getElementById(nav[n]).style.bottom = "-800px";
             drawer.classList.add("is-visible");
+
+            if(bottom >0){
+                document.getElementById(nav[n]).style.display = "none";
+            }
         }
     </script>
 </body>
