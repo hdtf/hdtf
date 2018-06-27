@@ -266,12 +266,12 @@
             <div id="main-page" class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs" style="display:none;position:absolute;z-index:4;overflow:auto">
                 <header class="mdl-layout__header">
                     <div class="mdl-layout__header-row" style="padding-left:16px">
-                    <i onclick="gobackfunc()" class="material-icons mdl-js-ripple-effect" style="color:white;position:absolute;z-index:5;left:10px">arrow_back</i>
+                    <i onclick="gobackfunc();removeevt()" class="material-icons mdl-js-ripple-effect" style="color:white;position:absolute;z-index:5;left:10px">arrow_back</i>
                     <span class="mdl-layout-title" style="margin-left:auto;margin-right:auto">화동제 정보</span>
                     </div>
                     <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-shadow--2dp" style="background-color:white;">
                     <a id="infobtn" href="#info-page" style="color:black" class="mdl-layout__tab is-active">일정</a>
-                    <a id="eventbtn" href="#event-page" style="color:black" class="mdl-layout__tab">이벤트</a>
+                    <a id="eventbtn" onclick="removeevt()" href="#event-page" style="color:black" class="mdl-layout__tab">이벤트</a>
                     <a id="guitarbtn" href="#guitar-page" style="color:black" class="mdl-layout__tab">기타</a>
                     </div>
                 </header>
@@ -778,7 +778,7 @@
                 }
             }
         }
-    </script>
+    </script>   
     <script>
         var drawer = document.getElementById("drawer");
         var maininfo = document.getElementById("main-page");
@@ -832,6 +832,7 @@
             maininfo.style.display = "none";
             drawer.classList.add("is-visible");
             maininfo.classList.remove("zoomanimation");
+            evtpage.classList.remove("downanimation");
         }
 
         function eventinfo(n){
@@ -870,6 +871,11 @@
             evtpage.style.bottom = "-800px";
             evtpage.classList.remove("upanimation");
             evtpage.classList.add("downanimation");
+        }
+        function removeevt(){
+            evtpage.classList.remove("upanimation");
+            evtpage.classList.remove("downanimation");
+
         }
     </script>
 </body>
