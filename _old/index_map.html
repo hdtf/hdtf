@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="jquery-ui.min.css">
-    <script src="club.js"></script>
     
     <style>
         p, a {
@@ -168,20 +167,6 @@
             0% {top: 0px}
             100% {top: 850px}
         }
-        .zoomanimation {
-            -webkit-animation: zoomanimation 0.4s;
-            animation: zoomanimation 0.4s
-        }
-
-        @-webkit-keyframes zoomanimation {
-            from {-webkit-transform: scale(0)} 
-            to {-webkit-transform: scale(1)}
-        }
-            
-        @keyframes zoomanimation {
-            from {transform: scale(0)} 
-            to {transform: scale(1)}
-        }
     </style>
     <style>
         .demo-card-wide.mdl-card {
@@ -195,187 +180,160 @@
         .demo-card-wide > .mdl-card__menu {
             color: #fff;
         }
-        .upanimation {
-            -webkit-animation-name: upanimation;
+        .popanimation {
+            -webkit-animation-name: popanimation;
             -webkit-animation-duration: 1s;
-            animation-name: upanimation;
+            animation-name: popanimation;
             animation-duration: 1s;
         }
-        @-webkit-keyframes upanimation {
+        @-webkit-keyframes popanimation {
             0% {bottom: -800px}
-            100% {bottom: 0px}
+            100% {bottom: 0%}
         }
-        @keyframes upanimation {
+        @keyframes popanimation {
             0% {bottom: -800px}
-            100% {bottom: 0px}
+            100% {bottom : 0%}
         }
-        
-        .downanimation {
-            -webkit-animation-name: downanimation;
+        .backanimation {
+            -webkit-animation-name: backanimation;
             -webkit-animation-duration: 1s;
-            animation-name: downanimation;
+            animation-name: backanimation;
             animation-duration: 1s;
+            display: block;
         }
-        @-webkit-keyframes downanimation {
-            0% {bottom: 0px}
+        @-webkit-keyframes backanimation {
+            0% {bottom: 0%}
             100% {bottom: -800px}
         }
-        @keyframes downanimation {
-            0% {bottom: 0px}
-            100% {bottom: -800px}
-        }
-        
-    </style>
-    <style>
-        .demo-card-wide.mdl-card {
-        width: 512px;
-        }
-        .demo-card-wide > .mdl-card__title {
-        color: #fff;
-        height: 400px;
-        }
-        .demo-card-wide > .mdl-card__menu {
-        color: #fff;
+        @keyframes backanimation {
+            0% {bottom: 0%}
+            100% {bottom : -800px}
         }
     </style>
 </head>
 
-<body style="background-color:#123056;height:100%;width:100%">
+<body style="background-color:#123056;height:100%;width:100%;">
     <main style="height:100%">
-        <div class="page-content" style="height:100%;">
-            <!--Menu card-->
+        <div class="page-content" style="height:100%">
             <div class="mdl-shadow--2dp" style="background-color:white;z-index:1;position:absolute;height:50px;width:95%;top:10px;margin-left:2.5%;">
                 
             </div>
-            <!--navigation bar-->
-            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer" style="margin: 0; height: 100%; overflow: hidden">
                 <div id="drawer" class="mdl-layout__drawer">
-                    <nav style="padding-top:0px;" class="mdl-navigation">
-                    <div style="margin:none;"><img src="images/mina event.jpg" width="100%"></div>
-                    <a style="color:#1b1b1b" class="mdl-navigation__link" onclick="navfunc(0)"><i style="margin-right:15px" class="material-icons">schedule</i>일정</a>
-                    <a style="color:#1b1b1b" class="mdl-navigation__link" onclick="navfunc(1)"><i style="margin-right:15px" class="material-icons">event</i>이벤트</a>
-                    <a style="color:#1b1b1b" class="mdl-navigation__link" onclick="navfunc(2)"><i style="margin-right:15px" class="material-icons">help</i>기타</a>
-                    <hr>
-                    <a style="color:#1b1b1b" class="mdl-navigation__link" href="https://github.com/hdtf"><i style="margin-right:15px" class="material-icons">code</i>소스보기</a>
-                    <a style="color:#1b1b1b" class="mdl-navigation__link" href="http://klist.cf"><i style="margin-right:15px" class="material-icons">developer_board</i>개발자</a>
-                    <a style="color:#1b1b1b" class="mdl-navigation__link" href="http://klist.cf"><i style="margin-right:15px" class="material-icons">business</i>스폰서</a>
+                    <span class="mdl-layout-title">화동제</span>
+                    <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" onclick="navfunc(0)">일정</a>
+                    <a class="mdl-navigation__link" onclick="navfunc(1)">이벤트</a>
+                    <a class="mdl-navigation__link" onclick="navfunc(2)">기타</a>
                     </nav>
                 </div>
             </div>
-            <!--information page-->
-            <div id="main-page" class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs" style="display:none;position:absolute;z-index:4;overflow:auto">
-                <header class="mdl-layout__header">
-                    <div class="mdl-layout__header-row" style="padding-left:16px">
-                    <i onclick="gobackfunc()" class="material-icons mdl-js-ripple-effect" style="color:white;position:absolute;z-index:5;left:10px">arrow_back</i>
-                    <span class="mdl-layout-title" style="margin-left:auto;margin-right:auto">화동제 정보</span>
-                    </div>
-                    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-shadow--2dp" style="background-color:white;">
-                    <a id="infobtn" href="#info-page" style="color:black" class="mdl-layout__tab is-active">일정</a>
-                    <a id="eventbtn" href="#event-page" style="color:black" class="mdl-layout__tab">이벤트</a>
-                    <a id="guitarbtn" href="#guitar-page" style="color:black" class="mdl-layout__tab">기타</a>
-                    </div>
-                </header>
-                
-                <main class="mdl-layout__content">
-                    <section class="mdl-layout__tab-panel is-active" id="info-page">
-                    <div class="page-content" style="height:100%;width:100%;background-color:white;position:fixed;top:104px">
-                        <table class="mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp center" style="color:#1b1b1b;font-size:15px">
-                            <thead>
-                                <tr>
-                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >행사</th>
-                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
-                                    <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >시간</th>
-                                </tr>
-                            </thead><br />
-                            <tbody>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">개막식 시작</td>
-                                    <td class="mdl-data-table__cell--non-numeric">체육관</td>
-                                    <td class="mdl-data-table__cell--non-numeric">8:30</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">학식 제공</td>
-                                    <td class="mdl-data-table__cell--non-numeric">급식실</td>
-                                    <td class="mdl-data-table__cell--non-numeric">10:20</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">외부학생<br>출입 시작</td>
-                                    <td class="mdl-data-table__cell--non-numeric"> </td>
-                                    <td class="mdl-data-table__cell--non-numeric">11:00</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">학부모회<br>먹거리장터</td>
-                                    <td class="mdl-data-table__cell--non-numeric"></td>
-                                    <td class="mdl-data-table__cell--non-numeric">11:00</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">부스 활동 종료</td>
-                                    <td class="mdl-data-table__cell--non-numeric"></td>
-                                    <td class="mdl-data-table__cell--non-numeric">15:00</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">공연 입장 시작<br>사전행사</td>
-                                    <td class="mdl-data-table__cell--non-numeric">체육관</td>
-                                    <td class="mdl-data-table__cell--non-numeric">15:00</td>
-                                </tr>
-                                <tr>
-                                    <td class="mdl-data-table__cell--non-numeric">본공연 시작</td>
-                                    <td class="mdl-data-table__cell--non-numeric">체육관</td>
-                                    <td class="mdl-data-table__cell--non-numeric">16:00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    </section>
-                    <section class="mdl-layout__tab-panel" id="event-page">
-                    <div class="page-content" style="height:100%;width:100%;background-color:white;top:104px;position:fixed;">
-                        <br />
-                        <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/momo event.jpg') center/cover;">
-                            <div class="mdl-card__title mdl-card--expand"></div>
-                            <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                                <button onclick="eventinfo(0)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                                상세정보
-                                </button>
-                            </div>
+            <div id="info-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
+                <div class="mdl-card__supporting-text">
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table center" style="color:#1b1b1b;font-size:15px;">
+                        <thead>
+                            <tr>
+                                <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >행사</th>
+                                <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >장소</th>
+                                <th style="font-size:18px;color:#1b1b1b" class="mdl-data-table__cell--non-numeric" >시간</th>
+                            </tr>
+                        </thead><br />
+                        <tbody>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">개막식 시작</td>
+                                <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                <td class="mdl-data-table__cell--non-numeric">8:30</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">학식 제공</td>
+                                <td class="mdl-data-table__cell--non-numeric">급식실</td>
+                                <td class="mdl-data-table__cell--non-numeric">10:20</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">외부학생<br>출입 시작</td>
+                                <td class="mdl-data-table__cell--non-numeric"> </td>
+                                <td class="mdl-data-table__cell--non-numeric">11:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">학부모회<br>먹거리장터</td>
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                                <td class="mdl-data-table__cell--non-numeric">11:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">부스 활동 종료</td>
+                                <td class="mdl-data-table__cell--non-numeric"></td>
+                                <td class="mdl-data-table__cell--non-numeric">15:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">공연 입장 시작<br>사전행사</td>
+                                <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                <td class="mdl-data-table__cell--non-numeric">15:00</td>
+                            </tr>
+                            <tr>
+                                <td class="mdl-data-table__cell--non-numeric">본공연 시작</td>
+                                <td class="mdl-data-table__cell--non-numeric">체육관</td>
+                                <td class="mdl-data-table__cell--non-numeric">16:00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mdl-card__actions mdl-card--border ">
+                    <a onclick="gbbtn(0);navfunc(3)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Go back
+                    </a>
+                </div>
+            </div>
+
+            <div id="event-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
+                <div class="mdl-card__actions mdl-card--border ">
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/momo event.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="evtvis(0)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
                         </div>
-                        <br />
-                        <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina event.jpg') center/cover;">
-                            <div class="mdl-card__title mdl-card--expand"></div>
-                            <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                                <button onclick="eventinfo(1)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                                상세정보
-                                </button>
-                            </div>
+                    </div>  
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-1">
+                        모모는 모리가 아파여.
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/mina event.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="evtvis(1)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
+                        </div>
+                    </div> 
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-2">
+                        미나 안미나
+                    </div>
+                    <br />
+                    <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/쯔위.jpg') center/cover;">
+                        <div class="mdl-card__title mdl-card--expand"></div>
+                        <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
+                            <button onclick="evtvis(2)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
+                            상세정보
+                            </button>
                         </div> 
-                        <br />
-                        <div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin-left:auto;margin-right:auto;background: url('images/쯔위.jpg') center/cover;">
-                            <div class="mdl-card__title mdl-card--expand"></div>
-                            <div class="mdl-card__actions mdl-card--border" style="background: rgba(0, 0, 0, 0.2);">
-                                <button onclick="eventinfo(2)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:#ffffff">
-                                상세정보
-                                </button>
-                            </div> 
-                        </div>
-                        <br />
                     </div>
-                    <!--이벤트 상세 페이지-->
-                    <div id="eventinfo-page" class="demo-card-wide mdl-card mdl-shadow--2dp upanimation"  style="display:none;bottom:-800px;position:fixed">
-                        <i onclick="closeeventinfo()" class="material-icons mdl-js-ripple-effect" style="color:white;position:absolute;z-index:5;left:10px">arrow_back</i>
-                        <div id="eventimage" class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">Welcome</h2>
-                        </div>
-                        <div id="eventscript" class="mdl-card__supporting-text">
-
-                        </div>
+                    <div style="font-size:17px;color:#123056;margin-top:10px;padding-left:13%;padding-right:13%;display:none;" id="eventscp-3">
+                        쯔위는 위가 아파여.
                     </div>
-                    </section>
+                    <hr>
+                    <a onclick="gbbtn(1);navfunc(4)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Go back
+                    </a>
+                </div>
+            </div>
 
-                    <section class="mdl-layout__tab-panel" id="guitar-page">
-                    <div class="page-content" style="height:100%;width:100%;background-color:white;position:fixed;top:104px;padding:10px">
-
-                    </div>
-                    </section>
-                </main>
+            <div id="guitar-page" class="demo-card-wide mdl-card mdl-shadow--2dp popanimation" style="display:none;z-index:5;position:absolute;bottom:0%">
+                <div class="mdl-card__actions mdl-card--border ">
+                    <a onclick="gbbtn(2);navfunc(5)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    Go back
+                    </a>
+                </div>
             </div>
             <div id="map"></div>
             <script>
@@ -781,95 +739,44 @@
     </script>
     <script>
         var drawer = document.getElementById("drawer");
-        var maininfo = document.getElementById("main-page");
-        var evtpage = document.getElementById("eventinfo-page");
 
-        var page = [
+        var nav = [
             "info-page",
             "event-page",
             "guitar-page"
-        ]
-
-        var pagebtn = [
-            "infobtn",
-            "eventbtn",
-            "guitarbtn"
-        ]
+        ];
 
         function navfunc(n){
-            var pagecontent = document.getElementById(page[n]);
-            var btn = document.getElementById(pagebtn[n])
 
-            maininfo.style.display = "block";
-            maininfo.classList.add("zoomanimation")
-            btn.classList.add("is-active");
+            var page = document.getElementById(nav[n]);
+
+            document.getElementById(nav[n]).style.display = "block"
             drawer.classList.remove("is-visible");
-            pagecontent.classList.add("is-active")
-
+            page.classList.remove("backanimation");
+            page.classList.add("popanimation");
+            document.getElementById(nav[n]).style.bottom = "0%";
+            
             if(n==0){
-                document.getElementById(pagebtn[n+1]).classList.remove("is-active");
-                document.getElementById(pagebtn[n+2]).classList.remove("is-active");
-                document.getElementById(page[n+1]).classList.remove("is-active");
-                document.getElementById(page[n+2]).classList.remove("is-active");
-
+                document.getElementById(nav[n+1]).style.display = "none";
+                document.getElementById(nav[n+2]).style.display = "none";
             }
             else if(n==1){
-                document.getElementById(pagebtn[n-1]).classList.remove("is-active");
-                document.getElementById(pagebtn[n+1]).classList.remove("is-active");
-                document.getElementById(page[n-1]).classList.remove("is-active");
-                document.getElementById(page[n+1]).classList.remove("is-active");
-
+                document.getElementById(nav[n+1]).style.display = "none";
+                document.getElementById(nav[n-1]).style.display = "none";
             }
             else if(n==2){
-                document.getElementById(pagebtn[n-1]).classList.remove("is-active");
-                document.getElementById(pagebtn[n-2]).classList.remove("is-active");
-                document.getElementById(page[n-1]).classList.remove("is-active");
-                document.getElementById(page[n-2]).classList.remove("is-active");
+                document.getElementById(nav[n-2]).style.display = "none";
+                document.getElementById(nav[n-1]).style.display = "none";
             }
         }
 
-        function gobackfunc(){
-            maininfo.style.display = "none";
+        function gbbtn(n){
+            var page = document.getElementById(nav[n]);
+            
+            page.classList.remove("popanimation");
+            page.classList.add("backanimation");
+            document.getElementById(nav[n]).style.bottom = "-800px";
             drawer.classList.add("is-visible");
-            maininfo.classList.remove("zoomanimation");
-        }
-
-        function eventinfo(n){
-            var info = [
-                "eventinfo-1",
-                "evnetinfo-2",
-                "eventinfo-3"
-            ]
-            var eventscp = [
-                "모모는 모리가 아파여",
-                "미나 안미나",
-                "쯔위는 위가 아파여"
-            ]
-
-            evtpage.style.display = "block";
-            evtpage.style.bottom = "0px";
-            evtpage.classList.add("upanimation");
-            evtpage.classList.remove("downanimation");
-
-            if (n==0){
-                document.getElementById("eventimage").style = "background: url('images/momo event.jpg') center / cover;"
-                document.getElementById("eventscript").innerHTML = eventscp[n];
-            }
-            else if(n==1){
-                document.getElementById("eventimage").style = "background: url('images/mina event.jpg') center / cover;"
-                document.getElementById("eventscript").innerHTML = eventscp[n];
-
-            }
-            else if(n==2){
-                document.getElementById("eventimage").style = "background: url('images/쯔위.jpg') center / cover;"
-                document.getElementById("eventscript").innerHTML = eventscp[n];
-
-            }
-        }
-        function closeeventinfo(n){
-            evtpage.style.bottom = "-800px";
-            evtpage.classList.remove("upanimation");
-            evtpage.classList.add("downanimation");
         }
     </script>
 </body>
