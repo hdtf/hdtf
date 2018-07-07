@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>MAP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#123056">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--색 수정하기-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    
+    <style>
+        p, a {
+            font-size: 1.5em;
+        }
+        h5 {
+            font-size: 1.6em;
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+            background-color: grey;
+            position: fixed;
+            z-index: 0;
+        }
+        #rbtn {
+            /* border-radius: 50%;
+            width: 70px;
+            height: 70px; */
+            position: fixed;
+            right: 3rem;
+            bottom: 50px;
+            background-color: white;
+            color: #123056;
+            z-index: 3;
+            /* text-align: center;
+            font-size:50px; */
+        }
+        #infobox {
+            width: 100%;
+            /* height:75px; */
+            position: fixed;
+            z-index: 2;
+            /* bottom: 0px; */
+        }
+        #infoheader {
+            width: 100%;
+            padding: 2em;
+            background-color: #123056;
+            color: white;
+        }
+        #infobody {
+            width: 100%;
+            height: 100%;
+            padding: 2em;
+            background-color: white;
+            /* display: none; */
+        }
+        .pink {
+            color: #123056;
+        }
+        .gray {
+            color: #424242;
+        }
+        .center {
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .hreftext {
+            color:#123056;
+            border:none;
+            width:100%;
+            font-size:20px;
+            text-decoration:none;
+            text-align:left;
+        }
+        div.container {
+            padding: 10px;
+        }
+        @media screen and (max-width: 1024px){
+            .mdl-layout__header {
+                display: inherit;
+            }
+        }
+
+        .fadeout {
+            -webkit-animation-name: fadeout;
+            -webkit-animation-duration: 0.5s;
+            animation-name: fadeout;
+            animation-duration: 0.5s;
+        }
+        @-webkit-keyframes fadeout {
+            from {opacity: 1;} 
+            to {opacity: 0;}
+        }
+        @keyframes fadeout {
+            from {opacity: 1;} 
+            to {opacity: 0;}
+        }
+
+        .toTheme {
+            -webkit-animation-name: toTheme;
+            -webkit-animation-duration: 1s;
+            animation-name: toTheme;
+            animation-duration: 1s;
+        }
+        @-webkit-keyframes toTheme {
+            from {background-color: white;color: #123056;} 
+            to {background-color: #123056;color: white;}
+        }
+        @keyframes toTheme {
+            from {background-color: white;color: #123056;} 
+            to {background-color: #123056;color: white;}
+        }
+
+        .toWhite {
+            -webkit-animation-name: toWhite;
+            -webkit-animation-duration: 1s;
+            animation-name: toWhite;
+            animation-duration: 1s;
+        }
+        @-webkit-keyframes toWhite {
+            from {background-color: #123056;color: white;}
+            to {background-color: white;color: #123056;} 
+        }
+        @keyframes toWhite {
+            from {background-color: #123056;color: white;}
+            to {background-color: white;color: #123056;} 
+        }
+
+        .showinfo {
+            -webkit-animation-name: showinfo;
+            -webkit-animation-duration: 1s;
+            animation-name: showinfo;
+            animation-duration: 1s;
+        }
+        @-webkit-keyframes showinfo {
+            /* Use JS to set initial px */
+            0% {top: 850px} 
+            100% {top: 0px}
+        }
+        @keyframes showinfo {
+            0% {top: 850px}
+            100% {top: 0px}
+        }
+
+        .hideinfo {
+            -webkit-animation-name: hideinfo;
+            -webkit-animation-duration: 1s;
+            animation-name: hideinfo;
+            animation-duration: 1s;
+        }
+        @-webkit-keyframes hideinfo {
+            0% {top: 0px}
+            100% {top: 850px}
+        }
+        @keyframes hideinfo {
+            0% {top: 0px}
+            100% {top: 850px}
+        }
+    </style>
+</head>
+
+<body style="background-color:#123056;height:100%;width:100%;">
+    <main style="height:100%">
+        <div class="page-content" style="height:100%">
+            <div id="map"></div>
+            <script>
+                var map;
+                var floor = 2;
+                function initMap() {
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 37.517068, lng: 127.056214},
+                        zoom: 18,
+                        mapTypeControl: false,
+                        streetViewControl: false,
+                        fullscreenControl: false
+                    });
+
+                    var StudentCoords = [
+                        {lat: 37.516410, lng: 127.055607},
+                        {lat: 37.516449, lng: 127.055583},
+                        {lat: 37.516373, lng: 127.055406},
+                        {lat: 37.516337, lng: 127.055429},
+                        {lat: 37.516283, lng: 127.055295},
+                        {lat: 37.516193, lng: 127.055357},
+                        {lat: 37.516454, lng: 127.055991},
+                        {lat: 37.516444, lng: 127.056044},
+                        {lat: 37.516409, lng: 127.056061},
+                        {lat: 37.516693, lng: 127.056728},
+                        {lat: 37.516782, lng: 127.056669},
+                        {lat: 37.516729, lng: 127.056535},
+                        {lat: 37.516764, lng: 127.056511},
+                        {lat: 37.516687, lng: 127.056341},
+                        {lat: 37.516656, lng: 127.056362},
+                        {lat: 37.516546, lng: 127.056107},
+                        {lat: 37.516623, lng: 127.056059},
+                        {lat: 37.516558, lng: 127.055914},
+                        {lat: 37.516545, lng: 127.055923}
+                    ];
+                    var ControlCoords = [
+                        {lat: 37.516841, lng: 127.055875},
+                        {lat: 37.516999, lng: 127.055763},
+                        {lat: 37.516864, lng: 127.055455},
+                        {lat: 37.516706, lng: 127.055562}
+                    ];
+                    var HwadongCoords = [
+                        {lat: 37.516062, lng: 127.055437},
+                        {lat: 37.516104, lng: 127.055538},
+                        {lat: 37.516135, lng: 127.055519},
+                        {lat: 37.516193, lng: 127.055653},
+                        {lat: 37.516180, lng: 127.055664},
+                        {lat: 37.516338, lng: 127.056026},
+                        {lat: 37.516230, lng: 127.056099},
+                        {lat: 37.516101, lng: 127.055789},
+                        {lat: 37.516088, lng: 127.055797},
+                        {lat: 37.515960, lng: 127.055503}
+                    ];
+                    var ScienceCoords = [
+                        {lat: 37.517069, lng: 127.055869},
+                        {lat: 37.517214, lng: 127.056215},
+                        {lat: 37.517191, lng: 127.056232},
+                        {lat: 37.517203, lng: 127.056267},
+                        {lat: 37.517203, lng: 127.056267},
+                        {lat: 37.516928, lng: 127.056443},
+                        {lat: 37.516863, lng: 127.056301},
+                        {lat: 37.516976, lng: 127.056229},
+                        {lat: 37.516957, lng: 127.056188},
+                        {lat: 37.517017, lng: 127.056148},
+                        {lat: 37.517034, lng: 127.056195},
+                        {lat: 37.517054, lng: 127.056179},
+                        {lat: 37.516960, lng: 127.055945}
+                    ];
+                    var CultureCoords = [
+                        {lat: 37.515807, lng: 127.054896},
+                        {lat: 37.515769, lng: 127.054698},
+                        {lat: 37.515745, lng: 127.054700},
+                        {lat: 37.515723, lng: 127.054608},
+                        {lat: 37.515681, lng: 127.054622},
+                        {lat: 37.515573, lng: 127.054678},
+                        {lat: 37.515488, lng: 127.054775},
+                        {lat: 37.515398, lng: 127.054664},
+                        {lat: 37.515319, lng: 127.054770},
+                        {lat: 37.515575, lng: 127.055092},
+                        {lat: 37.515600, lng: 127.055044},
+                        {lat: 37.515643, lng: 127.055003}
+                    ];
+                    var LibraryCoords = [
+                        {lat: 37.516107, lng: 127.055258},
+                        {lat: 37.516034, lng: 127.055093},
+                        {lat: 37.516001, lng: 127.055119},
+                        {lat: 37.515933, lng: 127.054951},
+                        {lat: 37.515763, lng: 127.055065},
+                        {lat: 37.515902, lng: 127.055395}
+                    ];
+                    var CenturyCoords = [
+                        {lat: 37.518266, lng: 127.056679},
+                        {lat: 37.518302, lng: 127.056780},
+                        {lat: 37.518214, lng: 127.056823},
+                        {lat: 37.518303, lng: 127.057096},
+                        {lat: 37.518338, lng: 127.057074},
+                        {lat: 37.518359, lng: 127.057120},
+                        {lat: 37.518413, lng: 127.057155},
+                        {lat: 37.518465, lng: 127.057180},
+                        {lat: 37.518527, lng: 127.057194},
+                        {lat: 37.518596, lng: 127.057157},
+                        {lat: 37.518635, lng: 127.057113},
+                        {lat: 37.518661, lng: 127.057061},
+                        {lat: 37.518674, lng: 127.057001},
+                        {lat: 37.518672, lng: 127.056919},
+                        {lat: 37.518653, lng: 127.056854},
+                        {lat: 37.518623, lng: 127.056813},
+                        {lat: 37.518577, lng: 127.056774},
+                        {lat: 37.518521, lng: 127.056752},
+                        {lat: 37.518489, lng: 127.056750},
+                        {lat: 37.518473, lng: 127.056695},
+                        {lat: 37.518390, lng: 127.056739}
+                    ];
+                    var GymCoords = [
+                        {lat: 37.517575, lng: 127.055765},
+                        {lat: 37.517317, lng: 127.055935},
+                        {lat: 37.517320, lng: 127.055942},
+                        {lat: 37.517302, lng: 127.055955},
+                        {lat: 37.517490, lng: 127.056388},
+                        {lat: 37.517762, lng: 127.056207}
+                    ];
+
+                    var Student = new google.maps.Polygon({
+                        paths: StudentCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Control = new google.maps.Polygon({
+                        paths: ControlCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Hwadong = new google.maps.Polygon({
+                        paths: HwadongCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Science = new google.maps.Polygon({
+                        paths: ScienceCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Culture = new google.maps.Polygon({
+                        paths: CultureCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Library = new google.maps.Polygon({
+                        paths: LibraryCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Century = new google.maps.Polygon({
+                        paths: CenturyCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+                    var Gym = new google.maps.Polygon({
+                        paths: GymCoords,
+                        strokeColor: '#795548',
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: '#795548',
+                        fillOpacity: 0.35
+                    });
+
+                    Student.setMap(map);
+                    Control.setMap(map);
+                    Hwadong.setMap(map);
+                    Science.setMap(map);
+                    Culture.setMap(map);
+                    Library.setMap(map);
+                    Century.setMap(map);
+                    Gym.setMap(map);
+
+                    var KyunggiCoords = [
+                        {lat: 37.519397, lng: 127.0570571},
+                        {lat: 37.516578, lng: 127.0585933},
+                        {lat: 37.516509, lng: 127.0581210},
+                        {lat: 37.516452, lng: 127.0581351},
+                        {lat: 37.515850, lng: 127.0554821},
+                        {lat: 37.515354, lng: 127.0556571},
+                        {lat: 37.515093, lng: 127.0548934},
+                        {lat: 37.514665, lng: 127.0549807},
+                        {lat: 37.514490, lng: 127.0539994},
+                        {lat: 37.514488, lng: 127.0539909},
+                        {lat: 37.514898, lng: 127.0533945},
+                        {lat: 37.514932, lng: 127.0533832},
+                        {lat: 37.516465, lng: 127.0542016},
+                        {lat: 37.516598, lng: 127.0542978}
+                    ];
+                    var Kyunggi = new google.maps.Polygon({
+                        paths: KyunggiCoords,
+                        strokeColor: '#000000',
+                        strokeOpacity: 1,
+                        strokeWeight: 2,
+                        fillColor: '#000000',
+                        fillOpacity: 0.5
+                    });
+
+                    map.addListener('zoom_changed', function() {
+                        var zoom = map.getZoom();
+                        if(zoom >= 18 && zoom <= 19) {
+                            Student.set('fillOpacity', 0.35);
+                            Control.set('fillOpacity', 0.35);
+                            Hwadong.set('fillOpacity', 0.35);
+                            Science.set('fillOpacity', 0.35);
+                            Culture.set('fillOpacity', 0.35);
+                            Library.set('fillOpacity', 0.35);
+                            Century.set('fillOpacity', 0.35);
+                            Gym.set('fillOpacity', 0.35);
+                            Kyunggi.setMap(null);
+                        } else {
+                            Student.set('fillOpacity', 0);
+                            Control.set('fillOpacity', 0);
+                            Hwadong.set('fillOpacity', 0);
+                            Science.set('fillOpacity', 0);
+                            Culture.set('fillOpacity', 0);
+                            Library.set('fillOpacity', 0);
+                            Century.set('fillOpacity', 0);
+                            Gym.set('fillOpacity', 0);
+                            if(zoom <= 17) {
+                                Kyunggi.setMap(map);
+                            } else {
+
+                            }
+                        }
+                    });
+                
+                    map.addListener('center_changed', function() {
+                        var centerLat = Math.round(map.getCenter().lat() * 1000000) / 1000000;
+                        var centerLng = Math.round(map.getCenter().lng() * 1000000) / 1000000;
+                        var text = "경기고등학교";
+
+                        /*var Circle = new google.maps.Circle({
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 2,
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.35,
+                            map: map,
+                            center: {lat: centerLat, lng: centerLng},
+                            radius: 2
+                        });*/
+
+                        if(isIn(StudentCoords, centerLat, centerLng)) {
+                            text = "학생동"
+                        } else if(isIn(ControlCoords, centerLat, centerLng)) {
+                            text = "관리동"
+                        } else if(isIn(HwadongCoords, centerLat, centerLng)) {
+                            text = "화동관"
+                        } else if(isIn(ScienceCoords, centerLat, centerLng)) {
+                            text = "과학동"
+                        } else if(isIn(CultureCoords, centerLat, centerLng)) {
+                            text = "문화관"
+                        } else if(isIn(LibraryCoords, centerLat, centerLng)) {
+                            text = "도서관"
+                        } else if(isIn(CenturyCoords, centerLat, centerLng)) {
+                            text = "100주년 기념관"
+                        } else if(isIn(GymCoords, centerLat, centerLng)) {
+                            text = "체육관"
+                        }
+
+                        if(text != '경기고등학교') {
+                            document.getElementById('info').innerHTML = text
+                        }
+                    });
+
+                    map.addListener('click', function(e) {
+                        alert(e.latLng);
+                    });
+                };
+
+                function isIn (p, LAT, LNG) {
+                    var crosses = 0;
+                    for (const i in p) {
+                        var j = (i + 1) % p.length;
+                        if((p[i].lat * 1 > LAT) != (p[j].lat * 1 > LAT)) {
+                            // if((p[i].lng > LNG) && (p[j].lng > LNG)) {
+                            //     crosses ++;
+                            // }
+                            if(LNG < (p[j].lng- p[i].lng)*(LAT-p[i].lat)/(p[j].lat-p[i].lat)+p[i].lng) {
+                                crosses ++;
+                            }
+                        }
+                    }
+                    return crosses % 2 > 0
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
+            <button id="rbtn" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                <i id="rbtni" class="material-icons">expand_less</i>
+            </button>
+            <div id="infobox">
+                <div id="infoheader">
+                    <h4 id="info" style="margin:0px;">경기고등학교</h3>
+                </div>
+                <div id="infobody">
+                    <p>hmmmmmm</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <dialog class="mdl-dialog">
+        <div class="mdl-dialog__content">
+            <h3>안내</h3>
+            <p>지도 기능 테스트 중</p>
+        </div>
+        <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button close pink">OK</button>
+        </div>
+    </dialog>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+
+    <script>
+        var dialog = document.querySelector('dialog');
+        if (! dialog.showModal) {
+          dialogPolyfill.registerDialog(dialog);
+        }
+        dialog.querySelector('.close').addEventListener('click', function() {
+          dialog.close();
+        });
+        window.onload = function(){
+            var h = document.documentElement.clientHeight;
+            var rbtn =  document.getElementById('rbtn');
+            var infobox = document.getElementById('infobox');
+            var infoheader = document.getElementById('infoheader');
+            var infobody = document.getElementById('infobody');
+            var rbtni = document.getElementById('rbtni');
+            var infoON = false;
+            infobox.style.top = (h - 80) + "px"
+            infobody.style.height = (h - infoheader.style.height) + "px"
+            // dialog.showModal();
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop:$(hash).offset().top
+                    }, 2000, 'easeInOutQuint');
+                }
+            });
+
+            rbtn.onclick = function() {
+                if(infoON) {
+                    rbtn.classList.remove("toTheme");
+                    infobox.classList.remove("showinfo");
+                    infoheader.classList.remove("toWhite");
+                    rbtn.classList.add("toWhite");
+                    infobox.classList.add("hideinfo");
+                    infoheader.classList.add("toTheme");
+                    setTimeout(function(){
+                        rbtni.innerHTML = "expand_less";
+                        rbtn.style.backgroundColor = "white";
+                        rbtn.style.color = "#123056"
+                        infobox.style.top = (h - 80) + "px";
+                        infoheader.style.backgroundColor = "#123056";
+                        infoheader.style.color = "white"
+                        infoON = false;
+                    }, 400);
+                } else {
+                    rbtn.classList.remove("toWhite");
+                    infobox.classList.remove("hideinfo");
+                    infoheader.classList.remove("toTheme");
+                    rbtn.classList.add("toTheme");
+                    infobox.classList.add("showinfo");
+                    infoheader.classList.add("toWhite");
+                    setTimeout(function(){
+                        rbtni.innerHTML = "map";
+                        rbtn.style.backgroundColor = "#123056";
+                        rbtn.style.color = "white"
+                        infobox.style.top = "0px";
+                        infoheader.style.backgroundColor = "white";
+                        infoheader.style.color = "#123056"
+                        infoON = true;
+                    }, 400);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
