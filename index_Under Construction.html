@@ -3,7 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>MAP</title>
+    <title>경기고등학교</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#123056">
@@ -31,39 +31,6 @@
             position: fixed;
             z-index: 0;
         }
-        #rbtn {
-            /* border-radius: 50%;
-            width: 70px;
-            height: 70px; */
-            position: fixed;
-            right: 3rem;
-            bottom: 50px;
-            background-color: white;
-            color: #123056;
-            z-index: 3;
-            /* text-align: center;
-            font-size:50px; */
-        }
-        #infobox {
-            width: 100%;
-            /* height:75px; */
-            position: fixed;
-            z-index: 2;
-            /* bottom: 0px; */
-        }
-        #infoheader {
-            width: 100%;
-            padding: 2em;
-            background-color: #123056;
-            color: white;
-        }
-        #infobody {
-            width: 100%;
-            height: 100%;
-            padding: 2em;
-            background-color: white;
-            /* display: none; */
-        }
         .pink {
             color: #123056;
         }
@@ -90,82 +57,6 @@
             .mdl-layout__header {
                 display: inherit;
             }
-        }
-
-        .fadeout {
-            -webkit-animation-name: fadeout;
-            -webkit-animation-duration: 0.5s;
-            animation-name: fadeout;
-            animation-duration: 0.5s;
-        }
-        @-webkit-keyframes fadeout {
-            from {opacity: 1;} 
-            to {opacity: 0;}
-        }
-        @keyframes fadeout {
-            from {opacity: 1;} 
-            to {opacity: 0;}
-        }
-
-        .toTheme {
-            -webkit-animation-name: toTheme;
-            -webkit-animation-duration: 1s;
-            animation-name: toTheme;
-            animation-duration: 1s;
-        }
-        @-webkit-keyframes toTheme {
-            from {background-color: white;color: #123056;} 
-            to {background-color: #123056;color: white;}
-        }
-        @keyframes toTheme {
-            from {background-color: white;color: #123056;} 
-            to {background-color: #123056;color: white;}
-        }
-
-        .toWhite {
-            -webkit-animation-name: toWhite;
-            -webkit-animation-duration: 1s;
-            animation-name: toWhite;
-            animation-duration: 1s;
-        }
-        @-webkit-keyframes toWhite {
-            from {background-color: #123056;color: white;}
-            to {background-color: white;color: #123056;} 
-        }
-        @keyframes toWhite {
-            from {background-color: #123056;color: white;}
-            to {background-color: white;color: #123056;} 
-        }
-
-        .showinfo {
-            -webkit-animation-name: showinfo;
-            -webkit-animation-duration: 1s;
-            animation-name: showinfo;
-            animation-duration: 1s;
-        }
-        @-webkit-keyframes showinfo {
-            /* Use JS to set initial px */
-            0% {top: 850px} 
-            100% {top: 0px}
-        }
-        @keyframes showinfo {
-            0% {top: 850px}
-            100% {top: 0px}
-        }
-
-        .hideinfo {
-            -webkit-animation-name: hideinfo;
-            -webkit-animation-duration: 1s;
-            animation-name: hideinfo;
-            animation-duration: 1s;
-        }
-        @-webkit-keyframes hideinfo {
-            0% {top: 0px}
-            100% {top: 850px}
-        }
-        @keyframes hideinfo {
-            0% {top: 0px}
-            100% {top: 850px}
         }
     </style>
 </head>
@@ -462,7 +353,7 @@
                     });
 
                     map.addListener('click', function(e) {
-                        alert(e.latLng);
+                        // alert(e.latLng);
                     });
                 };
 
@@ -487,18 +378,13 @@
                 <i id="rbtni" class="material-icons">expand_less</i>
             </button>
             <div id="infobox">
-                <div id="infoheader">
-                    <h4 id="info" style="margin:0px;">경기고등학교</h3>
-                </div>
-                <div id="infobody">
-                    <p>hmmmmmm</p>
-                </div>
+                
             </div>
         </div>
     </main>
     <dialog class="mdl-dialog">
         <div class="mdl-dialog__content">
-            <h3>안내</h3>
+            <h3>환영합니다!</h3>
             <p>지도 기능 테스트 중</p>
         </div>
         <div class="mdl-dialog__actions">
@@ -519,16 +405,9 @@
         });
         window.onload = function(){
             var h = document.documentElement.clientHeight;
-            var rbtn =  document.getElementById('rbtn');
-            var infobox = document.getElementById('infobox');
-            var infoheader = document.getElementById('infoheader');
-            var infobody = document.getElementById('infobody');
-            var rbtni = document.getElementById('rbtni');
-            var infoON = false;
-            infobox.style.top = (h - 80) + "px"
-            infobody.style.height = (h - infoheader.style.height) + "px"
+
             // dialog.showModal();
-            $("a").on('click', function(event) {
+            /* $("a").on('click', function(event) {
                 if (this.hash !== "") {
                     event.preventDefault();
                     var hash = this.hash;
@@ -536,43 +415,7 @@
                         scrollTop:$(hash).offset().top
                     }, 2000, 'easeInOutQuint');
                 }
-            });
-
-            rbtn.onclick = function() {
-                if(infoON) {
-                    rbtn.classList.remove("toTheme");
-                    infobox.classList.remove("showinfo");
-                    infoheader.classList.remove("toWhite");
-                    rbtn.classList.add("toWhite");
-                    infobox.classList.add("hideinfo");
-                    infoheader.classList.add("toTheme");
-                    setTimeout(function(){
-                        rbtni.innerHTML = "expand_less";
-                        rbtn.style.backgroundColor = "white";
-                        rbtn.style.color = "#123056"
-                        infobox.style.top = (h - 80) + "px";
-                        infoheader.style.backgroundColor = "#123056";
-                        infoheader.style.color = "white"
-                        infoON = false;
-                    }, 400);
-                } else {
-                    rbtn.classList.remove("toWhite");
-                    infobox.classList.remove("hideinfo");
-                    infoheader.classList.remove("toTheme");
-                    rbtn.classList.add("toTheme");
-                    infobox.classList.add("showinfo");
-                    infoheader.classList.add("toWhite");
-                    setTimeout(function(){
-                        rbtni.innerHTML = "map";
-                        rbtn.style.backgroundColor = "#123056";
-                        rbtn.style.color = "white"
-                        infobox.style.top = "0px";
-                        infoheader.style.backgroundColor = "white";
-                        infoheader.style.color = "#123056"
-                        infoON = true;
-                    }, 400);
-                }
-            }
+            }); */
         }
     </script>
 </body>
