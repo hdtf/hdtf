@@ -26,5 +26,3 @@ var club = {
         info5: '',
     },
 }
-var x = "console.log('sibal');"
-eval(x);
