@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="src/jquery-ui.min.css">
     
     <style>
@@ -61,6 +61,18 @@
             height: auto;
             border-radius: 5px;
             min-height: 10px;
+            display: none;
+        }
+        #sPage {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            z-index: 2;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-top: 60px;
+            background-color: white;
             display: none;
         }
         #toMap {
@@ -150,7 +162,7 @@
     </style>
 </head>
 
-<body style="background-color: #123056; height: 100%; width: 100%;">
+<body style="background-color: #FFFFFF; height: 100%; width: 100%;">
     <div id="loading">
         <div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate center"></div>
         <h5 class="fin lText" id="l1">과학기술정보통신부</h3>
@@ -169,7 +181,7 @@
         <!--==========메뉴==========-->
         <div class="mdl-layout__drawer">
             <nav class="mdl-navigation" style="padding-top: 0px;">
-                <div style="margin:none;"><img src="images/twice.jpg" width="100%"></div>
+                <div style="margin:none;"><img src="images/twice2.jpg" width="100%"></div>
                 <a class="mdl-navigation__link" onclick="schedule('schedule');"><i style="margin-right: 15px;" class="material-icons">schedule</i>일정</a>
                 <a class="mdl-navigation__link" onclick="schedule('event');"><i style="margin-right: 15px;" class="material-icons">event</i>이벤트</a>
                 <a class="mdl-navigation__link" onclick="schedule('help');"><i style="margin-right: 15px;" class="material-icons">help</i>기타</a>
@@ -468,13 +480,19 @@
                         };
                     </script>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
-                    <!--==========검색==========-->
+                    <!--==========검색창==========-->
                     <div class="mdl-card mdl-shadow--4dp sink" id="searchbox">
                         <div class="mdl-card__title">
-                            <i class="material-icons" onclick="document.getElementById('opennav').click()">menu</i>
-                            <p class="mdl-card__title-text" style="color: #777777; font-size: 18px; margin-left: 15px;">화장실, 학생회 등 찾기</p>
+                            <i class="material-icons" id="s0" onclick="document.getElementById('opennav').click()">menu</i>
+                            <i class="material-icons" style="display: none;" id="s00" onclick="searchOFF()">arrow_back</i>
+                            <p class="mdl-card__title-text" id="s1" style="color: #777777; font-size: 18px; margin-left: 15px;" onclick="searchON()">화장실, 학생회 등 찾기</p>
+                            <div id="s2" class="mdl-textfield mdl-js-textfield" style="display: none; width: 70%; margin-left: 15px; padding: 0px;">
+                                <input class="mdl-textfield__input" type="text" id="s4">
+                                <label class="mdl-textfield__label" for="s4">화장실, 학생회 등 찾기</label>
+                            </div>
                             <div class="mdl-layout-spacer"></div>
-                            <i class="material-icons mdl-js-ripple-effect" style="display: none;">close</i>
+                            <i class="material-icons" id="s3" style="display: none;" onclick="searchClear();">close</i>
+                            <i class="material-icons" id="s5" style="display: none; margin-left: 15px;" onclick="">search</i>
                         </div>
                     </div>
                     <!--==========정보==========-->
@@ -483,7 +501,7 @@
                             <div onclick="moreinfo(document.getElementById('i0').innerHTML);">
                                 <span id="i0" style="display: none;">경기고</span>
                                 <h5 class="pink" style="margin: 0px; margin-bottom: 10px;"><b id="i1">경기고등학교</b></h5>
-                                <h6 style="margin: 0px; margin-bottom: 10px;"><span id="i2">학교</span><br /><span id="i3">서울특별시 강남구 삼성1동 영동대로 643</span></h6>
+                                <h6 style="margin: 0px; margin-bottom: 10px;"><span id="i2">고등학교</span><br /><span id="i3">서울특별시 강남구 삼성1동 영동대로 643</span></h6>
                             </div>                            
                             <span class="mdl-chip mdl-chip--contact" style="background-color: #4285F4; color:white; margin-right: 10px;" id="i4" onclick="location.assign('https://m.map.daum.net/actions/publicRoute?startLoc=현위치&sxEnc=MNOOMRHLMOLQOPQQN&syEnc=QNORNLWIMROSSNNSNO&endLoc=경기고등학교&exEnc=MNLQMN&eyEnc=QNOSLOL&ids=%2CP8171842&service=')">
                                 <span class="mdl-chip__contact" style="background-color: rgba(0,0,0,0);"><i class="material-icons" style="padding-top: 4px;">directions</i></span>
@@ -494,6 +512,11 @@
                                 <span class="mdl-chip__text" style="color: black;">공유</span>
                             </span>
                         </div>
+                    </div>
+                    <!--==========검색==========-->
+                    <div class="fin" id="sPage">
+                        <h6 style="color: #0000008a">검색 결과</h6>
+                        <ul class='mdl-list' id="s9"></ul>
                     </div>
                 </div>
             </section>
@@ -570,9 +593,99 @@
                 </div>
             </section>
             <!--==========section3==========-->
-            <section class="mdl-layout__tab-panel h100" id="info">
-                <div class="page-content h100" style="background-color: white;">
-                    <h1 onclick="document.getElementById('tab1').click();">yeeeeeeee</h1>
+            <section class="mdl-layout__tab-panel" style="background-color: white; min-height: 100%;" id="info">
+                <div class="page-content">
+                    <!--==========fab==========-->
+                    <button id="toMap" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored fin" onclick="document.getElementById('tab1').click();">
+                        <i class="material-icons">map</i>
+                    </button>
+                    <!--==========header==========-->
+                    <div class="w100" style="background-color: #123056;">
+                        <div class="mdl-card__title w100" style="position: fixed;color: white; background: linear-gradient(black, rgba(0,0,0,0));">
+                            <i class="material-icons" onclick="document.getElementById('tab1').click();">arrow_back</i>
+                        </div>
+                        <div class="w100">
+                            <img class="w100" id="j5" src="images/twice.jpg" />
+                        </div>
+                    </div>                    
+                    <!--==========title==========-->
+                    <div class="mdl-shadow--4dp w100" style="background-color: #4285F4; color: white; padding: 20px;" onclick="document.getElementById('tab1').click();">
+                        <span id="j0" style="display: none;">경기고</span>
+                        <h5 style="margin: 0px; margin-bottom: 10px;"><span id="j1">경기고등학교</span></h5>
+                        <h6 style="margin: 0px; margin-bottom: 10px;"><span id="j4">자유인 문화인 평화인을 기르는 학교</span><br /><span id="j2">고등학교</span></h6>
+                    </div>
+                    <!--==========nav==========-->
+                    <div class="mdl-grid" style="color: #4285f4; text-align: center;">
+                        <div class="mdl-cell mdl-cell--1-col" id="j6" onclick="if (document.getElementById('j6a').innerHTML) { window.open('tel:' + document.getElementById('j6a').innerHTML); }">
+                            <h3 style="margin-top: 5px; margin-bottom: 3px;"><i class="material-icons">call</i></h3>
+                            <p style="font-size: 13px; margin: 0px;">통화</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col" onclick="share(document.getElementById('j0').innerHTML);">
+                            <h3 style="margin-top: 5px; margin-bottom: 3px;"><i class="material-icons">share</i></h3>
+                            <p style="font-size: 13px; margin: 0px;">공유</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col" id="j7" onclick="if (document.getElementById('j7a').innerHTML) { location.assign(document.getElementById('j7a').innerHTML) }">
+                            <h3 style="margin-top: 5px; margin-bottom: 3px;"><i class="material-icons">public</i></h3>
+                            <p style="font-size: 13px; margin: 0px;">웹사이트</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col" id="j8" onclick="if (club[document.getElementById('j0').innerHTML].fb) { location.assign(club[document.getElementById('j0').innerHTML].fb) }">
+                            <h3 style="margin-top: 1px; margin-bottom: 0px; padding-bottom: 7px;"><i class="fab fa-facebook-square" style="font-size: 24px;"></i></h3>
+                            <p style="font-size: 13px; margin: 0px;">페이스북</p>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 0px;" />
+                    <!--==========specific==========-->
+                    <ul class="w100" style="padding-left: 10px;">
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #4285F4;">place</i>
+                                <j id="j3">서울특별시 강남구 삼성1동 영동대로 643</j>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item" onclick="if (document.getElementById('j6a').innerHTML) { window.open('tel:' + document.getElementById('j6a').innerHTML); }">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #4285F4;">call</i>
+                                <j id="j6a"></j>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item" onclick="if (document.getElementById('j7a').innerHTML) { location.assign(document.getElementById('j7a').innerHTML) }">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #4285F4;">public</i>
+                                <j id="j7a"></j>
+                            </span>
+                        </li>
+                        <br />
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_one</i>
+                                <j id="j11"></j>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_two</i>
+                                <j id="j12"></j>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_3</i>
+                                <j id="j13"></j>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_4</i>
+                                <j id="j14"></j>
+                            </span>
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_5</i>
+                                <j id="j15"></j>
+                            </span>
+                        </li>
+                    </ul>
                 </div>
             </section>
         </main>
@@ -595,11 +708,11 @@
         window.onload = function(){
             var h = document.documentElement.clientHeight;
             var q = decodeURI(location.search.split("?q=")[1]);
-            if(q == "undefined") {
+            if (q == "undefined") {
                 showinfo("경기고");
                 initMap(37.517068, 127.056214, 18);
             } else {
-                if(club[q]) {
+                if (club[q]) {
                     showinfo(q);
                     initMap(club[q].lat, club[q].lng, club[q].zoom);
                 } else {
@@ -619,20 +732,121 @@
             }, 500)
         }
 
+        /* $(window).on("navigate", function (event, data) {
+            var direction = data.state.direction;
+            if (direction == 'back') {
+                alert('!');
+            }
+        });
+
+        $(window).scroll(function() {
+            alert($(this).scrollTop());
+        });
+
+        document.getElementById("info").onscroll = function() {
+            var j0 = document.getElementById("j0");
+            var s = 0;
+            if (document.body.scrollTop) {
+                s = document.body.scrollTop;
+            } else if (document.documentElement.scrollTop) {
+                s = document.documentElement.scrollTop;
+            }
+            alert(s);
+            if (s > 100) {
+                j0.style.background = "linear-gradient(black, rgba(0,0,0,0)"
+            } else {
+                j0.style.background = "linear-gradient(black, rgba(0,0,0," + s / 100 + ")"
+            }
+        } */
+
         var dialog = document.querySelector('dialog');
         if (! dialog.showModal) {
-          dialogPolyfill.registerDialog(dialog);
+            dialogPolyfill.registerDialog(dialog);
         }
         dialog.querySelector('.close').addEventListener('click', function() {
-          dialog.close();
+            dialog.close();
         });
+
+        var searchON = function () {
+            document.getElementById('sPage').style.display = "block";
+            document.getElementById('s0').style.display = "none";
+            document.getElementById('s1').style.display = "none";
+            document.getElementById('s00').style.display = "block";
+            document.getElementById('s2').style.display = "block";
+            document.getElementById('s3').style.display = "block";
+            document.getElementById('s5').style.display = "block";
+            document.getElementById('searchbox').classList.remove('mdl-shadow--4dp');
+            document.getElementById('s4').focus();
+        }
+
+        var searchOFF = function (s) {
+            document.getElementById('sPage').style.display = "none";
+            document.getElementById('s0').style.display = "block";
+            document.getElementById('s1').style.display = "block";
+            document.getElementById('s00').style.display = "none";
+            document.getElementById('s2').style.display = "none";
+            document.getElementById('s3').style.display = "none";
+            document.getElementById('s5').style.display = "none";
+            document.getElementById('searchbox').classList.add('mdl-shadow--4dp');
+
+            if (club[s]) {
+                showinfo(s);
+                document.getElementById('s1').innerHTML = club[s].name;
+            }
+        }
+
+        var searchClear = function () {
+            document.getElementById('s4').value = "";
+            document.getElementById('s4').focus();
+        }
+ 
+        document.getElementById("s2").onkeyup = function(e) {
+            if (e.keyCode > 64 || (e.keyCode >= 48 && e.keyCode <= 57) || e.keyCode == 32 || e.keyCode == 8) {
+                document.getElementById("s9").innerHTML = "";
+                var value = document.getElementById("s4").value.toUpperCase();
+                for (var i in place) {
+                    var x = place[i].split(value);
+                    if (place[i] != x[0]) {
+                        var ans = "";
+                        for (var j in x) {
+                            if (j != 0) {
+                                ans += "<b>" + value + "</b>";
+                            }
+                            ans += x[j];
+                        }
+                        var a = "";
+                        a += "<li class='mdl-list__item mdl-list__item--two-line' onclick=\"searchOFF('" + index[i] + "');\">";
+                        a += "    <span class='mdl-list__item-primary-content'>";
+                        a += "        <i class='material-icons mdl-list__item-icon'>" + club[index[i]].icon + "</i>";
+                        a += "        <span>" + ans + "</span>";
+                        a += "        <span class='mdl-list__item-sub-title'>" + club[index[i]].hook + "</span>";
+                        a += "    </span>";
+                        a += "</li>";
+                        document.getElementById("s9").innerHTML += a;
+                    }
+                }
+                if (document.getElementById("s9").innerHTML == "" || document.getElementById("s4").value == "") {
+                    var a = "";
+                    a += "<li class='mdl-list__item mdl-list__item--two-line'>";
+                    a += "    <span class='mdl-list__item-primary-content'>";
+                    a += "        <i class='material-icons mdl-list__item-icon'>priority_high</i>";
+                    a += "        <span>검색 결과가 존재하지 않습니다</span>";
+                    a += "        <span class='mdl-list__item-sub-title'>검색어를 확인해주세요</span>";
+                    a += "    </span>";
+                    a += "</li>";
+                    document.getElementById("s9").innerHTML = a;
+                }
+            } else {
+                event.preventDefault();
+            }
+        }
 
         var showinfo = function (s) {
             document.getElementById('i0').innerHTML = s;
             document.getElementById('i1').innerHTML = club[s].name;
             document.getElementById('i2').innerHTML = club[s].field;
-            document.getElementById('i3').innerHTML = club[s].address + club[s].place;
-            if(s == "경기고") {
+            document.getElementById('i3').innerHTML = club[s].address + " <b>" + club[s].place + "</b>";
+            if (s == "경기고") {
                 document.getElementById('i4').style.display = "";
             } else {                
                 document.getElementById('i4').style.display = "none";
@@ -657,8 +871,21 @@
             document.getElementsByClassName('mdl-layout__obfuscator')[0].click();
         }
 
-        var moreinfo = function (s) {
-
+        var moreinfo = function (s) {            
+            document.getElementById('tab3').click();
+            document.getElementById('j0').innerHTML = s;
+            document.getElementById('j1').innerHTML = club[s].name;
+            document.getElementById('j2').innerHTML = club[s].field;
+            document.getElementById('j3').innerHTML = club[s].address + club[s].place;
+            document.getElementById('j4').innerHTML = club[s].hook;
+            document.getElementById('j5').src = club[s].src;
+            document.getElementById('j6a').innerHTML = club[s].phone;
+            document.getElementById('j7a').innerHTML = club[s].web;
+            document.getElementById('j11').innerHTML = club[s].info1;
+            document.getElementById('j12').innerHTML = club[s].info2;
+            document.getElementById('j13').innerHTML = club[s].info3;
+            document.getElementById('j14').innerHTML = club[s].info4;
+            document.getElementById('j15').innerHTML = club[s].info5;
         }
     </script>
     <!--==========정보==========-->
@@ -666,9 +893,15 @@
         var club = {
             경기고:{
                 name: '경기고등학교',
-                field: '학교',
+                field: '고등학교',
                 place: '643',
                 address: '서울특별시 강남구 삼성1동 영동대로',
+                src: 'images/twice.jpg',
+                hook: '자유인 문화인 평화인을 기르는 학교',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'school',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 18
@@ -678,6 +911,12 @@
                 field: '학교',
                 place: '',
                 address: '보건실, 연수협력실 등',
+                src: 'images/twice.jpg',
+                hook: '보건실, 연수협력실 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -687,6 +926,11 @@
                 field: '학교',
                 place: '',
                 address: '행정실, 방송실, 교장실 등',
+                hook: '행정실, 방송실, 교장실 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -696,6 +940,11 @@
                 field: '학교',
                 place: '',
                 address: '멀티미디어실, 생활지도부 등',
+                hook: '멀티미디어실, 생활지도부 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -705,6 +954,11 @@
                 field: '학교',
                 place: '',
                 address: '실험실, 리소스룸 등',
+                hook: '실험실, 리소스룸 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -714,6 +968,11 @@
                 field: '학교',
                 place: '',
                 address: '대강당, 매점 등',
+                hook: '대강당, 매점 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -723,6 +982,11 @@
                 field: '학교',
                 place: '',
                 address: '도서관, 야자실 등',
+                hook: '도서관, 야자실 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'local_library',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -732,6 +996,11 @@
                 field: '학교',
                 place: '',
                 address: '동문회 사무실 등',
+                hook: '동문회 사무실 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'account_balance',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -739,8 +1008,13 @@
             체육관:{
                 name: '체육관',
                 field: '학교',
-                place: '643',
-                address: '서울특별시 강남구 삼성1동 영동대로',
+                place: '',
+                address: '체육관, 급식실 등',
+                hook: '체육관, 급식실 등',
+                phone: '02-3496-7300',
+                web: 'http://www.kyunggi.hs.kr/index.do',
+                fb: 'https://www.facebook.com/kyunggihsdaejeon',
+                icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 19
@@ -750,13 +1024,17 @@
                 field: '이공계동아리',
                 place: '2학년 13반',
                 address: '학생동 4층 중앙',
-                src: 'images/',
-                hook: '대한민국 정보통신기술의 미래,',
-                info1: '',
-                info2: '',
-                info3: '',
-                info4: '',
-                info5: '',
+                src: 'images/twice.jpg',
+                hook: '\'대한민국 정보통신기술의 미래\'',
+                phone: '',
+                web: 'http://kglist.cf',
+                fb: '',
+                icon: 'memory',
+                info1: 'Lorem ipsum dolor sit amet',
+                info2: 'consectetur adipiscing elit',
+                info3: 'Nulla hendrerit a tellus eget tincidunt',
+                info4: 'Cras sit amet nulla vel odio',
+                info5: 'viverra malesuada',
                 lat: 37.517068,
                 lng: 127.056214,
                 zoom: 21
@@ -768,6 +1046,10 @@
                 address: '과학동 3층 중앙',
                 src: 'images/',
                 hook: '화-학',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: '',
                 info1: '',
                 info2: '',
                 info3: '',
@@ -777,6 +1059,14 @@
                 lng: 127.056214,
                 zoom: 21
             },
+        }
+        //alert(club['0'].name);
+
+        var place = []
+        var index = [];
+        for (var i in club) {
+            index.push(i);
+            place.push(club[i].name);
         }
     </script>
 </body>
