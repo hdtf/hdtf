@@ -77,6 +77,7 @@
         }
         #toMap {
             position: fixed;
+            z-index: 4;
             bottom: 20px;
             right: 20px;
         }
@@ -101,13 +102,6 @@
         }
         .w100 {
             width: 100%;
-        }
-        .mdl-layout__drawer {
-            width: 300px;
-            left: -60px;
-        }
-        .mdl-layout__drawer.is-visible {
-            left: 0;
         }
         .mdl-layout__drawer .mdl-navigation .mdl-navigation__link {            
             color: #1d1d1d;
@@ -200,6 +194,8 @@
                     <div id="map"></div>
                     <script>
                         var map;
+                        var moveMAP;
+                        var moveFloor;
                         var floor = 2;
                         var initMap = function (oLat, oLng, oZoom) {
                             //지도 생성
@@ -452,6 +448,14 @@
                                 }
                             });
                         
+                            moveMAP = function (n) {
+
+                            }
+
+                            moveFloor = function (n) {
+
+                            }
+
                             //click event
                             google.maps.event.addListener(Student, 'click', function(e) {
                                 showinfo("학생동");
@@ -480,6 +484,7 @@
                         };
                     </script>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
+                    <!--==========floor==========-->
                     <!--==========검색창==========-->
                     <div class="mdl-card mdl-shadow--4dp sink" id="searchbox">
                         <div class="mdl-card__title">
@@ -691,7 +696,7 @@
         </main>
     </div>
     <!--==========dialog==========-->
-    <dialog class="mdl-dialog">
+    <!-- <dialog class="mdl-dialog">
         <div class="mdl-dialog__content">
             <h3>환영합니다!</h3>
             <p>지도 기능 테스트 중</p>
@@ -699,7 +704,7 @@
         <div class="mdl-dialog__actions">
             <button type="button" class="mdl-button close pink">OK</button>
         </div>
-    </dialog>
+    </dialog> -->
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="src/jquery-ui.min.js"></script>
@@ -732,40 +737,13 @@
             }, 500)
         }
 
-        /* $(window).on("navigate", function (event, data) {
-            var direction = data.state.direction;
-            if (direction == 'back') {
-                alert('!');
-            }
-        });
-
-        $(window).scroll(function() {
-            alert($(this).scrollTop());
-        });
-
-        document.getElementById("info").onscroll = function() {
-            var j0 = document.getElementById("j0");
-            var s = 0;
-            if (document.body.scrollTop) {
-                s = document.body.scrollTop;
-            } else if (document.documentElement.scrollTop) {
-                s = document.documentElement.scrollTop;
-            }
-            alert(s);
-            if (s > 100) {
-                j0.style.background = "linear-gradient(black, rgba(0,0,0,0)"
-            } else {
-                j0.style.background = "linear-gradient(black, rgba(0,0,0," + s / 100 + ")"
-            }
-        } */
-
-        var dialog = document.querySelector('dialog');
-        if (! dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        dialog.querySelector('.close').addEventListener('click', function() {
-            dialog.close();
-        });
+        // var dialog = document.querySelector('dialog');
+        // if (! dialog.showModal) {
+        //     dialogPolyfill.registerDialog(dialog);
+        // }
+        // dialog.querySelector('.close').addEventListener('click', function() {
+        //     dialog.close();
+        // });
 
         var searchON = function () {
             document.getElementById('sPage').style.display = "block";
@@ -851,7 +829,7 @@
             } else {                
                 document.getElementById('i4').style.display = "none";
             }
-            window.history.replaceState(null, null, "?q=" + s);            
+            window.history.replaceState(null, null, "?q=" + s);          
         }
 
         var share = function (s) {
@@ -887,6 +865,14 @@
             document.getElementById('j14').innerHTML = club[s].info4;
             document.getElementById('j15').innerHTML = club[s].info5;
         }
+
+        var floor = 1;
+        var move = function(s) {
+            moveMAP(club[s].lat, club[s].lng);
+            if (club[s].floor != floor) {
+                moveFloor(club[s].floor);
+            }
+        }
     </script>
     <!--==========정보==========-->
     <script>
@@ -904,6 +890,7 @@
                 icon: 'school',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 18
             },
             학생동:{
@@ -919,6 +906,7 @@
                 icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 19
             },
             관리동:{
@@ -933,6 +921,7 @@
                 icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 19
             },
             화동관:{
@@ -947,6 +936,7 @@
                 icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 19
             },
             과학동:{
@@ -961,6 +951,7 @@
                 icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 2,
                 zoom: 19
             },
             문화관:{
@@ -975,6 +966,7 @@
                 icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 19
             },
             도서관:{
@@ -989,6 +981,7 @@
                 icon: 'local_library',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 19
             },
             백주년:{
@@ -1003,6 +996,7 @@
                 icon: 'account_balance',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 1,
                 zoom: 19
             },
             체육관:{
@@ -1017,6 +1011,7 @@
                 icon: 'business',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 2,
                 zoom: 19
             },
             과학기: {
@@ -1037,6 +1032,7 @@
                 info5: 'viverra malesuada',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 4,
                 zoom: 21
             },
             화학부: {
@@ -1057,6 +1053,7 @@
                 info5: '',
                 lat: 37.517068,
                 lng: 127.056214,
+                floor: 3,
                 zoom: 21
             },
         }
