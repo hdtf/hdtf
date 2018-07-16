@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#123056">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -485,6 +487,9 @@
                     </script>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
                     <!--==========floor==========-->
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+                        <h6>3F</h6>
+                    </button>
                     <!--==========검색창==========-->
                     <div class="mdl-card mdl-shadow--4dp sink" id="searchbox">
                         <div class="mdl-card__title">
@@ -710,7 +715,7 @@
     <script src="src/jquery-ui.min.js"></script>
     <!--==========기본==========-->
     <script>
-        window.onload = function(){
+        window.onload = function () {
             var h = document.documentElement.clientHeight;
             var q = decodeURI(location.search.split("?q=")[1]);
             if (q == "undefined") {
@@ -725,6 +730,9 @@
                 }
             }
             setTimeout(function () {
+                window.scrollTo(0, 1);
+            }, 0)
+            setTimeout(function () {
                 document.getElementById('l1').style.display = "block";
                 setTimeout(function () {
                     document.getElementById('l2').style.display = "block";
@@ -735,6 +743,10 @@
                     }, 3000)
                 }, 500)            
             }, 500)
+        }
+
+        window.onhashchange = function () {
+            alert(location);
         }
 
         // var dialog = document.querySelector('dialog');
