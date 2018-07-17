@@ -22,15 +22,19 @@
         h5 {
             font-size: 1.6em;
         }
+        body {
+            overflow: visible !important;
+        }
         ::-webkit-scrollbar {
             display: none;
         }
         #loading {
             height: 100%;
+            width: 100%;
             background-color: white;
-            z-index: 4;
+            z-index: 5;
             padding-top: 50%;
-            position: relative;
+            position: fixed;
         }
         #p1 {
             width: 240px;
@@ -82,6 +86,12 @@
             z-index: 4;
             bottom: 20px;
             right: 20px;
+        }
+        #fbtn {
+            position: fixed;
+            z-index: 1;
+            right: 20px;
+            bottom: 200px;
         }
         .pink {
             color: #123056;
@@ -486,25 +496,25 @@
                         };
                     </script>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyv1CmlHoaQ5MucCKaXhCElQorvYQPrsU&callback=initMap" async defer></script>
-                    <!--==========floor==========-->
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-                        <h6>3F</h6>
-                    </button>
                     <!--==========검색창==========-->
                     <div class="mdl-card mdl-shadow--4dp sink" id="searchbox">
                         <div class="mdl-card__title">
                             <i class="material-icons" id="s0" onclick="document.getElementById('opennav').click()">menu</i>
                             <i class="material-icons" style="display: none;" id="s00" onclick="searchOFF()">arrow_back</i>
-                            <p class="mdl-card__title-text" id="s1" style="color: #777777; font-size: 18px; margin-left: 15px;" onclick="searchON()">화장실, 학생회 등 찾기</p>
+                            <p class="mdl-card__title-text" id="s1" style="color: #777777; font-size: 18px; margin-left: 15px; width: 70%;" onclick="searchON()">화장실, 학생회 등 찾기</p>
                             <div id="s2" class="mdl-textfield mdl-js-textfield" style="display: none; width: 70%; margin-left: 15px; padding: 0px;">
                                 <input class="mdl-textfield__input" type="text" id="s4">
-                                <label class="mdl-textfield__label" for="s4">화장실, 학생회 등 찾기</label>
+                                <label class="mdl-textfield__label" for="s4"></label>
                             </div>
                             <div class="mdl-layout-spacer"></div>
                             <i class="material-icons" id="s3" style="display: none;" onclick="searchClear();">close</i>
-                            <i class="material-icons" id="s5" style="display: none; margin-left: 15px;" onclick="">search</i>
+                            <!-- <i class="material-icons" id="s5" style="display: none; margin-left: 15px;" onclick="">search</i> -->
                         </div>
                     </div>
+                    <!--==========floor==========-->
+                    <button id="fbtn" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                        1F
+                    </button>
                     <!--==========정보==========-->
                     <div class="mdl-card mdl-shadow--4dp rise" id="infobox">
                         <div class="mdl-card__supporting-text" style="padding: 20px;">
@@ -729,6 +739,10 @@
                     location.search = "";
                 }
             }
+            window.onmousewheel = document.onmousewheel = null;
+            window.onwheel = null;
+            window.ontouchmove = null;
+            document.onkeydown = null;
             setTimeout(function () {
                 window.scrollTo(0, 1);
             }, 0)
@@ -749,6 +763,25 @@
             alert(location);
         }
 
+        window.onscroll = function () {
+            alert("s");
+        }
+
+        function toggleFullScreen() {
+            var doc = window.document;
+            var docEl = doc.documentElement;
+
+            var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+            var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+            if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+                requestFullScreen.call(docEl);
+            }
+            else {
+                cancelFullScreen.call(doc);
+            }
+        }
+
         // var dialog = document.querySelector('dialog');
         // if (! dialog.showModal) {
         //     dialogPolyfill.registerDialog(dialog);
@@ -764,7 +797,7 @@
             document.getElementById('s00').style.display = "block";
             document.getElementById('s2').style.display = "block";
             document.getElementById('s3').style.display = "block";
-            document.getElementById('s5').style.display = "block";
+            // document.getElementById('s5').style.display = "block";
             document.getElementById('searchbox').classList.remove('mdl-shadow--4dp');
             document.getElementById('s4').focus();
         }
@@ -776,7 +809,7 @@
             document.getElementById('s00').style.display = "none";
             document.getElementById('s2').style.display = "none";
             document.getElementById('s3').style.display = "none";
-            document.getElementById('s5').style.display = "none";
+            // document.getElementById('s5').style.display = "none";
             document.getElementById('searchbox').classList.add('mdl-shadow--4dp');
 
             if (club[s]) {
@@ -1057,7 +1090,7 @@
                 phone: '',
                 web: '',
                 fb: '',
-                icon: '',
+                icon: 'filter_tilt_shift',
                 info1: '',
                 info2: '',
                 info3: '',
@@ -1068,8 +1101,784 @@
                 floor: 3,
                 zoom: 21
             },
+            학생회: {
+                name: '학생회',
+                field: '학생회',
+                place: '야외 부스',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'supervised_user_circle',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 3,
+                zoom: 21
+            },
+            실용음: {
+                name: '실용음악부(홍련)',
+                field: '예체능동아리',
+                place: '1학년 1반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'audiotrack',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            영어토: {
+                name: '영어토론부(OAK)',
+                field: '인문사회동아리',
+                place: '1학년 2반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'text_format',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            미술부: {
+                name: '미술부(AC7)',
+                field: '예체능동아리',
+                place: '1학년 3반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'color_lens',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            농구부: {
+                name: '농구부',
+                field: '예체능동아리',
+                place: '1학년 4반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'directions_run',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            EDM: {
+                name: 'EDM부',
+                field: '예체능동아리',
+                place: '1학년 5반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'audiotrack',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            매드스: {
+                name: '매드스텝(힙합댄스부)',
+                field: '예체능동아리',
+                place: '1학년 6반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'audiotrack',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            신문부: {
+                name: '신문부',
+                field: '인문사회동아리',
+                place: '1학년 7반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'chrome_reader_mode',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            심리부: {
+                name: '심리부',
+                field: '인문사회동아리',
+                place: '1학년 8반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'favorite_border',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            항공부: {
+                name: '항공부(KAST)',
+                field: '이공계동아리',
+                place: '1학년 9반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'flight',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            교지편: {
+                name: '교지편집부',
+                field: '인문사회동아리',
+                place: '1학년 10반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'chrome_reader_mode',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            헬스부: {
+                name: '헬스부',
+                field: '예체능동아리',
+                place: '1학년 11반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'fitness_center',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            창의수: {
+                name: '창의수학탐구부',
+                field: '이공계동아리',
+                place: '1학년 12반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'functions',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            아이스: {
+                name: '아이스하키부',
+                field: '예체능동아리',
+                place: '1학년 13반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'directions_run',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            경제부: {
+                name: '경제부(KLX)',
+                field: '인문사회동아리',
+                place: '1학년 14반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'trending_up',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            유네스: {
+                name: '유네스코부',
+                field: '인문사회동아리',
+                place: '2학년 1반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'text_format',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            네셔널: {
+                name: '네셔널트러스트부',
+                field: '인문사회동아리',
+                place: '2학년 2반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'language',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            컴퓨터: {
+                name: '컴퓨터부(CE-L)',
+                field: '이공계동아리',
+                place: '2학년 3반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'memory',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            컴퓨터: {
+                name: '컴퓨터부(CE-L)',
+                field: '이공계동아리',
+                place: '2학년 3반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'desktop_windows',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            기계공: {
+                name: '기계공학부',
+                field: '이공계동아리',
+                place: '2학년 4반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'build',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            천문학: {
+                name: '천문학부',
+                field: '이공계동아리',
+                place: '2학년 5반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'star_border',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            영자신: {
+                name: '영자신문부(KyunggiYouth)',
+                field: '인문사회동아리',
+                place: '2학년 6반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'chrome_reader_mode',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            청담농: {
+                name: '청담농사부',
+                field: '인문사회동아리',
+                place: '2학년 7반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'local_florist',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            배구부: {
+                name: '배구부',
+                field: '예체능동아리',
+                place: '2학년 8반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'directions_run',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            경영부: {
+                name: '경영부',
+                field: '인문사회동아리',
+                place: '2학년 9반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'attach_money',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            축구부: {
+                name: '축구부',
+                field: '예체능동아리',
+                place: '2학년 10반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'directions_run',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            도서부: {
+                name: '도서부(Papyrus)',
+                field: '인문사회동아리',
+                place: '2학년 11반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'book',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            수학부: {
+                name: '수학부(KMOC)',
+                field: '이공계동아리',
+                place: '2학년 12반',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'functions',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            검도부: {
+                name: '검도부',
+                field: '예체능동아리',
+                place: '검도실',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'colorize',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            힙합음: {
+                name: '힙합음악부(Absolute)',
+                field: '예체능동아리',
+                place: '(경기인의 밤)',
+                address: '체육관',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'music_note',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            시사영: {
+                name: '시사영어토론부',
+                field: '인문사회동아리',
+                place: '교과교실 3',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'text_format',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            연극부: {
+                name: '연극부',
+                field: '예체능동아리',
+                place: '멀티미디어실',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'people',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            오케스: {
+                name: '오케스트라부',
+                field: '예체능동아리',
+                place: '대강당',
+                address: '문화관',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'music_note',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            물리부: {
+                name: '물리부',
+                field: '이공계동아리',
+                place: '물리실',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'explore',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            방송부: {
+                name: '방송부',
+                field: '인문사회동아리',
+                place: '방송실',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'mic',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            생물부: {
+                name: '생물부(KBRC)',
+                field: '이공계동아리',
+                place: '생물실',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'terrain',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
+            창의융: {
+                name: '창의융합과학부(CSS)',
+                field: '이공계동아리',
+                place: '지학실',
+                address: '',
+                src: 'images/',
+                hook: '',
+                phone: '',
+                web: '',
+                fb: '',
+                icon: 'whatshot',
+                info1: '',
+                info2: '',
+                info3: '',
+                info4: '',
+                info5: '',
+                lat: 37.517068,
+                lng: 127.056214,
+                floor: 0,
+                zoom: 21
+            },
         }
-        //alert(club['0'].name);
 
         var place = []
         var index = [];
