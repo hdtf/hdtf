@@ -211,7 +211,7 @@
                         var floor = 2;
                         var initMap = function (oLat, oLng, oZoom) {
                             //지도 생성
-                            map = new naver.maps.Map(document.getElementById('map'), {
+                            map = new google.maps.Map(document.getElementById('map'), {
                                 center: {lat: oLat, lng: oLng},
                                 zoom: oZoom,
                                 mapTypeControl: false,
@@ -238,7 +238,7 @@
                                 {lat: 37.516598, lng: 127.0542978}
                             ];
 
-                            var Kyunggi = new naver.maps.Polygon({
+                            var Kyunggi = new google.maps.Polygon({
                                 paths: KyunggiCoords,
                                 strokeColor: '#000000',
                                 strokeOpacity: 1,
@@ -356,7 +356,7 @@
                                 {lat: 37.517762, lng: 127.056207}
                             ];
 
-                            var Student = new naver.maps.Polygon({
+                            var Student = new google.maps.Polygon({
                                 paths: StudentCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -364,7 +364,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Control = new naver.maps.Polygon({
+                            var Control = new google.maps.Polygon({
                                 paths: ControlCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -372,7 +372,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Hwadong = new naver.maps.Polygon({
+                            var Hwadong = new google.maps.Polygon({
                                 paths: HwadongCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -380,7 +380,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Science = new naver.maps.Polygon({
+                            var Science = new google.maps.Polygon({
                                 paths: ScienceCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -388,7 +388,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Culture = new naver.maps.Polygon({
+                            var Culture = new google.maps.Polygon({
                                 paths: CultureCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -396,7 +396,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Library = new naver.maps.Polygon({
+                            var Library = new google.maps.Polygon({
                                 paths: LibraryCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -404,7 +404,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Century = new naver.maps.Polygon({
+                            var Century = new google.maps.Polygon({
                                 paths: CenturyCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -412,7 +412,7 @@
                                 fillColor: '#795548',
                                 fillOpacity: 0.35
                             });
-                            var Gym = new naver.maps.Polygon({
+                            var Gym = new google.maps.Polygon({
                                 paths: GymCoords,
                                 strokeColor: '#795548',
                                 strokeOpacity: 0.8,
@@ -470,33 +470,33 @@
                             }
 
                             //click event
-                            naver.maps.event.addListener(Student, 'click', function(e) {
+                            google.maps.event.addListener(Student, 'click', function(e) {
                                 showinfo("학생동");
                             });
-                            naver.maps.event.addListener(Control, 'click', function(e) {
+                            google.maps.event.addListener(Control, 'click', function(e) {
                                 showinfo("관리동");
                             });
-                            naver.maps.event.addListener(Hwadong, 'click', function(e) {
+                            google.maps.event.addListener(Hwadong, 'click', function(e) {
                                 showinfo("화동관");
                             });
-                            naver.maps.event.addListener(Science, 'click', function(e) {
+                            google.maps.event.addListener(Science, 'click', function(e) {
                                 showinfo("과학동");
                             });
-                            naver.maps.event.addListener(Culture, 'click', function(e) {
+                            google.maps.event.addListener(Culture, 'click', function(e) {
                                 showinfo("문화관");
                             });
-                            naver.maps.event.addListener(Library, 'click', function(e) {
+                            google.maps.event.addListener(Library, 'click', function(e) {
                                 showinfo("도서관");
                             });
-                            naver.maps.event.addListener(Century, 'click', function(e) {
+                            google.maps.event.addListener(Century, 'click', function(e) {
                                 showinfo("백주년");
                             });
-                            naver.maps.event.addListener(Gym, 'click', function(e) {
+                            google.maps.event.addListener(Gym, 'click', function(e) {
                                 showinfo("체육관");
                             });
                         };
                     </script>
-                    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=Lq771DsYwhBUdm3QOmvY&submodules=geocoder"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeBhX9nBqY8G6Hin8p5z6Ypuqu5qOR1jI&callback=initMap" async defer></script>
                     <!--==========검색창==========-->
                     <div class="mdl-card mdl-shadow--4dp sink" id="searchbox">
                         <div class="mdl-card__title">
