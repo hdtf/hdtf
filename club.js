@@ -29,7 +29,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 1,
-        zoom: 19
+        zoom: 18
     },
     관리동:{
         name: '관리동',
@@ -44,7 +44,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 1,
-        zoom: 19
+        zoom: 18
     },
     화동관:{
         name: '화동관',
@@ -59,7 +59,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 1,
-        zoom: 19
+        zoom: 18
     },
     과학동:{
         name: '과학동',
@@ -74,7 +74,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 2,
-        zoom: 19
+        zoom: 18
     },
     문화관:{
         name: '문화관',
@@ -89,7 +89,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 1,
-        zoom: 19
+        zoom: 18
     },
     도서관:{
         name: '도서관',
@@ -104,7 +104,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 1,
-        zoom: 19
+        zoom: 18
     },
     백주년:{
         name: '100주년 기념관',
@@ -119,7 +119,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 1,
-        zoom: 19
+        zoom: 18
     },
     체육관:{
         name: '체육관',
@@ -134,7 +134,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 2,
-        zoom: 19
+        zoom: 18
     },
     과학기: {
         name: '과학기술정보통신부(LIST)',
@@ -155,7 +155,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 4,
-        zoom: 21
+        zoom: 19
     },
     화학부: {
         name: '화학부',
@@ -176,7 +176,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 3,
-        zoom: 21
+        zoom: 19
     },
     학생회: {
         name: '학생회',
@@ -197,7 +197,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 3,
-        zoom: 21
+        zoom: 19
     },
     실용음: {
         name: '실용음악부(홍련)',
@@ -218,7 +218,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     영어토: {
         name: '영어토론부(OAK)',
@@ -239,7 +239,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     미술부: {
         name: '미술부(AC7)',
@@ -260,7 +260,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     농구부: {
         name: '농구부',
@@ -281,7 +281,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     EDM: {
         name: 'EDM부',
@@ -302,7 +302,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     매드스: {
         name: '매드스텝(힙합댄스부)',
@@ -323,7 +323,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     신문부: {
         name: '신문부',
@@ -344,7 +344,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     심리부: {
         name: '심리부',
@@ -365,7 +365,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     항공부: {
         name: '항공부(KAST)',
@@ -386,7 +386,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     교지편: {
         name: '교지편집부',
@@ -407,7 +407,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     헬스부: {
         name: '헬스부',
@@ -428,7 +428,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     창의수: {
         name: '창의수학탐구부',
@@ -449,7 +449,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     아이스: {
         name: '아이스하키부',
@@ -470,7 +470,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     경제부: {
         name: '경제부(KLX)',
@@ -491,7 +491,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     유네스: {
         name: '유네스코부',
@@ -512,7 +512,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     네셔널: {
         name: '네셔널트러스트부',
@@ -533,7 +533,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     컴퓨터: {
         name: '컴퓨터부(CE-L)',
@@ -554,7 +554,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     기계공: {
         name: '기계공학부',
@@ -575,7 +575,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     천문학: {
         name: '천문학부',
@@ -596,7 +596,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     영자신: {
         name: '영자신문부(KyunggiYouth)',
@@ -617,7 +617,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     청담농: {
         name: '청담농사부',
@@ -638,7 +638,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     배구부: {
         name: '배구부',
@@ -659,7 +659,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     경영부: {
         name: '경영부',
@@ -680,7 +680,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     축구부: {
         name: '축구부',
@@ -701,7 +701,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     도서부: {
         name: '도서부(Papyrus)',
@@ -722,7 +722,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     수학부: {
         name: '수학부(KMOC)',
@@ -743,7 +743,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     검도부: {
         name: '검도부',
@@ -764,7 +764,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     힙합음: {
         name: '힙합음악부(Absolute)',
@@ -785,7 +785,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     연극부: {
         name: '연극부',
@@ -806,7 +806,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     오케스: {
         name: '오케스트라부',
@@ -827,7 +827,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     물리부: {
         name: '물리부',
@@ -846,7 +846,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     방송부: {
         name: '방송부',
@@ -867,7 +867,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     생물부: {
         name: '생물부(KBRC)',
@@ -888,7 +888,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
     창의융: {
         name: '창의융합과학부(CSS)',
@@ -909,7 +909,7 @@ var club = {
         lat: 37.517068,
         lng: 127.056214,
         floor: 0,
-        zoom: 21
+        zoom: 19
     },
 }
 

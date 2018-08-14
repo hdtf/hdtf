@@ -870,8 +870,7 @@
                 if (club[q]) {
                     showinfo(q);
                     initMap(club[q].lat, club[q].lng, club[q].zoom);
-                    //쿼리 층 값으로 변경
-                    moveFloor(floor);
+                    moveFloor(club[q].floor);
                 } else {
                     location.search = "";
                 }
