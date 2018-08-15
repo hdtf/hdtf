@@ -197,7 +197,39 @@
     </style>
 </head>
 
-<body style="background-color: #FFFFFF; height: 100%; width: 100%;">    
+<body style="background-color: #FFFFFF; height: 100%; width: 100%;">
+    <!--==========dialog==========-->
+    <dialog class="mdl-dialog" style="border-radius: 5px; padding-bottom: 0px;">
+        <div class="mdl-dialog__content" style="height: 135px; padding:0px">
+            <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
+                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
+                        <i class="fab fa-facebook-square"></i>
+                    </div>
+                    <p style="font-size: 10px;">페이스북</p>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
+                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </div>
+                    <p style="font-size: 10px;">메신저</p>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
+                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <p style="font-size: 10px;">카카오톡</p>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
+                    <div class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="far fa-clone"></i>
+                    </div>
+                    <p style="font-size: 10px;">링크 복사</p>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff">취소 </button>
+        </div>
+    </dialog>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -471,6 +503,7 @@
                             //b: 화장실
                             //학생동
                             var Student1 = ["c112", "c113", "s01", "b01", "c114", "r01", "r02", "b02", "s02", "t01", "t02", "s03", "b03", "r03", "r04", "r05"];
+                            var Student1_ = ["창의수", "아이스", "", "b", "경제부", "", "", "b", "", "", "", "", "b", "", "", ""];
                             var c_c112 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -569,6 +602,7 @@
                             ];
 
                             var Student2 = ["c111", "c110", "s04", "b04", "c109", "c108", "c201", "c202", "b05", "s05", "t03", "c305", "c304", "c303", "s06", "b06", "c302", "c301"];
+                            var Student2_ = ["헬스부", "교지편", "", "b", "항공부", "심리부", "유네스", "내셔널", "b", "", "", "", "", "", "", "b", "", ""];
                             var c_c111 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -600,16 +634,16 @@
                                 {lat: 37.516284, lng: 127.055578}
                             ];
                             var c_c108 = [
-                                {lat: 37.516483, lng: 127.055843},
+                                {lat: 37.516440, lng: 127.055740},
                                 {lat: 37.516397, lng: 127.055634},
                                 {lat: 37.516326, lng: 127.055680},
-                                {lat: 37.516412, lng: 127.055888}
+                                {lat: 37.516369, lng: 127.055785}
                             ];
                             var c_c201 = [
+                                {lat: 37.516440, lng: 127.055740},
                                 {lat: 37.516483, lng: 127.055843},
-                                {lat: 37.516525, lng: 127.055946},
-                                {lat: 37.516454, lng: 127.055991},
-                                {lat: 37.516412, lng: 127.055888}
+                                {lat: 37.516412, lng: 127.055888},
+                                {lat: 37.516369, lng: 127.055785}
                             ];
                             var c_c202 = [
                                 {lat: 37.516483, lng: 127.055843},
@@ -632,18 +666,18 @@
                             var c_t03 = [
                                 {lat: 37.516490, lng: 127.056055},
                                 {lat: 37.516424, lng: 127.056096},
-                                {lat: 37.516549, lng: 127.056389},
-                                {lat: 37.516615, lng: 127.056349}
+                                {lat: 37.516464, lng: 127.056191},
+                                {lat: 37.516530, lng: 127.056150}
                             ];
                             var c_c305 = [
-                                {lat: 37.516654, lng: 127.056441},
-                                {lat: 37.516588, lng: 127.056482},
-                                {lat: 37.516549, lng: 127.056389},
-                                {lat: 37.516615, lng: 127.056349}
+                                {lat: 37.516572, lng: 127.056248},
+                                {lat: 37.516506, lng: 127.056289},
+                                {lat: 37.516464, lng: 127.056191},
+                                {lat: 37.516530, lng: 127.056150}
                             ];
                             var c_c304 = [
-                                {lat: 37.516654, lng: 127.056441},
-                                {lat: 37.516588, lng: 127.056482},
+                                {lat: 37.516572, lng: 127.056248},
+                                {lat: 37.516506, lng: 127.056289},
                                 {lat: 37.516549, lng: 127.056389},
                                 {lat: 37.516615, lng: 127.056349}
                             ];
@@ -668,24 +702,261 @@
                             var c_c302 = [
                                 {lat: 37.516603, lng: 127.056516},
                                 {lat: 37.516668, lng: 127.056475},
-                                {lat: 37.516699, lng: 127.056546},
-                                {lat: 37.516633, lng: 127.056587}
+                                {lat: 37.516713, lng: 127.056580},
+                                {lat: 37.516647, lng: 127.056621}
                             ];
                             var c_c301 = [
-                                {lat: 37.516663, lng: 127.056658},
-                                {lat: 37.516729, lng: 127.056617},
-                                {lat: 37.516699, lng: 127.056546},
-                                {lat: 37.516633, lng: 127.056587}
+                                {lat: 37.516713, lng: 127.056580},
+                                {lat: 37.516647, lng: 127.056621},
+                                {lat: 37.516693, lng: 127.056728},
+                                {lat: 37.516758, lng: 127.056685}
                             ];
 
                             var Student3 = ["c207", "c206", "s07", "b07", "t04", "c205", "c204", "c203", "b08", "s08", "c306", "c307", "c308", "c309", "s09", "b09", "c310", "c311"];
-
+                            var Student3_ = ["청담농", "영자신", "", "b", "", "천문학", "기계공", "컴퓨터", "b", "", "", "", "", "", "", "b", "", ""];
+                            var c_c207 = [
+                                {lat: 37.516263, lng: 127.055309},
+                                {lat: 37.516301, lng: 127.055402},
+                                {lat: 37.516230, lng: 127.055447},
+                                {lat: 37.516193, lng: 127.055357}
+                            ];
+                            var c_c206 = [
+                                {lat: 37.516341, lng: 127.055498},
+                                {lat: 37.516301, lng: 127.055402},
+                                {lat: 37.516230, lng: 127.055447},
+                                {lat: 37.516270, lng: 127.055543}
+                            ];
+                            var c_s07 = [
+                                {lat: 37.516337, lng: 127.055429},
+                                {lat: 37.516373, lng: 127.055406},
+                                {lat: 37.516397, lng: 127.055462},
+                                {lat: 37.516360, lng: 127.055486}
+                            ];
+                            var c_b07 = [
+                                {lat: 37.516412, lng: 127.055496},
+                                {lat: 37.516449, lng: 127.055583},
+                                {lat: 37.516410, lng: 127.055607},
+                                {lat: 37.516374, lng: 127.055520}
+                            ];
+                            var c_t04 = [
+                                {lat: 37.516355, lng: 127.055533},
+                                {lat: 37.516397, lng: 127.055634},
+                                {lat: 37.516326, lng: 127.055680},
+                                {lat: 37.516284, lng: 127.055578}
+                            ];
+                            var c_c205 = [
+                                {lat: 37.516440, lng: 127.055740},
+                                {lat: 37.516397, lng: 127.055634},
+                                {lat: 37.516326, lng: 127.055680},
+                                {lat: 37.516369, lng: 127.055785}
+                            ];
+                            var c_c204 = [
+                                {lat: 37.516440, lng: 127.055740},
+                                {lat: 37.516483, lng: 127.055843},
+                                {lat: 37.516412, lng: 127.055888},
+                                {lat: 37.516369, lng: 127.055785}
+                            ];
+                            var c_c203 = [
+                                {lat: 37.516483, lng: 127.055843},
+                                {lat: 37.516525, lng: 127.055946},
+                                {lat: 37.516454, lng: 127.055991},
+                                {lat: 37.516412, lng: 127.055888}
+                            ];
+                            var c_b08 = [
+                                {lat: 37.516593, lng: 127.055991},
+                                {lat: 37.516623, lng: 127.056059},
+                                {lat: 37.516582, lng: 127.056084},
+                                {lat: 37.516554, lng: 127.056016}
+                            ];
+                            var c_s08 = [
+                                {lat: 37.516518, lng: 127.056038},
+                                {lat: 37.516546, lng: 127.056107},
+                                {lat: 37.516582, lng: 127.056084},
+                                {lat: 37.516554, lng: 127.056016}
+                            ];
+                            var c_c306 = [
+                                {lat: 37.516490, lng: 127.056055},
+                                {lat: 37.516424, lng: 127.056096},
+                                {lat: 37.516464, lng: 127.056191},
+                                {lat: 37.516530, lng: 127.056150}
+                            ];
+                            var c_c307 = [
+                                {lat: 37.516572, lng: 127.056248},
+                                {lat: 37.516506, lng: 127.056289},
+                                {lat: 37.516464, lng: 127.056191},
+                                {lat: 37.516530, lng: 127.056150}
+                            ];
+                            var c_c308 = [
+                                {lat: 37.516572, lng: 127.056248},
+                                {lat: 37.516506, lng: 127.056289},
+                                {lat: 37.516549, lng: 127.056389},
+                                {lat: 37.516615, lng: 127.056349}
+                            ];
+                            var c_c309 = [
+                                {lat: 37.516654, lng: 127.056441},
+                                {lat: 37.516588, lng: 127.056482},
+                                {lat: 37.516549, lng: 127.056389},
+                                {lat: 37.516615, lng: 127.056349}
+                            ];
+                            var c_s09 = [
+                                {lat: 37.516687, lng: 127.056341},
+                                {lat: 37.516715, lng: 127.056403},
+                                {lat: 37.516682, lng: 127.056424},
+                                {lat: 37.516656, lng: 127.056362}
+                            ];
+                            var c_b09 = [
+                                {lat: 37.516730, lng: 127.056436},
+                                {lat: 37.516764, lng: 127.056511},
+                                {lat: 37.516729, lng: 127.056535},
+                                {lat: 37.516696, lng: 127.056458}
+                            ];
+                            var c_c310 = [
+                                {lat: 37.516603, lng: 127.056516},
+                                {lat: 37.516668, lng: 127.056475},
+                                {lat: 37.516713, lng: 127.056580},
+                                {lat: 37.516647, lng: 127.056621}
+                            ];
+                            var c_c311 = [
+                                {lat: 37.516713, lng: 127.056580},
+                                {lat: 37.516647, lng: 127.056621},
+                                {lat: 37.516693, lng: 127.056728},
+                                {lat: 37.516758, lng: 127.056685}
+                            ];
 
                             var Student4 = ["c208", "c209", "s10", "b10", "c210", "c211", "c212", "c213", "b11", "s11", "c214", "r06", "c314", "t05", "s12", "b12", "c313", "c312"];
-
-                                                        
+                            var Student4_ = ["배구부", "경영부", "", "b", "축구부", "도서부", "수학부", "과학기", "b", "", "", "", "", "", "", "b", "", ""];
+                            var c_c208 = [
+                                {lat: 37.516263, lng: 127.055309},
+                                {lat: 37.516301, lng: 127.055402},
+                                {lat: 37.516230, lng: 127.055447},
+                                {lat: 37.516193, lng: 127.055357}
+                            ];
+                            var c_c209 = [
+                                {lat: 37.516341, lng: 127.055498},
+                                {lat: 37.516301, lng: 127.055402},
+                                {lat: 37.516230, lng: 127.055447},
+                                {lat: 37.516270, lng: 127.055543}
+                            ];
+                            var c_s10 = [
+                                {lat: 37.516337, lng: 127.055429},
+                                {lat: 37.516373, lng: 127.055406},
+                                {lat: 37.516397, lng: 127.055462},
+                                {lat: 37.516360, lng: 127.055486}
+                            ];
+                            var c_b10 = [
+                                {lat: 37.516412, lng: 127.055496},
+                                {lat: 37.516449, lng: 127.055583},
+                                {lat: 37.516410, lng: 127.055607},
+                                {lat: 37.516374, lng: 127.055520}
+                            ];
+                            var c_c210 = [
+                                {lat: 37.516355, lng: 127.055533},
+                                {lat: 37.516397, lng: 127.055634},
+                                {lat: 37.516326, lng: 127.055680},
+                                {lat: 37.516284, lng: 127.055578}
+                            ];
+                            var c_c211 = [
+                                {lat: 37.516440, lng: 127.055740},
+                                {lat: 37.516397, lng: 127.055634},
+                                {lat: 37.516326, lng: 127.055680},
+                                {lat: 37.516369, lng: 127.055785}
+                            ];
+                            var c_c212 = [
+                                {lat: 37.516440, lng: 127.055740},
+                                {lat: 37.516483, lng: 127.055843},
+                                {lat: 37.516412, lng: 127.055888},
+                                {lat: 37.516369, lng: 127.055785}
+                            ];
+                            var c_c213 = [
+                                {lat: 37.516483, lng: 127.055843},
+                                {lat: 37.516525, lng: 127.055946},
+                                {lat: 37.516454, lng: 127.055991},
+                                {lat: 37.516412, lng: 127.055888}
+                            ];
+                            var c_b11 = [
+                                {lat: 37.516593, lng: 127.055991},
+                                {lat: 37.516623, lng: 127.056059},
+                                {lat: 37.516582, lng: 127.056084},
+                                {lat: 37.516554, lng: 127.056016}
+                            ];
+                            var c_s11 = [
+                                {lat: 37.516518, lng: 127.056038},
+                                {lat: 37.516546, lng: 127.056107},
+                                {lat: 37.516582, lng: 127.056084},
+                                {lat: 37.516554, lng: 127.056016}
+                            ];
+                            var c_c214 = [
+                                {lat: 37.516490, lng: 127.056055},
+                                {lat: 37.516424, lng: 127.056096},
+                                {lat: 37.516464, lng: 127.056191},
+                                {lat: 37.516530, lng: 127.056150}
+                            ];
+                            var c_r06 = [
+                                {lat: 37.516572, lng: 127.056248},
+                                {lat: 37.516506, lng: 127.056289},
+                                {lat: 37.516464, lng: 127.056191},
+                                {lat: 37.516530, lng: 127.056150}
+                            ];
+                            var c_c314 = [
+                                {lat: 37.516572, lng: 127.056248},
+                                {lat: 37.516506, lng: 127.056289},
+                                {lat: 37.516549, lng: 127.056389},
+                                {lat: 37.516615, lng: 127.056349}
+                            ];
+                            var c_t05 = [
+                                {lat: 37.516654, lng: 127.056441},
+                                {lat: 37.516588, lng: 127.056482},
+                                {lat: 37.516549, lng: 127.056389},
+                                {lat: 37.516615, lng: 127.056349}
+                            ];
+                            var c_s12 = [
+                                {lat: 37.516687, lng: 127.056341},
+                                {lat: 37.516715, lng: 127.056403},
+                                {lat: 37.516682, lng: 127.056424},
+                                {lat: 37.516656, lng: 127.056362}
+                            ];
+                            var c_b12 = [
+                                {lat: 37.516730, lng: 127.056436},
+                                {lat: 37.516764, lng: 127.056511},
+                                {lat: 37.516729, lng: 127.056535},
+                                {lat: 37.516696, lng: 127.056458}
+                            ];
+                            var c_c313 = [
+                                {lat: 37.516603, lng: 127.056516},
+                                {lat: 37.516668, lng: 127.056475},
+                                {lat: 37.516713, lng: 127.056580},
+                                {lat: 37.516647, lng: 127.056621}
+                            ];
+                            var c_c312 = [
+                                {lat: 37.516713, lng: 127.056580},
+                                {lat: 37.516647, lng: 127.056621},
+                                {lat: 37.516693, lng: 127.056728},
+                                {lat: 37.516758, lng: 127.056685}
+                            ];
+              
                             for (var i in Student1) {
                                 eval("var " + Student1[i] + " = new google.maps.Polygon({ paths: c_" + Student1[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
+                                if (Student1_[i] != "") {
+                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student1_[i] + "); });");
+                                }
+                            }
+                            for (var i in Student2) {
+                                eval("var " + Student2[i] + " = new google.maps.Polygon({ paths: c_" + Student2[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
+                                if (Student2_[i] != "") {
+                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student2_[i] + "); });");
+                                }
+                            }
+                            for (var i in Student3) {
+                                eval("var " + Student3[i] + " = new google.maps.Polygon({ paths: c_" + Student3[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
+                                if (Student3_[i] != "") {
+                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student3_[i] + "); });");
+                                }
+                            }
+                            for (var i in Student4) {
+                                eval("var " + Student4[i] + " = new google.maps.Polygon({ paths: c_" + Student4[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
+                                if (Student4_[i] != "") {
+                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student4_[i] + "); });");
+                                }
                             }
 
                             //zoom event
@@ -723,13 +994,35 @@
 
                             }
 
-                            moveFloor = function (n) {                                
+                            moveFloor = function (n) {
                                 for (var i in Student1) {
                                     eval(Student1[i] + ".setMap(null);");
                                 }
+                                for (var i in Student2) {
+                                    eval(Student2[i] + ".setMap(null);");
+                                }
+                                for (var i in Student3) {
+                                    eval(Student3[i] + ".setMap(null);");
+                                }
+                                for (var i in Student4) {
+                                    eval(Student4[i] + ".setMap(null);");
+                                }
+
                                 if (n == 1) {
                                     for (var i in Student1) {
                                         eval(Student1[i] + ".setMap(map);");
+                                    }
+                                } else if (n == 2) {
+                                    for (var i in Student2) {
+                                        eval(Student2[i] + ".setMap(map);");
+                                    }
+                                } else if (n == 3) {
+                                    for (var i in Student3) {
+                                        eval(Student3[i] + ".setMap(map);");
+                                    }
+                                } else if (n == 4) {
+                                    for (var i in Student4) {
+                                        eval(Student4[i] + ".setMap(map);");
                                     }
                                 }
                             }
@@ -981,38 +1274,7 @@
             </section>
         </main>
     </div>
-    <!--==========dialog==========-->
-    <dialog class="mdl-dialog" style="border-radius: 5px; padding-bottom: 0px;">
-        <div class="mdl-dialog__content" style="height: 135px; padding:0px">
-            <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
-                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
-                        <i class="fab fa-facebook-square"></i>
-                    </div>
-                    <p style="font-size: 10px;">페이스북</p>
-                </div>
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
-                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
-                        <i class="fab fa-facebook-messenger"></i>
-                    </div>
-                    <p style="font-size: 10px;">메신저</p>
-                </div>
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
-                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
-                        <i class="fas fa-comment"></i>
-                    </div>
-                    <p style="font-size: 10px;">카카오톡</p>
-                </div>
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
-                    <div class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="far fa-clone"></i>
-                    </div>
-                    <p style="font-size: 10px;">링크 복사</p>
-                </div>
-            </div>
-            <button class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff">취소 </button>
-        </div>
-    </dialog>
+    
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--==========기본==========-->
@@ -1053,32 +1315,13 @@
             }, 500)
         }
 
-        // window.onhashchange = function () {
-        //     alert(location);
-        // }
-
-        // window.onscroll = function () {
-        //     alert("s");
-        // }
-
-        // function toggleFullScreen() {
-        //     var doc = window.document;
-        //     var docEl = doc.documentElement;
-
-        //     var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-        //     var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-        //     if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-        //         requestFullScreen.call(docEl);
-        //     }
-        //     else {
-        //         cancelFullScreen.call(doc);
-        //     }
-        // }
-
         var dialog = document.querySelector('dialog');
         if (! dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
+            try {
+                dialogPolyfill.registerDialog(dialog);
+            } catch (err) {
+                console.log(err);
+            }
         }
         dialog.querySelector('.clo').addEventListener('click', function() {
             dialog.close();
