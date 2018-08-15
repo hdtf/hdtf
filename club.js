@@ -145,7 +145,7 @@ var club = {
         hook: '\'대한민국 정보통신기술의 미래\'',
         phone: '',
         web: 'http://kglist.cf',
-        fb: '',
+        fb: 'https://www.facebook.com/KLISTLIST/',
         icon: 'memory',
         info1: 'Lorem ipsum dolor sit amet',
         info2: 'consectetur adipiscing elit',
@@ -914,8 +914,10 @@ var club = {
 }
 
 var place = []
+var address = []
 var index = [];
 for (var i in club) {
     index.push(i);
     place.push(club[i].name);
+    address.push(club[i].address + " " + club[i].place);
 }

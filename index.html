@@ -1013,7 +1013,8 @@
                 var value = document.getElementById("s4").value.toUpperCase();
                 for (var i in place) {
                     var x = place[i].split(value);
-                    if (place[i] != x[0]) {
+                    var y = address[i].split(value);
+                    if (place[i] != x[0] || address[i] != y[0]) {
                         var ans = "";
                         for (var j in x) {
                             if (j != 0) {
@@ -1021,12 +1022,19 @@
                             }
                             ans += x[j];
                         }
+                        var ans2 = "";
+                        for (var k in y) {
+                            if (k != 0) {
+                                ans2 += "<b>" + value + "</b>";
+                            }
+                            ans2 += y[k];
+                        }
                         var a = "";
                         a += "<li class='mdl-list__item mdl-list__item--two-line' onclick=\"searchOFF('" + index[i] + "');\">";
                         a += "    <span class='mdl-list__item-primary-content'>";
                         a += "        <i class='material-icons mdl-list__item-icon'>" + club[index[i]].icon + "</i>";
                         a += "        <span>" + ans + "</span>";
-                        a += "        <span class='mdl-list__item-sub-title'>" + club[index[i]].hook + "</span>";
+                        a += "        <span class='mdl-list__item-sub-title'>" + ans2 + "</span>";
                         a += "    </span>";
                         a += "</li>";
                         document.getElementById("s9").innerHTML += a;
