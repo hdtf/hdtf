@@ -197,7 +197,15 @@
     </style>
 </head>
 
-<body style="background-color: #FFFFFF; height: 100%; width: 100%;">
+<body style="background-color: #FFFFFF; height: 100%; width: 100%;">    
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=1043611895803841&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div id="loading">
         <div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate center"></div>
         <h5 class="fin lText" id="l1">과학기술정보통신부</h3>
@@ -597,13 +605,13 @@
                                 {lat: 37.516326, lng: 127.055680},
                                 {lat: 37.516412, lng: 127.055888}
                             ];
-                            var c_201 = [
+                            var c_c201 = [
                                 {lat: 37.516483, lng: 127.055843},
                                 {lat: 37.516525, lng: 127.055946},
                                 {lat: 37.516454, lng: 127.055991},
                                 {lat: 37.516412, lng: 127.055888}
                             ];
-                            var c_202 = [
+                            var c_c202 = [
                                 {lat: 37.516483, lng: 127.055843},
                                 {lat: 37.516525, lng: 127.055946},
                                 {lat: 37.516454, lng: 127.055991},
@@ -753,7 +761,7 @@
                             });
                         };
                     </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeBhX9nBqY8G6Hin8p5z6Ypuqu5qOR1jI&callback=initMap" async defer></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAb4VMGLBzg88lfEVRGNuoatq4NEn4Elmg&callback=initMap" async defer></script>
                     <!--==========검색창==========-->
                     <div class="mdl-card mdl-shadow--4dp sink" id="searchbox">
                         <div class="mdl-card__title">
@@ -974,18 +982,39 @@
         </main>
     </div>
     <!--==========dialog==========-->
-    <!-- <dialog class="mdl-dialog">
-        <div class="mdl-dialog__content">
-            <h3>환영합니다!</h3>
-            <p>지도 기능 테스트 중</p>
+    <dialog class="mdl-dialog" style="border-radius: 5px; padding-bottom: 0px;">
+        <div class="mdl-dialog__content" style="height: 135px; padding:0px">
+            <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
+                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
+                        <i class="fab fa-facebook-square"></i>
+                    </div>
+                    <p style="font-size: 10px;">페이스북</p>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
+                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
+                        <i class="fab fa-facebook-messenger"></i>
+                    </div>
+                    <p style="font-size: 10px;">메신저</p>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
+                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    <p style="font-size: 10px;">카카오톡</p>
+                </div>
+                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
+                    <div class="mdl-button mdl-js-button mdl-button--icon">
+                        <i class="far fa-clone"></i>
+                    </div>
+                    <p style="font-size: 10px;">링크 복사</p>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff">취소 </button>
         </div>
-        <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button close pink">OK</button>
-        </div>
-    </dialog> -->
+    </dialog>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="src/jquery-ui.min.js"></script>
     <!--==========기본==========-->
     <script>
         window.onload = function () {
@@ -1047,13 +1076,13 @@
         //     }
         // }
 
-        // var dialog = document.querySelector('dialog');
-        // if (! dialog.showModal) {
-        //     dialogPolyfill.registerDialog(dialog);
-        // }
-        // dialog.querySelector('.close').addEventListener('click', function() {
-        //     dialog.close();
-        // });
+        var dialog = document.querySelector('dialog');
+        if (! dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
+        dialog.querySelector('.clo').addEventListener('click', function() {
+            dialog.close();
+        });
 
         var floor = 1;
         var fbtnisActive = false;
@@ -1205,6 +1234,24 @@
             });
         }
 
+        var share = function (s) {
+            if(navigator.share){
+                navigator.share({
+                    title: club[s].name,
+                    text: club[s].hook,
+                    url: location
+                });
+            }else{
+                dialog.showModal()
+                $("#fshare").data('href', encodeURIComponent(location.href))
+                console.log($("#fshare").data('href'))
+            }
+        }
+
+        var sharefb = function(){
+            document.getElementById("fshare").click();
+        }
+
         var schedule = function (c) {
             document.getElementById('schedule-btn').classList.remove('is-active');
             document.getElementById('event-btn').classList.remove('is-active');
@@ -1241,6 +1288,10 @@
     </script>
     <!--==========정보==========-->
     <script src="club.js"></script>
+    <!--==========공유==========-->
+    <div id="fshare" class="fb-share-button" data-href="https://kmap.cf" data-layout="button" data-size="small" data-mobile-iframe="true" >
+        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkmap.cf%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a>
+    </div>
 </body>
 </html>
     
