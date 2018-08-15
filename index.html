@@ -548,6 +548,9 @@
                                 {lat: 37.516693, lng: 127.056728}
                             ];
 
+                            var Student2 = ["c111", "c110", "s03", "b03", "c109", "c108", "c201", "c202", "b02", "s02", "t01", "t02", "r03", "r04", "r05"];
+                            
+
                             for (var i in Student1) {
                                 eval("var " + Student1[i] + " = new google.maps.Polygon({ paths: c_" + Student1[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                             }
@@ -1070,7 +1073,7 @@
         }
 
         var share = function (s) {
-            window.navigator.share({
+            navigator.share({
                 title: club[s].name,
                 text: club[s].hook,
                 url: location
