@@ -199,7 +199,7 @@
 
 <body style="background-color: #FFFFFF; height: 100%; width: 100%;">
     <!--==========dialog==========-->
-    <dialog class="mdl-dialog" style="border-radius: 5px; padding-bottom: 0px;">
+    <!-- <dialog class="mdl-dialog" style="border-radius: 5px; padding-bottom: 0px;">
         <div class="mdl-dialog__content" style="height: 135px; padding:0px">
             <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
                 <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
@@ -229,7 +229,7 @@
             </div>
             <button class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff">취소 </button>
         </div>
-    </dialog>
+    </dialog> -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -937,25 +937,25 @@
                             for (var i in Student1) {
                                 eval("var " + Student1[i] + " = new google.maps.Polygon({ paths: c_" + Student1[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student1_[i] != "") {
-                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student1_[i] + "); });");
+                                    eval("google.maps.event.addListener(" + Student1[i] + ", 'click', function(e) { showinfo('" + Student1_[i] + "'); });");
                                 }
                             }
                             for (var i in Student2) {
                                 eval("var " + Student2[i] + " = new google.maps.Polygon({ paths: c_" + Student2[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student2_[i] != "") {
-                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student2_[i] + "); });");
+                                    eval("google.maps.event.addListener(" + Student2[i] + ", 'click', function(e) { showinfo('" + Student2_[i] + "'); });");
                                 }
                             }
                             for (var i in Student3) {
                                 eval("var " + Student3[i] + " = new google.maps.Polygon({ paths: c_" + Student3[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student3_[i] != "") {
-                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student3_[i] + "); });");
+                                    eval("google.maps.event.addListener(" + Student3[i] + ", 'click', function(e) { showinfo('" + Student3_[i] + "'); });");
                                 }
                             }
                             for (var i in Student4) {
                                 eval("var " + Student4[i] + " = new google.maps.Polygon({ paths: c_" + Student4[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student4_[i] != "") {
-                                    eval("google.maps.event.addListener(Student, 'click', function(e) { showinfo(" + Student4_[i] + "); });");
+                                    eval("google.maps.event.addListener(" + Student4[i] + ", 'click', function(e) { showinfo('" + Student4_[i] + "'); });");
                                 }
                             }
 
@@ -1477,23 +1477,23 @@
             });
         }
 
-        var share = function (s) {
-            if(navigator.share){
-                navigator.share({
-                    title: club[s].name,
-                    text: club[s].hook,
-                    url: location
-                });
-            }else{
-                dialog.showModal()
-                $("#fshare").data('href', encodeURIComponent(location.href))
-                console.log($("#fshare").data('href'))
-            }
-        }
+        // var share = function (s) {
+        //     if(navigator.share){
+        //         navigator.share({
+        //             title: club[s].name,
+        //             text: club[s].hook,
+        //             url: location
+        //         });
+        //     }else{
+        //         dialog.showModal()
+        //         $("#fshare").data('href', encodeURIComponent(location.href))
+        //         console.log($("#fshare").data('href'))
+        //     }
+        // }
 
-        var sharefb = function(){
-            document.getElementById("fshare").click();
-        }
+        // var sharefb = function(){
+        //     document.getElementById("fshare").click();
+        // }
 
         var schedule = function (c) {
             document.getElementById('schedule-btn').classList.remove('is-active');
@@ -1532,9 +1532,9 @@
     <!--==========정보==========-->
     <script src="club.js"></script>
     <!--==========공유==========-->
-    <div id="fshare" class="fb-share-button" data-href="https://kmap.cf" data-layout="button" data-size="small" data-mobile-iframe="true" >
+    <!-- <div id="fshare" class="fb-share-button" data-href="https://kmap.cf" data-layout="button" data-size="small" data-mobile-iframe="true" >
         <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkmap.cf%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a>
-    </div>
+    </div> -->
 </body>
 </html>
     
