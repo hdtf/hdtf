@@ -256,7 +256,7 @@
         <!--==========메뉴==========-->
         <div class="mdl-layout__drawer">
             <nav class="mdl-navigation" style="padding-top: 0px;">
-                <div style="margin:none;"><img src="images/default2.jpg" width="100%" /></div>
+                <div style="margin:none;"><img src="images/b/default2.jpg" width="100%" /></div>
                 <a class="mdl-navigation__link" onclick="schedule('schedule');"><i style="margin-right: 15px;" class="material-icons">schedule</i>일정</a>
                 <a class="mdl-navigation__link" onclick="schedule('event');"><i style="margin-right: 15px;" class="material-icons">event</i>이벤트</a>
                 <a class="mdl-navigation__link" onclick="schedule('help');"><i style="margin-right: 15px;" class="material-icons">help</i>기타</a>
@@ -280,7 +280,7 @@
                         var initMap = function (oLat, oLng, oZoom) {
                             //지도 생성
                             map = new google.maps.Map(document.getElementById('map'), {
-                                center: {lat: oLat, lng: oLng},
+                                center: new google.maps.LatLng(oLat, oLng),
                                 zoom: oZoom,
                                 mapTypeControl: false,
                                 streetViewControl: false,
@@ -527,6 +527,8 @@
                                 {lat: 37.516449, lng: 127.055583},
                                 {lat: 37.516410, lng: 127.055607},
                                 {lat: 37.516374, lng: 127.055520}
+                                // lat: 37.516411,
+	                            // lng: 127.055552,
                             ];
                             var c_c114 = [
                                 {lat: 37.516355, lng: 127.055533},
@@ -551,6 +553,8 @@
                                 {lat: 37.516623, lng: 127.056059},
                                 {lat: 37.516582, lng: 127.056084},
                                 {lat: 37.516554, lng: 127.056016}
+                                // lat: 37.516588,
+	                            // lng: 127.056038,
                             ];
                             var c_s02 = [
                                 {lat: 37.516518, lng: 127.056038},
@@ -581,6 +585,8 @@
                                 {lat: 37.516764, lng: 127.056511},
                                 {lat: 37.516729, lng: 127.056535},
                                 {lat: 37.516696, lng: 127.056458}
+                                // lat: 37.51673,
+	                            // lng: 127.056485,
                             ];
                             var c_r03 = [
                                 {lat: 37.516603, lng: 127.056516},
@@ -626,6 +632,8 @@
                                 {lat: 37.516449, lng: 127.055583},
                                 {lat: 37.516410, lng: 127.055607},
                                 {lat: 37.516374, lng: 127.055520}
+                                // lat: 37.516411,
+		                        // lng: 127.055552,
                             ];
                             var c_c109 = [
                                 {lat: 37.516355, lng: 127.055533},
@@ -656,6 +664,8 @@
                                 {lat: 37.516623, lng: 127.056059},
                                 {lat: 37.516582, lng: 127.056084},
                                 {lat: 37.516554, lng: 127.056016}
+                                // lat: 37.516588,
+		                        // lng: 127.056038,
                             ];
                             var c_s05 = [
                                 {lat: 37.516518, lng: 127.056038},
@@ -698,6 +708,8 @@
                                 {lat: 37.516764, lng: 127.056511},
                                 {lat: 37.516729, lng: 127.056535},
                                 {lat: 37.516696, lng: 127.056458}
+                                // lat: 37.51673,
+		                        // lng: 127.056485,
                             ];
                             var c_c302 = [
                                 {lat: 37.516603, lng: 127.056516},
@@ -737,6 +749,8 @@
                                 {lat: 37.516449, lng: 127.055583},
                                 {lat: 37.516410, lng: 127.055607},
                                 {lat: 37.516374, lng: 127.055520}
+                                // lat: 37.516411,
+		                        // lng: 127.055552,
                             ];
                             var c_t04 = [
                                 {lat: 37.516355, lng: 127.055533},
@@ -767,6 +781,8 @@
                                 {lat: 37.516623, lng: 127.056059},
                                 {lat: 37.516582, lng: 127.056084},
                                 {lat: 37.516554, lng: 127.056016}
+                                // lat: 37.516588,
+		                        // lng: 127.056038,
                             ];
                             var c_s08 = [
                                 {lat: 37.516518, lng: 127.056038},
@@ -809,6 +825,8 @@
                                 {lat: 37.516764, lng: 127.056511},
                                 {lat: 37.516729, lng: 127.056535},
                                 {lat: 37.516696, lng: 127.056458}
+                                // lat: 37.51673,
+		                        // lng: 127.056485,
                             ];
                             var c_c310 = [
                                 {lat: 37.516603, lng: 127.056516},
@@ -848,6 +866,8 @@
                                 {lat: 37.516449, lng: 127.055583},
                                 {lat: 37.516410, lng: 127.055607},
                                 {lat: 37.516374, lng: 127.055520}
+                                // lat: 37.516411,
+		                        // lng: 127.055552,
                             ];
                             var c_c210 = [
                                 {lat: 37.516355, lng: 127.055533},
@@ -878,6 +898,8 @@
                                 {lat: 37.516623, lng: 127.056059},
                                 {lat: 37.516582, lng: 127.056084},
                                 {lat: 37.516554, lng: 127.056016}
+                                // lat: 37.516588,
+		                        // lng: 127.056038,
                             ];
                             var c_s11 = [
                                 {lat: 37.516518, lng: 127.056038},
@@ -920,6 +942,8 @@
                                 {lat: 37.516764, lng: 127.056511},
                                 {lat: 37.516729, lng: 127.056535},
                                 {lat: 37.516696, lng: 127.056458}
+                                // lat: 37.51673,
+		                        // lng: 127.056485,
                             ];
                             var c_c313 = [
                                 {lat: 37.516603, lng: 127.056516},
@@ -960,6 +984,8 @@
                                 {lat: 37.516131, lng: 127.055770},
                                 {lat: 37.516088, lng: 127.055797},
                                 {lat: 37.516063, lng: 127.055740}
+                                // lat: 37.516097,
+		                        // lng: 127.055755,
                             ];
                             var c_r08 = [
                                 {lat: 37.516184, lng: 127.055735},
@@ -993,6 +1019,8 @@
                                 {lat: 37.515990, lng: 127.055572},
                                 {lat: 37.516015, lng: 127.055629},
                                 {lat: 37.516060, lng: 127.055601}
+                                // lat: 37.516025,
+		                        // lng: 127.055586,
                             ];
                             var c_e02 = [
                                 {lat: 37.516135, lng: 127.055519},
@@ -1011,6 +1039,8 @@
                                 {lat: 37.516131, lng: 127.055770},
                                 {lat: 37.516088, lng: 127.055797},
                                 {lat: 37.516063, lng: 127.055740}
+                                // lat: 37.516097,
+		                        // lng: 127.055755,
                             ];
                             var c_c105 = [
                                 {lat: 37.516184, lng: 127.055735},
@@ -1074,6 +1104,8 @@
                                 {lat: 37.516131, lng: 127.055770},
                                 {lat: 37.516088, lng: 127.055797},
                                 {lat: 37.516063, lng: 127.055740}
+                                // lat: 37.516097,
+		                        // lng: 127.055755,
                             ];
                             var c_t07 = [
                                 {lat: 37.516184, lng: 127.055735},
@@ -1103,43 +1135,85 @@
                             for (var i in Student1) {
                                 eval("var " + Student1[i] + " = new google.maps.Polygon({ paths: c_" + Student1[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student1_[i] != "") {
-                                    eval("google.maps.event.addListener(" + Student1[i] + ", 'click', function(e) { showinfo('" + Student1_[i] + "'); });");
+                                    eval("google.maps.event.addListener(" + Student1[i] + ", 'click', function(e) { showinfo('" + Student1_[i] + "'); });");                                    
                                 }
                             }
                             for (var i in Student2) {
                                 eval("var " + Student2[i] + " = new google.maps.Polygon({ paths: c_" + Student2[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student2_[i] != "") {
                                     eval("google.maps.event.addListener(" + Student2[i] + ", 'click', function(e) { showinfo('" + Student2_[i] + "'); });");
+                                    var a = 0;
+                                    var b = 0;
+                                    for (var j = 0; j < 4; j++) {
+                                        eval("a += c_" + Student2[i] + "[j].lat;");
+                                        eval("b += c_" + Student2[i] + "[j].lng;");
+                                    }
+                                    console.log(Student2_[i] + "\nlat: " + Math.round(a * 1000000 / 4) / 1000000 + ",\n\t\tlng: " + Math.round(b * 1000000 / 4) / 1000000 + ",");
                                 }
                             }
                             for (var i in Student3) {
                                 eval("var " + Student3[i] + " = new google.maps.Polygon({ paths: c_" + Student3[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student3_[i] != "") {
                                     eval("google.maps.event.addListener(" + Student3[i] + ", 'click', function(e) { showinfo('" + Student3_[i] + "'); });");
+                                    var a = 0;
+                                    var b = 0;
+                                    for (var j = 0; j < 4; j++) {
+                                        eval("a += c_" + Student3[i] + "[j].lat;");
+                                        eval("b += c_" + Student3[i] + "[j].lng;");
+                                    }
+                                    console.log(Student3_[i] + "\nlat: " + Math.round(a * 1000000 / 4) / 1000000 + ",\n\t\tlng: " + Math.round(b * 1000000 / 4) / 1000000 + ",");
                                 }
                             }
                             for (var i in Student4) {
                                 eval("var " + Student4[i] + " = new google.maps.Polygon({ paths: c_" + Student4[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student4_[i] != "") {
                                     eval("google.maps.event.addListener(" + Student4[i] + ", 'click', function(e) { showinfo('" + Student4_[i] + "'); });");
+                                    var a = 0;
+                                    var b = 0;
+                                    for (var j = 0; j < 4; j++) {
+                                        eval("a += c_" + Student4[i] + "[j].lat;");
+                                        eval("b += c_" + Student4[i] + "[j].lng;");
+                                    }
+                                    console.log(Student4_[i] + "\nlat: " + Math.round(a * 1000000 / 4) / 1000000 + ",\n\t\tlng: " + Math.round(b * 1000000 / 4) / 1000000 + ",");
                                 }
                             }
                             for (var i in Hwadong1) {
                                 eval("var " + Hwadong1[i] + " = new google.maps.Polygon({ paths: c_" + Hwadong1[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Hwadong1_[i] != "") {
                                     eval("google.maps.event.addListener(" + Hwadong1[i] + ", 'click', function(e) { showinfo('" + Hwadong1_[i] + "'); });");
+                                    var a = 0;
+                                    var b = 0;
+                                    for (var j = 0; j < 4; j++) {
+                                        eval("a += c_" + Hwadong1[i] + "[j].lat;");
+                                        eval("b += c_" + Hwadong1[i] + "[j].lng;");
+                                    }
+                                    console.log(Hwadong1_[i] + "\nlat: " + Math.round(a * 1000000 / 4) / 1000000 + ",\n\t\tlng: " + Math.round(b * 1000000 / 4) / 1000000 + ",");
                                 }
                             }
                             for (var i in Hwadong2) {
                                 eval("var " + Hwadong2[i] + " = new google.maps.Polygon({ paths: c_" + Hwadong2[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Hwadong2_[i] != "") {
                                     eval("google.maps.event.addListener(" + Hwadong2[i] + ", 'click', function(e) { showinfo('" + Hwadong2_[i] + "'); });");
+                                    var a = 0;
+                                    var b = 0;
+                                    for (var j = 0; j < 4; j++) {
+                                        eval("a += c_" + Hwadong2[i] + "[j].lat;");
+                                        eval("b += c_" + Hwadong2[i] + "[j].lng;");
+                                    }
+                                    console.log(Hwadong2_[i] + "\nlat: " + Math.round(a * 1000000 / 4) / 1000000 + ",\n\t\tlng: " + Math.round(b * 1000000 / 4) / 1000000 + ",");
                                 }
                             }
                             for (var i in Hwadong3) {
                                 eval("var " + Hwadong3[i] + " = new google.maps.Polygon({ paths: c_" + Hwadong3[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Hwadong3_[i] != "") {
                                     eval("google.maps.event.addListener(" + Hwadong3[i] + ", 'click', function(e) { showinfo('" + Hwadong3_[i] + "'); });");
+                                    var a = 0;
+                                    var b = 0;
+                                    for (var j = 0; j < 4; j++) {
+                                        eval("a += c_" + Hwadong3[i] + "[j].lat;");
+                                        eval("b += c_" + Hwadong3[i] + "[j].lng;");
+                                    }
+                                    console.log(Hwadong3_[i] + "\nlat: " + Math.round(a * 1000000 / 4) / 1000000 + ",\n\t\tlng: " + Math.round(b * 1000000 / 4) / 1000000 + ",");
                                 }
                             }
 
@@ -1668,7 +1742,11 @@
             } else {                
                 document.getElementById('i4').style.display = "none";
             }
-            window.history.replaceState(null, null, "?q=" + s);          
+            window.history.replaceState(null, null, "?q=" + s);
+            
+            for (var i = 0; i < 4; i++) {
+
+            }  
         }
 
         var share = function (s) {
