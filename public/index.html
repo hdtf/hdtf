@@ -16,6 +16,19 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="src/jquery-ui.min.css">
     
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    
     <style>
         p, a {
             font-size: 1.5em;
@@ -201,44 +214,46 @@
     <!--==========정보==========-->
     <script src="club.js"></script>
     <!--==========dialog==========-->
-    <!-- <dialog class="mdl-dialog" style="border-radius: 5px; padding-bottom: 0px;">
-        <div class="mdl-dialog__content" style="height: 135px; padding:0px">
-            <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
-                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
-                        <i class="fab fa-facebook-square"></i>
+    <div id="shareModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
+                                <i class="fab fa-facebook-square"></i>
+                            </div>
+                            <p style="font-size: 10px;">페이스북</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="shareMes()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
+                                <i class="fab fa-facebook-messenger"></i>
+                            </div>
+                            <p style="font-size: 10px;">메신저</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="shareKakao()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <p style="font-size: 10px;">카카오톡</p>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="copyUrl()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="far fa-clone"></i>
+                            </div>
+                            <p style="font-size: 10px;">링크 복사</p>
+                        </div>
                     </div>
-                    <p style="font-size: 10px;">페이스북</p>
-                </div>
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
-                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
-                        <i class="fab fa-facebook-messenger"></i>
-                    </div>
-                    <p style="font-size: 10px;">메신저</p>
-                </div>
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
-                    <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
-                        <i class="fas fa-comment"></i>
-                    </div>
-                    <p style="font-size: 10px;">카카오톡</p>
-                </div>
-                <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center">
-                    <div class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="far fa-clone"></i>
-                    </div>
-                    <p style="font-size: 10px;">링크 복사</p>
-                </div>
-            </div>
-            <button class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff">취소 </button>
-        </div>
-    </dialog> -->
+                    <button data-dismiss="modal" class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff; margin-bottom: 5px;">취소 </button>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=1043611895803841&autoLogAppEvents=1';
-      fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=2089787474413565&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <div id="loading">
         <div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate center"></div>
@@ -258,7 +273,7 @@
         <!--==========메뉴==========-->
         <div class="mdl-layout__drawer">
             <nav class="mdl-navigation" style="padding-top: 0px;">
-                <div style="margin:none;"><img src="images/b/default2.jpg" width="100%" /></div>
+                <div style="margin:none;"><img src="images/default2.jpg" width="100%" /></div>
                 <a class="mdl-navigation__link" onclick="schedule('schedule');"><i style="margin-right: 15px;" class="material-icons">schedule</i>일정</a>
                 <a class="mdl-navigation__link" onclick="schedule('event');"><i style="margin-right: 15px;" class="material-icons">event</i>이벤트</a>
                 <a class="mdl-navigation__link" onclick="schedule('help');"><i style="margin-right: 15px;" class="material-icons">help</i>기타</a>
@@ -505,7 +520,7 @@
                             //b: 화장실
                             //학생동
                             var Student1 = ["c112", "c113", "s01", "b01", "c114", "r01", "r02", "b02", "s02", "t01", "t02", "s03", "b03", "r03", "r04", "r05"];
-                            var Student1_ = ["창의수", "아이스", "", "b", "경제부", "", "", "b", "", "", "", "", "b", "", "", ""];
+                            var Student1_ = ["창의수", "아이스", "", "b01", "경제부", "", "", "b02", "", "", "", "", "b03", "", "", ""];
                             var c_c112 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -610,7 +625,7 @@
                             ];
 
                             var Student2 = ["c111", "c110", "s04", "b04", "c109", "c108", "c201", "c202", "b05", "s05", "t03", "c305", "c304", "c303", "s06", "b06", "c302", "c301"];
-                            var Student2_ = ["헬스부", "교지편", "", "b", "항공부", "심리부", "유네스", "내셔널", "b", "", "", "", "", "", "", "b", "", ""];
+                            var Student2_ = ["헬스부", "교지편", "", "b04", "항공부", "심리부", "유네스", "내셔널", "b05", "", "", "", "", "", "", "b06", "", ""];
                             var c_c111 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -727,7 +742,7 @@
                             ];
 
                             var Student3 = ["c207", "c206", "s07", "b07", "t04", "c205", "c204", "c203", "b08", "s08", "c306", "c307", "c308", "c309", "s09", "b09", "c310", "c311"];
-                            var Student3_ = ["청담농", "영자신", "", "b", "", "천문학", "기계공", "컴퓨터", "b", "", "", "", "", "", "", "b", "", ""];
+                            var Student3_ = ["청담농", "영자신", "", "b07", "", "천문학", "기계공", "컴퓨터", "b08", "", "", "", "", "", "", "b09", "", ""];
                             var c_c207 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -1156,7 +1171,7 @@
                                 eval("var " + Student4[i] + " = new google.maps.Polygon({ paths: c_" + Student4[i] + ", strokeColor: '#795548', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#795548', fillOpacity: 0 });");
                                 if (Student4_[i] != "") {
                                     eval("google.maps.event.addListener(" + Student4[i] + ", 'click', function(e) { showinfo('" + Student4_[i] + "'); });");
-                                    // eval("var m_" + Student4[i] + " = new google.maps.Marker({ position: new google.maps.LatLng(" + club[Student1_[i]].lat + ", " + club[Student1_[i]].lng + "), icon: 'images/i/" + Student1_[i] + ".png', map: map });");
+                                    // eval("var m_" + Student4[i] + " = new google.maps.Marker({ position: new google.maps.LatLng(club[" + Student1_[i] + "].lat, club[" + Student1_[i] + "].lng), icon: 'images/i/" + Student1_[i] + ".png', map: map });");
                                 }
                             }
                             for (var i in Hwadong1) {
@@ -1271,6 +1286,12 @@
                                 }
                             }
                             
+                            var mTest = new google.maps.Marker({
+                                position: new google.maps.LatLng(37.516469, 127.055917),
+                                map: map,
+                                icon: "images/i/과학기.png"
+                            });
+
                             //click event
                             google.maps.event.addListener(Student, 'click', function(e) {
                                 showinfo("학생동");
@@ -1433,7 +1454,7 @@
                             <i class="material-icons" onclick="document.getElementById('tab1').click();">arrow_back</i>
                         </div>
                         <div class="w100">
-                            <img class="w100" id="j5" src="images/default.jpg" />
+                            <img class="w100" id="j5" src="images/b/default.jpg" />
                         </div>
                     </div>                    
                     <!--==========title==========-->
@@ -1518,12 +1539,10 @@
             </section>
         </main>
     </div>
-    
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--==========기본==========-->
     <script>
         window.onload = function () {
+            alert("지금도 개발자가 잠 안자고 열심히 제작 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
             var h = document.documentElement.clientHeight;
             var q = decodeURI(location.search.split("?q=")[1]);
             if (q == "undefined") {
@@ -1557,6 +1576,7 @@
                     }, 3000)
                 }, 500)            
             }, 500)
+            Kakao.init('5eec69125256cb03bc52c5f02941da0f');
         }
 
         // var dialog = document.querySelector('dialog');
@@ -1717,31 +1737,66 @@
             }  
         }
 
-        var share = function (s) {
-            navigator.share({
-                title: club[s].name,
-                text: club[s].hook,
-                url: location
-            });
+                var share = function (s) {
+            if(navigator.share){
+                navigator.share({
+                    title: club[s].name,
+                    text: club[s].hook,
+                    url: location
+                });
+            }else{
+                $('#shareModal').modal('show');
+                // var fshare = document.getElementById('fshare')
+                // fshare.dataset.href = encodeURIComponent(location.href);
+                // fshare.children[0].href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(location.href) + "&amp;src=sdkpreparse"
+            }
         }
 
-        // var share = function (s) {
-        //     if(navigator.share){
-        //         navigator.share({
-        //             title: club[s].name,
-        //             text: club[s].hook,
-        //             url: location
-        //         });
-        //     }else{
-        //         dialog.showModal()
-        //         $("#fshare").data('href', encodeURIComponent(location.href))
-        //         console.log($("#fshare").data('href'))
-        //     }
-        // }
+        var sharefb = function(){
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href) + '&amp;src=sdkpreparse')
+        }
 
-        // var sharefb = function(){
-        //     document.getElementById("fshare").click();
-        // }
+        var shareMes = function(){
+            window.open('fb-messenger://share?link=' + encodeURIComponent(location.href) + '&app_id=' + encodeURIComponent(2089787474413565));
+        }
+
+        var shareKakao = function(){
+            var s = document.getElementById('i0').innerHTML;
+
+            Kakao.Link.sendDefault({
+                objectType: "feed",
+                content: {
+                    title: club[s].name,
+                    description: "#경기고 #화동제 #" + club[s].name,
+                    imageUrl: "https://kmap.cf/" + club[s].src,
+                    link:{
+                        webUrl: encodeURIComponent(location.href)
+                    }
+                },
+                buttons:[
+                    {
+                        title: "웹으로 보기",
+                        link:{
+                            webUrl: encodeURIComponent(location.href)
+                        }
+                    }
+                ]
+            })
+        }
+
+        var copyUrl = function(){
+            var t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = location.href;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+
+            var snackbarContainer = document.getElementById('copyToast');
+            var data = {message: '복사되었습니다'}
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+
+        }
 
         var schedule = function (c) {
             document.getElementById('schedule-btn').classList.remove('is-active');
@@ -1778,9 +1833,10 @@
         }
     </script>
     <!--==========공유==========-->
-    <!-- <div id="fshare" class="fb-share-button" data-href="https://kmap.cf" data-layout="button" data-size="small" data-mobile-iframe="true" >
-        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkmap.cf%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">공유하기</a>
-    </div> -->
+    <div id="copyToast" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+    </div>
 </body>
 </html>
     
