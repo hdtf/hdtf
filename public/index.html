@@ -14,27 +14,32 @@
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="src/jquery-ui.min.css">
-    
+    <link rel="stylesheet" href="src/jquery-ui.min.css">    
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
     <style>
         p, a {
             font-size: 1.5em;
         }
+        h6 {
+            font-size: 1.5em;
+        }
         h5 {
             font-size: 1.6em;
+        }
+        h4 {
+            font-size: 1.7em;
+        }
+        h3 {
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.9em;
         }
         body {
             overflow: visible !important;
@@ -294,6 +299,8 @@
                         var map;
                         var moveMAP;
                         var moveFloor;
+                        var iconList = ['검도부', '경제부', '과학기', '네셔널', '매드스', '방송부', '배구부', '시사영', '실용음', '아이스', '연극부', '창의수', '창의융', '컴퓨터', '항공부', '헬스부', '화학부']
+                        var iconMarker = [];
                         var initMap = function (oLat, oLng, oZoom) {
                             //지도 생성
                             map = new google.maps.Map(document.getElementById('map'), {
@@ -1200,6 +1207,32 @@
                                 }
                             }
 
+                            var addMarker = function(){
+                                if(iconMarker.length == 0){
+                                    for(var i=0; i<iconList.length; i++){
+                                        var marker = new google.maps.Marker({
+                                            position: new google.maps.LatLng(club[iconList[i]]['lat'], club[iconList[i]]['lng']),
+                                            map: map,
+                                            icon: "images/i/" + iconList[i] + ".png"
+                                        })
+                                        iconMarker.push(marker)
+                                    }
+                                }
+                                for(var i=0; i<iconMarker.length; i++){
+                                    if(club[iconList[i]]['floor'] == floor){
+                                        iconMarker[i].setMap(map)
+                                    }else{
+                                        iconMarker[i].setMap(null)
+                                    }
+                                }
+                            }
+
+                            var deleteMarker = function(){
+                                for(var i=0; i<iconMarker.length; i++){
+                                    iconMarker[i].setMap(null)
+                                }
+                            }
+
                             //zoom event
                             map.addListener('zoom_changed', function() {
                                 var zoom = map.getZoom();
@@ -1228,6 +1261,11 @@
                                     } else {
 
                                     }
+                                }
+                                if(zoom > 18){
+                                    addMarker();
+                                }else{
+                                    deleteMarker();
                                 }
                             });
                         
@@ -1284,13 +1322,14 @@
                                         eval(Student4[i] + ".setMap(map);");
                                     }
                                 }
+                                addMarker();
                             }
                             
-                            var mTest = new google.maps.Marker({
-                                position: new google.maps.LatLng(37.516469, 127.055917),
-                                map: map,
-                                icon: "images/i/과학기.png"
-                            });
+                            // var mTest = new google.maps.Marker({
+                            //     position: new google.maps.LatLng(37.516469, 127.055917),
+                            //     map: map,
+                            //     icon: "images/i/과학기.png"
+                            // });
 
                             //click event
                             google.maps.event.addListener(Student, 'click', function(e) {
@@ -1577,6 +1616,9 @@
                 }, 500)            
             }, 500)
             Kakao.init('279eb1e042362a2449a84c7879582ecd');
+
+            
+
         }
 
         // var dialog = document.querySelector('dialog');
@@ -1737,7 +1779,7 @@
             }  
         }
 
-                var share = function (s) {
+        var share = function (s) {
             if(navigator.share){
                 navigator.share({
                     title: club[s].name,

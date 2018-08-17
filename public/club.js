@@ -224,7 +224,7 @@ var club = {
         info5: '기다리고 있을게요♡',
         lat: 37.516232,
 		lng: 127.055972,
-        floor: 0,
+        floor: 3,
         zoom: 19
     },
     영어토: {
@@ -329,7 +329,7 @@ var club = {
         info5: '',
         lat: 37.516195,
 		lng: 127.055886,
-        floor: 0,
+        floor: 2,
         zoom: 19
     },
     신문부: {
@@ -392,7 +392,7 @@ var club = {
         info5: '4종류의 미니게임(항공 관련 OX 퀴즈, 항공 다트, 항공 스피드 퀴즈, 비행기 모형 알까기)',
         lat: 37.516341,
 		lng: 127.055606,
-        floor: 0,
+        floor: 2,
         zoom: 19
     },
     교지편: {
@@ -434,7 +434,7 @@ var club = {
         info5: '',
         lat: 37.516247,
 		lng: 127.055379,
-        floor: 0,
+        floor: 2,
         zoom: 19
     },
     창의수: {
@@ -455,7 +455,7 @@ var club = {
         info5: '모든 코인을 퇴장시 카운터에 가져가시면 경품과 교환해드려요~',
         lat: 37.516247,
         lng: 127.055379,
-        floor: 0,
+        floor: 1,
         zoom: 19
     },
     아이스: {
@@ -476,7 +476,7 @@ var club = {
         info5: '',
         lat: 37.516285,
 	    lng: 127.055473,
-        floor: 0,
+        floor: 1,
         zoom: 19
     },
     경제부: {
@@ -497,7 +497,7 @@ var club = {
         info5: '경기고 얼굴간판 경제부(KLX) 화동제 메인 1층 동아리! 많이 와주세요!',
         lat: 37.516341,
 	    lng: 127.055606,
-        floor: 0,
+        floor: 1,
         zoom: 19
     },
     유네스: {
@@ -539,7 +539,7 @@ var club = {
         info5: '',
         lat: 37.516469,
 		lng: 127.055917,
-        floor: 0,
+        floor: 2,
         zoom: 19
     },
     컴퓨터: {
@@ -560,7 +560,7 @@ var club = {
         info5: '무더운 여름 갈증과 지친 몸을 달래줄 시원한 음료와 간식들이 준비되어 있습니다.',
         lat: 37.516469,
 		lng: 127.055917,
-        floor: 0,
+        floor: 3,
         zoom: 19
     },
     기계공: {
@@ -665,7 +665,7 @@ var club = {
         info5: '',
         lat: 37.516247,
 		lng: 127.055379,
-        floor: 0,
+        floor: 4,
         zoom: 19
     },
     경영부: {
@@ -855,6 +855,25 @@ var club = {
         floor: 0,
         zoom: 19
     },
+    시사영: {
+        name: '시사영어토론부',
+        field: '인문사회동아리',
+        place: '교과3',
+        address: '',
+        src: 'images/b/default.jpg',
+        hook: '?',
+        phone: '?',
+        web: '',
+        fb: 'https://klist.cf',
+        icon: 'explore',
+        info1: '개',
+        info2: '꿀',
+        info3: '잼',
+        lat: 37.517068,
+        lng: 127.056214,
+        floor: 3,
+        zoom: 19
+    },
     방송부: {
         name: '방송부',
         field: '인문사회동아리',
@@ -873,7 +892,7 @@ var club = {
         info5: '특징 5개로 못 담을 정도로 잘생김',
         lat: 37.517068,
         lng: 127.056214,
-        floor: 0,
+        floor: 3,
         zoom: 19
     },
     생물부: {
@@ -915,7 +934,7 @@ var club = {
         info5: '',
         lat: 37.517068,
         lng: 127.056214,
-        floor: 0,
+        floor: 2,
         zoom: 19
     },
 }
