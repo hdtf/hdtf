@@ -10,6 +10,10 @@
     <meta name="theme-color" content="#123056">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="kmap.cf" />
+    <meta property="og:description"   content="경기고등학교 실내 지도" />
+    <meta property="og:image"         content="https://kmap.cf/images/b/default.jpg" />
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -31,15 +35,6 @@
         }
         h5 {
             font-size: 1.6em;
-        }
-        h4 {
-            font-size: 1.7em;
-        }
-        h3 {
-            font-size: 1.8em;
-        }
-        h2 {
-            font-size: 1.9em;
         }
         body {
             overflow: visible !important;
@@ -278,7 +273,7 @@
         <!--==========메뉴==========-->
         <div class="mdl-layout__drawer">
             <nav class="mdl-navigation" style="padding-top: 0px;">
-                <div style="margin:none;"><img src="images/default2.jpg" width="100%" /></div>
+                <div style="margin:none;"><img src="images/default2.png" width="100%" /></div>
                 <a class="mdl-navigation__link" onclick="schedule('schedule');"><i style="margin-right: 15px;" class="material-icons">schedule</i>일정</a>
                 <a class="mdl-navigation__link" onclick="schedule('event');"><i style="margin-right: 15px;" class="material-icons">event</i>이벤트</a>
                 <a class="mdl-navigation__link" onclick="schedule('help');"><i style="margin-right: 15px;" class="material-icons">help</i>기타</a>
@@ -1324,12 +1319,6 @@
                                 }
                                 addMarker();
                             }
-                            
-                            // var mTest = new google.maps.Marker({
-                            //     position: new google.maps.LatLng(37.516469, 127.055917),
-                            //     map: map,
-                            //     icon: "images/i/과학기.png"
-                            // });
 
                             //click event
                             google.maps.event.addListener(Student, 'click', function(e) {
@@ -1581,7 +1570,7 @@
     <!--==========기본==========-->
     <script>
         window.onload = function () {
-            alert("지금도 개발자가 잠 안자고 열심히 제작 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
+            alert("지금도 개발자가 잠 안자고 열심히 수정 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
             var h = document.documentElement.clientHeight;
             var q = decodeURI(location.search.split("?q=")[1]);
             if (q == "undefined") {
