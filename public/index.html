@@ -12,8 +12,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta property="og:type" content="website" />
     <meta property="og:title" content="kmap.cf" />
-    <meta property="og:description"   content="경기고등학교 실내 지도" />
-    <meta property="og:image"         content="https://kmap.cf/images/b/default.jpg" />
+    <meta property="og:description" content="경기고등학교 실내 지도" />
+    <meta property="og:image" content="https://kmap.cf/images/b/default.jpg" />
     <link rel="shortcut icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -28,9 +28,6 @@
     
     <style>
         p, a {
-            font-size: 1.5em;
-        }
-        h6 {
             font-size: 1.5em;
         }
         h5 {
@@ -294,7 +291,7 @@
                         var map;
                         var moveMAP;
                         var moveFloor;
-                        var iconList = ['검도부', '경제부', '과학기', '네셔널', '매드스', '방송부', '배구부', '시사영', '실용음', '아이스', '연극부', '창의수', '창의융', '컴퓨터', '항공부', '헬스부', '화학부']
+                        var iconList = ['검도부', '경제부', '과학기', '네셔널', '매드스', '방송부', '배구부', '시사영', '실용음', '아이스', '연극부', '창의수', '창의융', '컴퓨터', '항공부', '헬스부', '화학부', 'bw1', 'bw2']
                         var iconMarker = [];
                         var initMap = function (oLat, oLng, oZoom) {
                             //지도 생성
@@ -572,8 +569,6 @@
                                 {lat: 37.516623, lng: 127.056059},
                                 {lat: 37.516582, lng: 127.056084},
                                 {lat: 37.516554, lng: 127.056016}
-                                // lat: 37.516588,
-	                            // lng: 127.056038,
                             ];
                             var c_s02 = [
                                 {lat: 37.516518, lng: 127.056038},
@@ -627,7 +622,7 @@
                             ];
 
                             var Student2 = ["c111", "c110", "s04", "b04", "c109", "c108", "c201", "c202", "b05", "s05", "t03", "c305", "c304", "c303", "s06", "b06", "c302", "c301"];
-                            var Student2_ = ["헬스부", "교지편", "", "b04", "항공부", "심리부", "유네스", "내셔널", "b05", "", "", "", "", "", "", "b06", "", ""];
+                            var Student2_ = ["헬스부", "교지편", "", "b04", "항공부", "심리부", "유네스", "네셔널", "b05", "", "", "", "", "", "", "b06", "", ""];
                             var c_c111 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -1210,7 +1205,13 @@
                                             map: map,
                                             icon: "images/i/" + iconList[i] + ".png"
                                         })
-                                        iconMarker.push(marker)
+                                        marker.addListener('cilck', function () {
+                                            showinfo(iconList[i]);
+                                        })
+                                        iconMarker.push(marker);
+                                        // iconMarker[i].addListener('cilck', function () {
+                                        //     showinfo(iconList[i]);
+                                        // })
                                     }
                                 }
                                 for(var i=0; i<iconMarker.length; i++){
@@ -1219,6 +1220,9 @@
                                     }else{
                                         iconMarker[i].setMap(null)
                                     }
+                                }
+                                if(map.getZoom() <= 18){
+                                    deleteMarker();
                                 }
                             }
 
@@ -1264,8 +1268,8 @@
                                 }
                             });
                         
-                            moveMAP = function (lat, lng) {
-                                
+                            moveMAP = function (latIn, lngIn) {
+                                map.setCenter(new google.maps.LatLng(latIn, lngIn));
                             }
 
                             moveFloor = function (n) {
@@ -1464,7 +1468,7 @@
                         </div>
                         <!--==========기타==========-->
                         <div class="mdl-tabs__panel" id="help-panel" style="padding: 10px;">
-                            <p>others</p>
+                            <img src="images/poster.jpg" class="center" style="width: 100%;"/>
                         </div>
                     </div>
                 </div>
@@ -1569,6 +1573,8 @@
     </div>
     <!--==========기본==========-->
     <script>
+        var floor = 1;
+        var fbtnisActive = false;
         window.onload = function () {
             alert("지금도 개발자가 잠 안자고 열심히 수정 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
             var h = document.documentElement.clientHeight;
@@ -1581,7 +1587,10 @@
                 if (club[q]) {
                     showinfo(q);
                     initMap(club[q].lat, club[q].lng, club[q].zoom);
-                    moveFloor(club[q].floor);
+                    floor = club[q].floor;
+                    console.log(floor);
+                    fbtnisActive = true;
+                    floorbtn(floor);
                 } else {
                     location.search = "";
                 }
@@ -1622,8 +1631,6 @@
         //     dialog.close();
         // });
 
-        var floor = 1;
-        var fbtnisActive = false;
         var fbtn = document.getElementById('fbtn');
         var floorbtn = function (n) {
             if (n != 0) {
@@ -1641,6 +1648,7 @@
                     for (var i = 1; i <= 4; i++) {
                         if (i == floor) {
                             document.getElementById("fbtn" + i).style.color = "white";
+                            document.getElementById("fbtn" + i).style.display = "block";
                         } else {
                             document.getElementById("fbtn" + i).style.color = "black";
                             document.getElementById("fbtn" + i).style.display = "none";
@@ -1660,6 +1668,7 @@
                     for (var i = 1; i <= 4; i++) {
                         var s = "fbtn" + i;
                         if (i == floor) {
+                            document.getElementById(s).style.display = "block";
                             document.getElementById(s).style.color = "#ff4081";
                         } else {
                             document.getElementById(s).style.display = "block";
@@ -1694,6 +1703,9 @@
             if (club[s]) {
                 showinfo(s);
                 document.getElementById('s1').innerHTML = club[s].name;
+                fbtnisActive = true;
+                floorbtn(club[s].floor);
+                moveMAP(club[s].lat, club[s].lng);
             }
         }
 
@@ -1769,18 +1781,7 @@
         }
 
         var share = function (s) {
-            if(navigator.share){
-                navigator.share({
-                    title: club[s].name,
-                    text: club[s].hook,
-                    url: location
-                });
-            }else{
-                $('#shareModal').modal('show');
-                // var fshare = document.getElementById('fshare')
-                // fshare.dataset.href = encodeURIComponent(location.href);
-                // fshare.children[0].href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(location.href) + "&amp;src=sdkpreparse"
-            }
+            $('#shareModal').modal('show');
         }
 
         var sharefb = function(){
