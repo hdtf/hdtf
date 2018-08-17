@@ -1576,7 +1576,7 @@
                     }, 3000)
                 }, 500)            
             }, 500)
-            Kakao.init('5eec69125256cb03bc52c5f02941da0f');
+            Kakao.init('279eb1e042362a2449a84c7879582ecd');
         }
 
         // var dialog = document.querySelector('dialog');
@@ -1785,6 +1785,7 @@
         }
 
         var copyUrl = function(){
+            $('#shareModal').modal('hide');
             var t = document.createElement("textarea");
             document.body.appendChild(t);
             t.value = location.href;
