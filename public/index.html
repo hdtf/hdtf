@@ -102,7 +102,7 @@
             position: fixed;
             z-index: 1;
             right: 20px;
-            bottom: 200px;
+            bottom: 150px;
         }
         .pink {
             color: #123056;
@@ -291,7 +291,7 @@
                         var map;
                         var moveMAP;
                         var moveFloor;
-                        var iconList = ['검도부', '경제부', '과학기', '네셔널', '매드스', '방송부', '배구부', '시사영', '실용음', '아이스', '연극부', '창의수', '창의융', '컴퓨터', '항공부', '헬스부', '화학부', 'bw1', 'bw2']
+                        var iconList = ['검도부', '경제부', '과학기', '네셔널', '매드스', '방송부', '배구부', '시사영', '실용음', '아이스', '연극부', '창의수', '창의융', '컴퓨터', '항공부', '헬스부', '화학부', 'bw1', 'bw2', 'EDM', '경영부', '교지편', '기계공', '농구부', '도서부', '미술부', '수학부', '신문부', '심리부', '영어토', '영자신', '유네스', '천문학', '청담농', '축구부']
                         var iconMarker = [];
                         var initMap = function (oLat, oLng, oZoom) {
                             //지도 생성
@@ -519,7 +519,7 @@
                             //b: 화장실
                             //학생동
                             var Student1 = ["c112", "c113", "s01", "b01", "c114", "r01", "r02", "b02", "s02", "t01", "t02", "s03", "b03", "r03", "r04", "r05"];
-                            var Student1_ = ["창의수", "아이스", "", "b01", "경제부", "", "", "b02", "", "", "", "", "b03", "", "", ""];
+                            var Student1_ = ["창의수", "아이스", "", "b01", "경제부", "", "", "bw1", "", "", "", "", "b03", "", "", ""];
                             var c_c112 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -622,7 +622,7 @@
                             ];
 
                             var Student2 = ["c111", "c110", "s04", "b04", "c109", "c108", "c201", "c202", "b05", "s05", "t03", "c305", "c304", "c303", "s06", "b06", "c302", "c301"];
-                            var Student2_ = ["헬스부", "교지편", "", "b04", "항공부", "심리부", "유네스", "네셔널", "b05", "", "", "", "", "", "", "b06", "", ""];
+                            var Student2_ = ["헬스부", "교지편", "", "b04", "항공부", "심리부", "유네스", "네셔널", "bw2", "", "", "", "", "", "", "b06", "", ""];
                             var c_c111 = [
                                 {lat: 37.516263, lng: 127.055309},
                                 {lat: 37.516301, lng: 127.055402},
@@ -1199,7 +1199,7 @@
 
                             var addMarker = function(){
                                 if(iconMarker.length == 0){
-                                    for(var i=0; i<iconList.length; i++){
+                                    for(var i = 0; i < iconList.length; i++){
                                         var marker = new google.maps.Marker({
                                             position: new google.maps.LatLng(club[iconList[i]]['lat'], club[iconList[i]]['lng']),
                                             map: map,
@@ -1576,7 +1576,7 @@
         var floor = 1;
         var fbtnisActive = false;
         window.onload = function () {
-            alert("지금도 개발자가 잠 안자고 열심히 수정 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
+            // alert("지금도 개발자가 잠 안자고 열심히 수정 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
             var h = document.documentElement.clientHeight;
             var q = decodeURI(location.search.split("?q=")[1]);
             if (q == "undefined") {
@@ -1588,7 +1588,6 @@
                     showinfo(q);
                     initMap(club[q].lat, club[q].lng, club[q].zoom);
                     floor = club[q].floor;
-                    console.log(floor);
                     fbtnisActive = true;
                     floorbtn(floor);
                 } else {
@@ -1838,6 +1837,7 @@
             document.getElementById(c + '-btn').classList.add('is-active');
             document.getElementById('tab2').click();
             document.getElementsByClassName('mdl-layout__obfuscator')[0].click();
+            document.getElementById(c + '-btn').click();
         }
 
         var moreinfo = function (s) {            
