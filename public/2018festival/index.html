@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-<!-- 지도 클릭 시 info 숨기기 -->
-<!-- 메뉴 수정 -->
-<!-- 지도 API -->
-<!-- 상세 정보 변경 -->
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>경기고등학교</title>
+    <title>경기고등학교 화동제</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="naver-site-verification" content="5b61e04e3f57f9cd7c7115b9c3808c5b3aa9bdf7"/>
@@ -25,9 +22,9 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     
     <style>
         p, a {
@@ -105,7 +102,7 @@
             position: fixed;
             z-index: 1;
             right: 20px;
-            bottom: 200px;
+            bottom: 150px;
         }
         .pink {
             color: #123056;
@@ -214,39 +211,39 @@
     <!--==========정보==========-->
     <script src="club.js"></script>
     <!--==========dialog==========-->
-    <!-- <div id="shareModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
-                    <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
-                        <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
-                            <i class="fab fa-facebook-square"></i>
+    <div id="shareModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="mdl-grid" style="height: 80px; padding-bottom: 0px">
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="sharefb()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #395498;">
+                                <i class="fab fa-facebook-square"></i>
+                            </div>
+                            <p style="font-size: 10px;">페이스북</p>
                         </div>
-                        <p style="font-size: 10px;">페이스북</p>
-                    </div>
-                    <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="shareMes()">
-                        <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
-                            <i class="fab fa-facebook-messenger"></i>
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="shareMes()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #4286f7;">
+                                <i class="fab fa-facebook-messenger"></i>
+                            </div>
+                            <p style="font-size: 10px;">메신저</p>
                         </div>
-                        <p style="font-size: 10px;">메신저</p>
-                    </div>
-                    <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="shareKakao()">
-                        <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
-                            <i class="fas fa-comment"></i>
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="shareKakao()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon" style="color: #391d1d;">
+                                <i class="fas fa-comment"></i>
+                            </div>
+                            <p style="font-size: 10px;">카카오톡</p>
                         </div>
-                        <p style="font-size: 10px;">카카오톡</p>
-                    </div>
-                    <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="copyUrl()">
-                        <div class="mdl-button mdl-js-button mdl-button--icon">
-                            <i class="far fa-clone"></i>
+                        <div class="mdl-cell mdl-cell--1-col-phone" style="text-align: center" onclick="copyUrl()">
+                            <div class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="far fa-clone"></i>
+                            </div>
+                            <p style="font-size: 10px;">링크 복사</p>
                         </div>
-                        <p style="font-size: 10px;">링크 복사</p>
                     </div>
-                </div>
-                <button data-dismiss="modal" class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff; margin-bottom: 5px;">취소 </button>
-            </div>
-        </div>
-    </div>
+                    <button data-dismiss="modal" class="mdl-button mdl-js-button mdl-button--accent clo" style="width: 100%; background-color: ffffff; margin-bottom: 5px;">취소 </button>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -254,7 +251,7 @@
     js = d.createElement(s); js.id = id;
     js.src = 'https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v3.1&appId=2089787474413565&autoLogAppEvents=1';
     fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script> -->
+    }(document, 'script', 'facebook-jssdk'));</script>
     <div id="loading">
         <div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate center"></div>
         <h5 class="fin lText" id="l1">과학기술정보통신부</h3>
@@ -1579,6 +1576,7 @@
         var floor = 1;
         var fbtnisActive = false;
         window.onload = function () {
+            // alert("지금도 개발자가 잠 안자고 열심히 수정 중 입니다..TT 곧 완성되니 조금만 기다려주세요~")
             var h = document.documentElement.clientHeight;
             var q = decodeURI(location.search.split("?q=")[1]);
             if (q == "undefined") {
@@ -1614,11 +1612,23 @@
                     }, 3000)
                 }, 500)            
             }, 500)
-            // Kakao.init('279eb1e042362a2449a84c7879582ecd');
+            Kakao.init('279eb1e042362a2449a84c7879582ecd');
 
             
 
         }
+
+        // var dialog = document.querySelector('dialog');
+        // if (! dialog.showModal) {
+        //     try {
+        //         dialogPolyfill.registerDialog(dialog);
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // }
+        // dialog.querySelector('.clo').addEventListener('click', function() {
+        //     dialog.close();
+        // });
 
         var fbtn = document.getElementById('fbtn');
         var floorbtn = function (n) {
@@ -1769,56 +1779,56 @@
             }  
         }
 
-        // var share = function (s) {
-        //     $('#shareModal').modal('show');
-        // }
+        var share = function (s) {
+            $('#shareModal').modal('show');
+        }
 
-        // var sharefb = function(){
-        //     window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href) + '&amp;src=sdkpreparse')
-        // }
+        var sharefb = function(){
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href) + '&amp;src=sdkpreparse')
+        }
 
-        // var shareMes = function(){
-        //     window.open('fb-messenger://share?link=' + encodeURIComponent(location.href) + '&app_id=' + encodeURIComponent(2089787474413565));
-        // }
+        var shareMes = function(){
+            window.open('fb-messenger://share?link=' + encodeURIComponent(location.href) + '&app_id=' + encodeURIComponent(2089787474413565));
+        }
 
-        // var shareKakao = function(){
-        //     var s = document.getElementById('i0').innerHTML;
+        var shareKakao = function(){
+            var s = document.getElementById('i0').innerHTML;
 
-        //     Kakao.Link.sendDefault({
-        //         objectType: "feed",
-        //         content: {
-        //             title: club[s].name,
-        //             description: "#경기고 #화동제 #" + club[s].name,
-        //             imageUrl: "https://kmap.cf/" + club[s].src,
-        //             link:{
-        //                 webUrl: encodeURIComponent(location.href)
-        //             }
-        //         },
-        //         buttons:[
-        //             {
-        //                 title: "웹으로 보기",
-        //                 link:{
-        //                     webUrl: encodeURIComponent(location.href)
-        //                 }
-        //             }
-        //         ]
-        //     })
-        // }
+            Kakao.Link.sendDefault({
+                objectType: "feed",
+                content: {
+                    title: club[s].name,
+                    description: "#경기고 #화동제 #" + club[s].name,
+                    imageUrl: "https://kmap.cf/" + club[s].src,
+                    link:{
+                        webUrl: encodeURIComponent(location.href)
+                    }
+                },
+                buttons:[
+                    {
+                        title: "웹으로 보기",
+                        link:{
+                            webUrl: encodeURIComponent(location.href)
+                        }
+                    }
+                ]
+            })
+        }
 
-        // var copyUrl = function(){
-        //     $('#shareModal').modal('hide');
-        //     var t = document.createElement("textarea");
-        //     document.body.appendChild(t);
-        //     t.value = location.href;
-        //     t.select();
-        //     document.execCommand('copy');
-        //     document.body.removeChild(t);
+        var copyUrl = function(){
+            $('#shareModal').modal('hide');
+            var t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = location.href;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
 
-        //     var snackbarContainer = document.getElementById('copyToast');
-        //     var data = {message: '복사되었습니다'}
-        //     snackbarContainer.MaterialSnackbar.showSnackbar(data);
+            var snackbarContainer = document.getElementById('copyToast');
+            var data = {message: '복사되었습니다'}
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
 
-        // }
+        }
 
         var schedule = function (c) {
             document.getElementById('schedule-btn').classList.remove('is-active');
@@ -1856,10 +1866,10 @@
         }
     </script>
     <!--==========공유==========-->
-    <!-- <div id="copyToast" class="mdl-js-snackbar mdl-snackbar">
+    <div id="copyToast" class="mdl-js-snackbar mdl-snackbar">
         <div class="mdl-snackbar__text"></div>
         <button class="mdl-snackbar__action" type="button"></button>
-    </div> -->
+    </div>
 </body>
 </html>
     
