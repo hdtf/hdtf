@@ -105,7 +105,7 @@
             position: fixed;
             z-index: 1;
             right: 20px;
-            bottom: 200px;
+            bottom: 180px;
         }
         .pink {
             color: #123056;
@@ -150,6 +150,34 @@
         @keyframes rise {
             from {opacity: 0;bottom: -200px;} 
             to {opacity: 1;bottom: 8px}
+        }
+        .fall {
+            -webkit-animation-name: fall;
+            -webkit-animation-duration: 0.5s;
+            animation-name: fall;
+            animation-duration: 0.5s;
+        }
+        @-webkit-keyframes fall {
+            from {opacity: 1; bottom: 8px} 
+            to {opacity: 0; bottom: -200px}
+        }
+        @keyframes fall {
+            from {opacity: 1; bottom: 8px} 
+            to {opacity: 0; bottom: -200px}
+        }
+        .fall2 {
+            -webkit-animation-name: fall2;
+            -webkit-animation-duration: 0.5s;
+            animation-name: fall2;
+            animation-duration: 0.5s;
+        }
+        @-webkit-keyframes fall2 {
+            from {bottom: 180px} 
+            to {bottom: 20px}
+        }
+        @keyframes fall2 {
+            from {bottom: 180px} 
+            to {bottom: 20px}
         }
         .sink {
             -webkit-animation-name: sink;
@@ -257,8 +285,8 @@
     }(document, 'script', 'facebook-jssdk'));</script> -->
     <div id="loading">
         <div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate center"></div>
-        <h5 class="fin lText" id="l1">과학기술정보통신부</h3>
-        <h3 class="fin lText" id="l2">화동제 웹</h1>
+        <h5 class="fin lText" id="l1">SUGARCANESOFT</h3>
+        <h3 class="fin lText" id="l2">경기고 지도</h1>
     </div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
         <!--==========헤더==========-->
@@ -304,6 +332,7 @@
                                 mapTypeControl: false,
                                 streetViewControl: false,
                                 rotateControl: true,
+                                zoomControl: false,
                                 fullscreenControl: false
                             });
                             
@@ -1272,7 +1301,7 @@
                             });
                         
                             moveMAP = function (latIn, lngIn) {
-                                map.setCenter(new google.maps.LatLng(latIn, lngIn));
+                                map.panTo(new google.maps.LatLng(latIn, lngIn));
                             }
 
                             moveFloor = function (n) {
@@ -1328,6 +1357,9 @@
                             }
 
                             //click event
+                            map.addListener('click', function(e) {
+                                closeinfo();
+                            });
                             google.maps.event.addListener(Student, 'click', function(e) {
                                 showinfo("학생동");
                             });
@@ -1385,8 +1417,12 @@
                             <div onclick="moreinfo(document.getElementById('i0').innerHTML);">
                                 <span id="i0" style="display: none;">경기고</span>
                                 <h5 class="pink" style="margin: 0px; margin-bottom: 10px;"><b id="i1">경기고등학교</b></h5>
-                                <h6 style="margin: 0px; margin-bottom: 10px;"><span id="i2">고등학교</span><br /><span id="i3">서울특별시 강남구 삼성1동 영동대로 643</span></h6>
-                            </div>                            
+                                <h6 style="margin: 0px; margin-bottom: 10px;"><span id="i2">고등학교</span></h6>
+                            </div>
+                            <span class="mdl-chip mdl-chip--contact" style="background-color: #4285F4; color:white; margin-right: 10px;" id="i3" onclick="console.log('사진..')">
+                                <span class="mdl-chip__contact" style="background-color: rgba(0,0,0,0);"><i class="material-icons" style="padding-top: 4px;">streetview</i></span>
+                                <span class="mdl-chip__text">로드뷰</span>
+                            </span>
                             <span class="mdl-chip mdl-chip--contact" style="background-color: #4285F4; color:white; margin-right: 10px;" id="i4" onclick="location.assign('https://m.map.daum.net/actions/publicRoute?startLoc=현위치&sxEnc=MNOOMRHLMOLQOPQQN&syEnc=QNORNLWIMROSSNNSNO&endLoc=경기고등학교&exEnc=MNLQMN&eyEnc=QNOSLOL&ids=%2CP8171842&service=')">
                                 <span class="mdl-chip__contact" style="background-color: rgba(0,0,0,0);"><i class="material-icons" style="padding-top: 4px;">directions</i></span>
                                 <span class="mdl-chip__text">길찾기</span>
@@ -1538,37 +1574,6 @@
                                 <j id="j7a"></j>
                             </span>
                         </li>
-                        <br />
-                        <li class="mdl-list__item">
-                            <span class="mdl-list__item-primary-content">
-                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_one</i>
-                                <j id="j11"></j>
-                            </span>
-                        </li>
-                        <li class="mdl-list__item">
-                            <span class="mdl-list__item-primary-content">
-                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_two</i>
-                                <j id="j12"></j>
-                            </span>
-                        </li>
-                        <li class="mdl-list__item">
-                            <span class="mdl-list__item-primary-content">
-                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_3</i>
-                                <j id="j13"></j>
-                            </span>
-                        </li>
-                        <li class="mdl-list__item">
-                            <span class="mdl-list__item-primary-content">
-                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_4</i>
-                                <j id="j14"></j>
-                            </span>
-                        </li>
-                        <li class="mdl-list__item">
-                            <span class="mdl-list__item-primary-content">
-                                <i class="material-icons mdl-list__item-icon" style="color: #ff4081;">looks_5</i>
-                                <j id="j15"></j>
-                            </span>
-                        </li>
                     </ul>
                 </div>
             </section>
@@ -1709,8 +1714,7 @@
                 var value = document.getElementById("s4").value.toUpperCase();
                 for (var i in place) {
                     var x = place[i].split(value);
-                    var y = address[i].split(value);
-                    if (place[i] != x[0] || address[i] != y[0]) {
+                    if (place[i] != x[0]) {
                         var ans = "";
                         for (var j in x) {
                             if (j != 0) {
@@ -1718,19 +1722,12 @@
                             }
                             ans += x[j];
                         }
-                        var ans2 = "";
-                        for (var k in y) {
-                            if (k != 0) {
-                                ans2 += "<b>" + value + "</b>";
-                            }
-                            ans2 += y[k];
-                        }
                         var a = "";
                         a += "<li class='mdl-list__item mdl-list__item--two-line' onclick=\"searchOFF('" + index[i] + "');\">";
                         a += "    <span class='mdl-list__item-primary-content'>";
                         a += "        <i class='material-icons mdl-list__item-icon'>" + club[index[i]].icon + "</i>";
                         a += "        <span>" + ans + "</span>";
-                        a += "        <span class='mdl-list__item-sub-title'>" + ans2 + "</span>";
+                        a += "        <span class='mdl-list__item-sub-title'>" + club[index[i]].hook + "</span>";
                         a += "    </span>";
                         a += "</li>";
                         document.getElementById("s9").innerHTML += a;
@@ -1753,20 +1750,29 @@
         }
 
         var showinfo = function (s) {
+            document.getElementById('infobox').style.display = 'block';
+            fbtn.style.bottom = '180px';
             document.getElementById('i0').innerHTML = s;
             document.getElementById('i1').innerHTML = club[s].name;
-            document.getElementById('i2').innerHTML = club[s].field;
-            document.getElementById('i3').innerHTML = club[s].address + " <b>" + club[s].place + "</b>";
+            document.getElementById('i2').innerHTML = club[s].hook;
             if (s == "경기고") {
                 document.getElementById('i4').style.display = "";
             } else {                
                 document.getElementById('i4').style.display = "none";
             }
             window.history.replaceState(null, null, "?q=" + s);
-            
-            for (var i = 0; i < 4; i++) {
+        }
 
-            }  
+        var closeinfo = function () {
+            var b = document.getElementById('infobox');
+            b.classList.add('fall');
+            fbtn.classList.add('fall2');
+            setTimeout(function () {
+                b.style.display = 'none';
+                b.classList.remove('fall');
+                fbtn.style.bottom = '20px';
+                fbtn.classList.remove('fall2');
+            }, 480)
         }
 
         // var share = function (s) {
@@ -1840,19 +1846,6 @@
             document.getElementById('j5').src = club[s].src;
             document.getElementById('j6a').innerHTML = club[s].phone;
             document.getElementById('j7a').innerHTML = club[s].web;
-            document.getElementById('j11').innerHTML = club[s].info1;
-            document.getElementById('j12').innerHTML = club[s].info2;
-            document.getElementById('j13').innerHTML = club[s].info3;
-            document.getElementById('j14').innerHTML = club[s].info4;
-            document.getElementById('j15').innerHTML = club[s].info5;
-        }
-
-        var floor = 1;
-        var move = function(s) {
-            moveMAP(club[s].lat, club[s].lng);
-            if (club[s].floor != floor) {
-                moveFloor(club[s].floor);
-            }
         }
     </script>
     <!--==========공유==========-->
